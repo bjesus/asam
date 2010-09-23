@@ -1,0 +1,16 @@
+%p#notice= notice
+%p
+  %b Text:
+  = @image.text_id
+%p
+  %b user:
+  = @image.user_id
+%p
+  %b Description:
+  = @image.description
+= image_tag @image.photo.url
+= image_tag @image.photo.url(:medium)
+= image_tag @image.photo.url(:thumb)
+= link_to 'Edit', edit_image_path(@image)
+|
+\#{link_to 'Back', images_path}

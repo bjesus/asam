@@ -1,0 +1,14 @@
+%p#notice= notice
+%p
+  %b Name:
+  = @text.name
+  = "(גירסה #{@text.versions.count})"
+%p
+  %b User:
+  = @text.user_id
+%p
+  %b Content:
+  = @text.content
+= link_to 'Edit', edit_text_path(@text)
+|
+\#{link_to 'Back', texts_path}

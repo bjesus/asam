@@ -1,0 +1,8 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  database: textmi
+  pool: 5
+  username: textmi
+  password:
+  host: localhost
