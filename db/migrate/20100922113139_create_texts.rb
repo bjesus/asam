@@ -4,7 +4,8 @@ class CreateTexts < ActiveRecord::Migration
       t.string :name
       t.integer :user_id
       t.text :content
-
+      t.text :description
+      t.boolean :readable
       t.timestamps
     end
   end
