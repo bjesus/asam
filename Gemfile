@@ -31,6 +31,7 @@ gem 'mysql2'
 gem "haml"
 gem 'maruku'
 gem 'devise'
+gem 'compass'
 gem 'acts-as-taggable-on'
 gem 'acts_as_commentable'
 gem 'RedCloth'
