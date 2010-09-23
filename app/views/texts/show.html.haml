@@ -2,13 +2,17 @@
 %p
   %b Name:
   = @text.name
-  = "(גירסה #{@text.versions.count})"
+  = "(גירסה #{@text.versions.count+1})"
 %p
   %b User:
   = @text.user_id
 %p
   %b Content:
   = @text.content
+
+- @text.tags.each do |tag|
+  %span= tag
+
 = link_to 'Edit', edit_text_path(@text)
 |
 \#{link_to 'Back', texts_path}
