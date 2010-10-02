@@ -12,8 +12,11 @@
     = stylesheet_link_tag 'compiled/style.css', :media => 'screen, projection'
             
   %body
-    #root
-      = yield
-      #root_footer
-    #footer
-      טקסטמי, מערכת לניהול טקסטים
+    #bookshelf
+    #root.container
+      #content
+        = yield
+      #holdside
+        #sidebar.last
+          %img(src="/images/logo.png")
+          .count עד כה ישנם 1,221 טקסטים של 83 כותבים
