@@ -1,14 +1,73 @@
-@import "compass/layout/sticky-footer"
-@include sticky-footer(54px)
-
-
-html
-  background-color: black
+@import 'blueprint'
+@import "compass/css3"
 
 body
+  background-color: #DBDADA
+  font-family: arial, "sans-serif"
+
+
+#root
   background-color: white
   margin: 0 auto
-  width: 960px
   border: 1px soild #000
+  padding-top: 170px
+  +container
+//  +showgrid
+  
+#bookshelf
+  height: 496px
+  width: 100%
+  background-image: url('/images/bookshelf.png')
+  z-index: 1
+  position: absolute
 
+#content
+  +column(18)
+  z-index: 3
+  position: relative
+  padding-left: 15px
 
+#holdside
+  top: 0
+  width: 220px
+  height: 500px
+  +column(5, true)
+
+#sidebar
+  z-index: 2
+  position: fixed
+  padding: 0
+  padding-top: 20px
+  top: 0
+  width: 220px
+  height: 500px
+  background: #CC0000 url('/images/sidebar-down.png') no-repeat bottom
+
+.count
+  color: white
+  font-size: 75%
+  text-align: center
+  border-top: dotted 2px #a60000
+  margin-top: 1em
+
+h1
+  font-size: 300%
+  font-family: "times new roman", serif
+  margin-top: 10px
+
+.breadcrumb
+  font-size: 80%
+
+.breadcrumb hr
+  border-bottom: 1px solid #3e3d3e
+  width: 100%
+
+.tag
+  background-color: #ece6ca
+  border: 1px solid #ded6af
+  padding: 0 3px
+  +border-radius
+  text-decoration: none
+
+.tag:hover
+  background-color: #cc6600
