@@ -1,0 +1,19 @@
+%h1 כל הטקסטים
+%table
+  %tr
+    %th Name
+    %th User
+    %th Content
+    %th
+    %th
+    %th
+  - @texts.each do |text|
+    %tr
+      %td= text.name
+      %td= text.user_id
+      %td= text.description
+      %td= link_to 'Show', text
+      %td= link_to 'Edit', edit_text_path(text)
+      %td= link_to 'Destroy', text, :confirm => 'Are you sure?', :method => :delete
+%br
+= link_to 'New Text', new_text_path
