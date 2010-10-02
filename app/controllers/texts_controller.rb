@@ -80,4 +80,14 @@ class TextsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def tagged
+    @texts = Text.tagged_with(params[:id])
+ 
+    respond_to do |format|
+      format.html
+      format.xml  { head :ok }
+    end 
+
+  end
 end
