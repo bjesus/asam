@@ -1,14 +1,21 @@
 %p#notice= notice
-%p
-  %b Name:
-  = @text.name
-  = "(גירסה #{@text.versions.count+1})"
-%p
-  %b User:
-  = @text.user_id
-%p
-  %b Content:
-  = @text.content
+
+%span.breadcrumb
+  = "טקסטים >"
+  - @text.tags_on(:author).each do |author|
+    = author.name
+    %hr
+%h1= @text.name
+%span(style="float: left;")= "(גירסה #{@text.versions.count+1})"
+%hr
+  .breadcrumb
+    = "תגיות: "
+    - @text.tags.each do |tag|
+      %a.tag(href='/tags/#{tag.name}')= tag.name
+.breadcrumb
+  %hr
+:textile
+  #{@text.content}
 
 - @text.tags.each do |tag|
   %span= tag
