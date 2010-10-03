@@ -19,4 +19,6 @@
       #holdside
         #sidebar.last
           %img(src="/images/logo.png")
-          .count עד כה ישנם 1,221 טקסטים של 83 כותבים
+          .count עד כה ישנם #{how_many_texts} טקסטים של #{how_many_authors} כותבים
+
+          = link_to "אני אמלל!", new_text_path
