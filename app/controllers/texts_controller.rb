@@ -3,7 +3,7 @@ class TextsController < ApplicationController
   # GET /texts.xml
   def index
     @texts = Text.all
-
+    @tags = Text.tag_counts_on(:tags)
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @texts }
@@ -83,6 +83,7 @@ class TextsController < ApplicationController
 
   def tagged
     @texts = Text.tagged_with(params[:id])
+    @tag = params[:id]
  
     respond_to do |format|
       format.html
