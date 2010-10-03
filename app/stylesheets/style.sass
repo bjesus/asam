@@ -4,6 +4,7 @@
 body
   background-color: #DBDADA
   font-family: arial, "sans-serif"
+  font-size: 80%
 
 
 #root
@@ -25,13 +26,31 @@ body
   +column(18)
   z-index: 3
   position: relative
-  padding-left: 15px
+
+#tags-box
+  +column(7)
+
+#last-texts-box
+  +column(11, true)
+
+#authors-box
+  +column(6)
+
+#years-box
+  +column(6)
+
+.content-line
+  +column(18,true)
+  margin-bottom: 1em
+
+#about-box
+  +column(6, true)
 
 #holdside
   top: 0
   width: 220px
   height: 500px
-  +column(5, true)
+  +column(6, true)
 
 #sidebar
   z-index: 2
@@ -62,12 +81,55 @@ h1
   border-bottom: 1px solid #3e3d3e
   width: 100%
 
-.tag
+.tag, .tag:visited
+  color: black
   background-color: #ece6ca
   border: 1px solid #ded6af
   padding: 0 3px
+  padding-right: 18px
   +border-radius
   text-decoration: none
+  background-image: url('/images/icons/tag_blue.png')
+  background-repeat: no-repeat
+  background-position: right
 
 .tag:hover
+  color: white
   background-color: #cc6600
+
+.text-item
+  margin-bottom: 1em
+
+  h3
+    font-size: 120%
+    text-decoration: underline
+  a
+    text-decoration: none
+
+.admin-box
+  margin-right: 1em
+
+=button
+  display: table
+  font-size: 80%
+  background-repeat: no-repeat
+  background-position: right
+  padding-right: 18px
+
+.delete-btn
+  +button
+  background-image: url('/images/icons/delete.png')
+
+.edit-btn
+  +button
+  background-image: url('/images/icons/page_white_edit.png')
+
+// tag cloud
+.css1
+  font-size: 1.0em
+.css2
+  font-size: 1.2em
+.css3
+  font-size: 1.4em
+.css4
+  font-size: 1.6em
