@@ -1,19 +1,36 @@
-%h1 כל הטקסטים
-%table
-  %tr
-    %th Name
-    %th User
-    %th Content
-    %th
-    %th
-    %th
-  - @texts.each do |text|
-    %tr
-      %td= text.name
-      %td= text.user_id
-      %td= text.description
-      %td= link_to 'Show', text
-      %td= link_to 'Edit', edit_text_path(text)
-      %td= link_to 'Destroy', text, :confirm => 'Are you sure?', :method => :delete
-%br
-= link_to 'New Text', new_text_path
+.content-line
+  #tags-box
+    - tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| 
+      = link_to tag.name, '/tags/'+tag.name, {'class' => css_class}
+
+  #last-texts-box
+    %h2 כולנו נמלל!
+    %p כמה פעמים חיפשתם טקסט ולא ידעתם איפה שמרתם אותו? או שלא שמרתם אותו? כמה פעמים זכרתם רק משפט אחד מתוכו, אבל לא זכרתם מי כתב ומתי נתקלתם בו?
+    %p לכל המקרים האלה וגם למקרה שאתם פשוט מחפשים טקסט שיתאים, "מי ימלל" הוא כנראה הפתרון המושלם עבורכם.
+    %p אתם מוזמנים לחפש באתר, וכמובן - אתם יותר ממוזמנים להוסיף אליו טקסטים. אולי ככה נעשה יחד חסד עם כתבים שמצבם רק הולך ומדרדר מצילום לצילום...
+
+.content-line
+  #authors-box
+    %b לפי כותבים
+    %ul
+      %li בובר
+      %li מארקס
+      %li גנדי
+      %li אליהו הנביא
+      %li עידו לשם
+
+  #years-box
+    %b לפי שנים
+    %ul
+      %li 1988
+      %li 1989
+      %li 1990
+      %li 1991
+      %li 1992
+
+  #about-box
+    %b חדש במערכת
+    - @texts.each do |text|
+      %p= link_to text.name, text
+
+
