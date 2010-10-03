@@ -1,25 +1,25 @@
 %p#notice= notice
 
-%span.breadcrumb
+%span.breadcrumb(style="clear: both;")
   = "טקסטים >"
   - @text.tags_on(:author).each do |author|
     = author.name
     %hr
 %h1= @text.name
 %span(style="float: left;")= "(גירסה #{@text.versions.count+1})"
-%hr
-  .breadcrumb
-    = "תגיות: "
-    - @text.tags.each do |tag|
-      %a.tag(href='/tags/#{tag.name}')= tag.name
+%hr(style='width: 100%; clear: both;')
+.breadcrumb
+  = "תגיות: "
+  - @text.tags.each do |tag|
+    %a.tag(href='/tags/#{tag.name}')= tag.name
 .breadcrumb
   %hr
+
+
+.admin-box(style="float: left;")
+  %span.edit-btn= link_to "עריכה", edit_text_path(@text)
+  %span.delete-btn= link_to 'מחיקה', @text, :confirm => 'וואלה אתם בטוחים?', :method => :delete
+
 :textile
   #{@text.content}
 
-- @text.tags.each do |tag|
-  %span= tag
-
-= link_to 'Edit', edit_text_path(@text)
-|
-\#{link_to 'Back', texts_path}
