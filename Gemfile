@@ -1,5 +1,5 @@
 source 'http://rubygems.org'
-
+gem 'jquery-rails'
 gem 'rails', '3.0.0'
 
 # Bundle edge Rails instead:
@@ -35,7 +35,6 @@ gem 'compass'
 gem 'acts-as-taggable-on'
 gem 'acts_as_commentable'
 gem 'RedCloth'
-gem 'vestal_versions', :git => 'git://github.com/lailsonbm/vestal_versions', :branch => 
-'rails3'
+gem 'vestal_versions', :git => 'git://github.com/lailsonbm/vestal_versions', :branch => 'rails3'
 gem 'paperclip'
 gem "friendly_id", "~> 3.1"
