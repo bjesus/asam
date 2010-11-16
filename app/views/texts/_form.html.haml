@@ -1,3 +1,21 @@
+%script{:type => "text/javascript",
+        :src  => "/javascripts/textlist/GrowingInput.js"}
+%script{:type => "text/javascript",
+        :src  => "/javascripts/textlist/TextboxList.js"}
+%script{:type => "text/javascript",
+        :src  => "/javascripts/textlist/TextboxList.Autocomplete.js"}
+:javascript
+  $(document).ready(function() {
+    var t = new $.TextboxList('#text_tag_list', {unique: true, plugins: {autocomplete: {
+    minLength: 1,
+    queryRemote: true,
+    remote: {url: '/tags_json'}
+    }}});
+    var autocomplete = t.plugins['autocomplete'];
+
+  });
+
+
 = form_for(@text) do |f|
   - if @text.errors.any?
     #error_explanation
@@ -19,6 +37,6 @@
     = f.label :content
     %br/
     = f.text_area :content
-    = f.text_area :tag_list
+    = f.text_field :tag_list
   .actions
     = f.submit
