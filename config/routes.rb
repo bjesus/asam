@@ -12,6 +12,8 @@ Textmi::Application.routes.draw do
 
   # Sample of regular route:
   match 'tags/:id' => 'texts#tagged'
+  match 'tags_json' => 'texts#tags_json'
+
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:

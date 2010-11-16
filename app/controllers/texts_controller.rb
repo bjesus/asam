@@ -1,3 +1,4 @@
+# coding: utf-8
 class TextsController < ApplicationController
   # GET /texts
   # GET /texts.xml
@@ -84,11 +85,26 @@ class TextsController < ApplicationController
   def tagged
     @texts = Text.tagged_with(params[:id])
     @tag = params[:id]
- 
+
     respond_to do |format|
       format.html
       format.xml  { head :ok }
-    end 
+    end
 
   end
+
+  def tags_json
+    print params[:search]
+    @tags = Text.tag_counts
+    @mytags = []
+    @tags.each { |tag|
+      if tag['name'].match(params[:search])
+        @mytags << [tag['name'], tag['name'], nil, tag['name']]
+      end
+    }
+    render :json => @mytags
+
+  end
+
+
 end
