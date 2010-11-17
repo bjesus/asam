@@ -95,7 +95,8 @@ class TextsController < ApplicationController
 
   def tags_json
     print params[:search]
-    @tags = Text.tag_counts
+    print params[:c]
+    @tags = eval("Text."+params[:c]+"_counts")
     @mytags = []
     @tags.each { |tag|
       if tag['name'].match(params[:search])
