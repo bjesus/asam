@@ -1,13 +1,14 @@
 %p#notice= notice
 %p
-  %b Text:
+  %b מספר הקטע באתר:
   = @image.text_id
 %p
-  %b user:
+  %b משתמש:
   = @image.user_id
 %p
-  %b Description:
+  %b תאור הקובץ:
   = @image.description
+  = link_to "הורדה", @image.photo.url
 = image_tag @image.photo.url
 = image_tag @image.photo.url(:medium)
 = image_tag @image.photo.url(:thumb)
