@@ -28,10 +28,10 @@ $.TextboxList.Autocomplete = function(textboxlist, _options){
 			url: '',
 			param: 'search',
 			extraParams: {},
-			loadPlaceholder: 'Please wait...'
+			loadPlaceholder: 'אנא המתינו...'
     },
 		method: 'standard',
-		placeholder: 'Type to receive suggestions'
+		placeholder: 'התחילו לכתוב כדי לקבל הצעות'
 	}, _options);
 
 	var init = function(){
