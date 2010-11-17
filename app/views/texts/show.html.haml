@@ -23,3 +23,7 @@
 :textile
   #{@text.content}
 
+- @text.images.each do |image|
+  %hr
+  %h3= image.description
+  = link_to "הורדה", image.photo.url
