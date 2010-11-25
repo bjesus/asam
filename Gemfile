@@ -1,12 +1,13 @@
 source 'http://rubygems.org'
 gem 'jquery-rails'
-gem 'rails', '3.0.0'
+gem 'rails', '3.0.3'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3-ruby', :require => 'sqlite3'
-gem 'mysql2'
+#gem 'sqlite3-ruby', :require => 'sqlite3'
+gem 'mysql'
+#gem 'ruby-mysql'
 # Use unicorn as the web server
 # gem 'unicorn'
 
@@ -35,6 +36,6 @@ gem 'compass'
 gem 'acts-as-taggable-on'
 gem 'acts_as_commentable'
 gem 'RedCloth'
-gem 'vestal_versions', :git => 'git://github.com/lailsonbm/vestal_versions', :branch => 'rails3'
-gem 'paperclip'
+gem 'vestal_versions', :git => 'https://github.com/lailsonbm/vestal_versions.git', :branch => 'rails3'
+gem 'paperclip', :git => 'https://github.com/thoughtbot/paperclip.git',  :branch => 'master'
 gem "friendly_id", "~> 3.1"
