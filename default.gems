@@ -1,0 +1,25 @@
+# default.gems generated gem export file. Note that any env variable settings will be missing. Append these after using a ';' field separator
+abstract -v1.0.0
+actionmailer -v3.0.3
+actionpack -v3.0.3
+activemodel -v3.0.3
+activerecord -v3.0.3
+activeresource -v3.0.3
+activesupport -v3.0.3
+arel -v2.0.4
+builder -v2.1.2
+bundler -v1.0.7
+erubis -v2.6.6
+i18n -v0.4.2
+mail -v2.2.10
+mime-types -v1.16
+polyglot -v0.3.1
+rack -v1.2.1
+rack-mount -v0.6.13
+rack-test -v0.5.6
+rails -v3.0.3
+railties -v3.0.3
+rake -v0.8.7
+thor -v0.14.6
+treetop -v1.4.9
+tzinfo -v0.3.23
