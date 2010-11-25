@@ -1,8 +1,9 @@
 development:
-  adapter: mysql2
+  adapter: mysql
   encoding: utf8
   database: textmi
   pool: 5
   username: textmi
   password:
   host: localhost
+  collation: utf8_unicode_ci
