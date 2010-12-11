@@ -25,5 +25,6 @@
 
 - @text.images.each do |image|
   %hr
-  %h3= image.description
+  %h3= image.photo_file_name
+  %p= image.description
   = link_to "הורדה", image.photo.url
