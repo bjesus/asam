@@ -32,9 +32,11 @@
     var atoken = $("input[name=authenticity_token]").val();  
     $("#uploader").plupload({
       // General settings
-      runtimes : 'flash,html5,gears,silverlight,browserplus',
+      runtimes : 'html5,gears,silverlight,browserplus',
       url : '/images',
       unique_names : true,
+      resize: false,
+      max_file_size : '1000mb',
       //RoR - make sure form is multipart  
       multipart: true,
       //RoR - make sure to send authenticity token and any other parameters that are on the plain html form  
