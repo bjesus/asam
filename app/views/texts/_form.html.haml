@@ -32,7 +32,7 @@
     var atoken = $("input[name=authenticity_token]").val();  
     $("#uploader").plupload({
       // General settings
-      runtimes : 'html5,gears,flash,silverlight,browserplus',
+      runtimes : 'flash,html5,gears,silverlight,browserplus',
       url : '/images',
       max_file_size : '10mb',
       chunk_size : '1mb',
@@ -42,14 +42,7 @@
       //RoR - make sure to send authenticity token and any other parameters that are on the plain html form  
       multipart_params : {"image[text_id]" : "0", authenticity_token : atoken},  
 
-      // Resize images on clientside if we can
-      resize : {width : 320, height : 240, quality : 90},
-
       // Specify what files to browse for
-      filters : [
-        {title : "Image files", extensions : "jpg,gif,png"},
-        {title : "Zip files", extensions : "zip"}
-      ],
 
       // Flash settings
       flash_swf_url : '/javascripts/plupload/js/plupload.flash.swf',
