@@ -42,6 +42,9 @@ class ImagesController < ApplicationController
   # POST /images
   # POST /images.xml
   def create
+    if(params[:file])
+      params[:image][:photo] = params[:file]
+    end
     @image = Image.new(params[:image])
 
     respond_to do |format|

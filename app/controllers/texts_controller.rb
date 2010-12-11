@@ -42,12 +42,27 @@ class TextsController < ApplicationController
   # POST /texts.xml
   def create
     @text = Text.new(params[:text])
-
+    names = []
+    params.each do |para|
+      if para[0].starts_with? 'uploader_' and para[0].ends_with? '_name'
+        names << para[1]
+      end
+    end
     respond_to do |format|
       if @text.save
+        names.each do |name|
+          @image = Image.find(:first, :conditions => ["photo_file_name = ? and text_id = ?", name, 0])
+          @image[:text_id] = @text.id
+          @image.save
+        end
         format.html { redirect_to(@text, :notice => 'Text was successfully created.') }
         format.xml  { render :xml => @text, :status => :created, :location => @text }
       else
+        names.each do |name|
+          @image = Image.find(:first, :conditions => ["photo_file_name = ? and text_id = ?", name, 0])
+          @image[:text_id] = @text.id
+          @image.save
+        end
         format.html { render :action => "new" }
         format.xml  { render :xml => @text.errors, :status => :unprocessable_entity }
       end
