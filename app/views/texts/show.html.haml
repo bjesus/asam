@@ -28,3 +28,15 @@
   %h3= image.photo_file_name
   %p= image.description
   = link_to "הורדה", image.photo.url
+  - if (image.photo_content_type == 'application/msword')
+    = link_to("תצוגה מקדימה", '#', html_options = {:class => 'toggle-preview'})
+    %br
+    %iframe{'src' => "http://docs.google.com/viewer?url=http://library.drorisrael.org.il"+image.photo.url+"&embedded=true",
+          'width' => '650px', 'height' => "400px"}
+
+:javascript
+  $('.toggle-preview').click(function() {
+    $(this).next().next().toggle('slow', function() {
+    return false
+    });
+  });
