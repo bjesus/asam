@@ -1,0 +1,19 @@
+<div style="text-align: center;">
+<h2>כניסה לאתר</h2>
+
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <p>כתובת דוא"ל<br />
+  <%= f.text_field :email %></p>
+
+  <p>סיסמה<br />
+  <%= f.password_field :password %></p>
+
+  <% if devise_mapping.rememberable? -%>
+    <p><%= f.check_box :remember_me %> זכור אותי</p>
+  <% end -%>
+
+  <p><%= f.submit "חבר אותי מאסטרו!" %></p>
+<% end %>
+
+<%= render :partial => "devise/shared/links" %>
+</div>
