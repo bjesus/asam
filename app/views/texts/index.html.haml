@@ -13,11 +13,9 @@
   #authors-box
     %b לפי כותבים
     %ul
-      %li בובר
-      %li מארקס
-      %li גנדי
-      %li אליהו הנביא
-      %li עידו לשם
+      - @authors.each do |author|
+        %li= link_to author.name, '/tags/'+author.name
+
 
   #years-box
     %b לפי שנים
@@ -30,7 +28,8 @@
 
   #about-box
     %b חדש במערכת
-    - @texts.each do |text|
-      %p= link_to text.name, text
+    %ul     
+      - @texts.each do |text|
+        %li= link_to text.name, text
 
 
