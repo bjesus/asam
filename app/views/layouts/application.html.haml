@@ -17,11 +17,25 @@
     #bookshelf
     #root.container
       #content
+        - if flash[:notice]
+          .notice
+            %p= flash[:notice]
+        - if flash[:error]
+          .error
+            %p= flash[:error]
+        - if flash[:alert]
+          .alert
+            %p= flash[:alert]
         = yield
       #holdside
         #sidebar.last
           %img(src="/images/logo.png")
           .count עד כה ישנם #{how_many_texts} טקסטים של #{how_many_authors} כותבים
+          - if user_signed_in?
+            %span= "מחובר כ"+current_user.firstname+" | "
+            %span
+              = link_to('ניתוק', destroy_user_session_path)
+              %br
 
           = link_to "דף ראשי", "/texts/"
           %br

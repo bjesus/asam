@@ -1,9 +1,14 @@
 # coding: utf-8
 class TextsController < ApplicationController
+
+  before_filter :authenticate_user!
+
   # GET /texts
   # GET /texts.xml
   def index
     @texts = Text.all
+    @authors = Text.tag_counts_on(:author)
+    @years = Text.tag_counts_on(:year)
     @tags = Text.tag_counts_on(:tags)
     respond_to do |format|
       format.html # index.html.erb
@@ -41,7 +46,7 @@ class TextsController < ApplicationController
   # POST /texts
   # POST /texts.xml
   def create
-    @text = Text.new(params[:text])
+    @text = current_user.texts.build(params[:text])
     names = []
     params.each do |para|
       if para[0].starts_with? 'uploader_' and para[0].ends_with? '_name'

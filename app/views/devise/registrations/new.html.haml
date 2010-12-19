@@ -1,0 +1,22 @@
+%div.span-18
+  - form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+    %h2 הרשמה לאתר
+    %div.span-9.last
+      %h3 שם מלא <sub> (שם פרטי + שם אמצעי + כינוי + שם משפחה) </sub>
+      = f.text_field(:firstname, {'placeholder'=>'פרטי', 'style'=>'width: 100px'})
+      = f.text_field(:lastname, {'placeholder'=>'משפחה', 'style'=>'width: 100px'})
+      %h3 דואר אלקטרוני <sub> (לא לשכוח שטרודל) </sub>
+      = f.text_field(:email, {'placeholder'=>'email@address.com'})
+
+    %div.span-9
+      %h3 טלפון <sub> (כל הטלפון, לא רק סיומת) </sub>
+      = f.text_field(:phone, {'placeholder'=>'9732384', 'style'=>'width:90px'})
+      %span -
+      = f.text_field(:phoneext, {'placeholder'=>'054', 'style'=>'width:50px'})
+      %h3 סיסמה
+      = f.password_field :password
+      %h3 ושוב סיסמה <sub> (אותה אחת!) </sub>
+      = f.password_field :password_confirmation
+      %h3
+        = f.submit("רשום אותי לאתר!", {'style'=>'font-size: 150%; margin: 2em;'})
+
