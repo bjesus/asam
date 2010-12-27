@@ -29,6 +29,7 @@
   %p= image.description
   = link_to "הורדה", image.photo.url
   -# http://stackoverflow.com/questions/179315/downloading-docx-from-ie-setting-mime-types-in-iis
+  -# application/pdf
   - if (image.photo_content_type == 'application/msword')
     = link_to("תצוגה מקדימה", '#', html_options = {:class => 'toggle-preview'})
     %br
