@@ -29,4 +29,4 @@
   %p= image.description
   = link_to "הורדה", image.photo.url
   - if (['doc', 'docx', 'ppt', 'pptx', 'pdf', 'tif', 'tiff'].include? image.photo_file_name.split('.')[-1])
-    = link_to("תצוגה מקדימה", "http://docs.google.com/viewer?url=http://library.drorisrael.org.il"+image.photo.url+"&embedded=true", html_options = {:rel => 'shadowbox'})
+    = link_to("תצוגה מקדימה", "http://docs.google.com/viewer?url=http://library.drorisrael.org.il"+image.photo.url+"&embedded=true", html_options = {:rel => 'shadowbox;width=900'})
