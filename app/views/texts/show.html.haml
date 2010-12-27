@@ -30,10 +30,3 @@
   = link_to "הורדה", image.photo.url
   - if (['application/msword', 'application/pdf', 'application/vnd.openxmlformats-officedocument.presentationml.presentation', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.ms-powerpoint'].include? image.photo_content_type)
     = link_to("תצוגה מקדימה", "http://docs.google.com/viewer?url=http://library.drorisrael.org.il"+image.photo.url+"&embedded=true", html_options = {:rel => 'shadowbox'})
-
-:javascript
-  $('.toggle-preview').click(function() {
-    $(this).next().next().toggle('slow', function() {
-    return false
-    });
-  });
