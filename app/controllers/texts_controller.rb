@@ -16,6 +16,15 @@ class TextsController < ApplicationController
     end
   end
 
+  def search
+    @texts = Text.search "*#{params[:q]}*"
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @texts }
+    end
+  end
+
+
   # GET /texts/1
   # GET /texts/1.xml
   def show

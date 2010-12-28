@@ -1,0 +1,14 @@
+%p#notice= notice
+
+%span.breadcrumb
+  = "תגיות >"
+  = @tag 
+  %hr
+
+- @texts.each do |text|
+  .text-item
+    %h3= link_to text.name, text
+    %p= text.description
+    %sub
+      = link_to 'עריכה', edit_text_path(text)
+      = link_to 'מחיקה', text, :confirm => 'Are you sure?', :method => :delete

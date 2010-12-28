@@ -40,4 +40,4 @@ gem 'vestal_versions', :git => 'https://github.com/lailsonbm/vestal_versions.git
 gem 'paperclip', :git => 'https://github.com/thoughtbot/paperclip.git',  :branch => 'master'
 gem "friendly_id", "~> 3.1"
 gem 'html5-boilerplate'
-#gem 'thinking-sphinx', '2.0.0', :require => 'thinking_sphinx'
+gem 'thinking-sphinx', '2.0.1', :require => 'thinking_sphinx'

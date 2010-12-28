@@ -1,0 +1,10 @@
+development: &my_settings
+  enable_star: true
+  min_prefix_len: 0
+  min_infix_len: 1
+  min_word_len: 1
+  charset_table: "0..9, a..z, _, A..Z->a..z, U+621..U+63a, U+640..U+64a, U+66e..U+66f, U+671..U+6d3, U+6d5, U+6e5..U+6e6, U+6ee..U+6ef, U+6fa..U+6fc, U+6ff, U+5d0..U+5ea, U+5f0..U+5f2"
+test:
+  <<: *my_settings
+production:
+  <<: *my_settings
