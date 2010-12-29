@@ -11,20 +11,17 @@
 
 .content-line
   #authors-box
-    %b לפי כותבים
+    %br
     %ul
-      - @authors.each do |author|
+      - @authors.slice(10,19).each do |author|
         %li= link_to author.name, '/tags/'+author.name
 
 
   #years-box
-    %b לפי שנים
+    %b כותבים במערכת
     %ul
-      %li 1988
-      %li 1989
-      %li 1990
-      %li 1991
-      %li 1992
+      - @authors.slice(0,9).each do |author|
+        %li= link_to author.name, '/tags/'+author.name
 
   #about-box
     %b חדש במערכת
