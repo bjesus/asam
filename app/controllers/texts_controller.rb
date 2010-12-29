@@ -9,7 +9,7 @@ class TextsController < ApplicationController
     @texts = Text.find(:all, :limit => 10, :order=> 'created_at desc')
     @authors = Text.tag_counts_on(:author).limit(10)
     @years = Text.tag_counts_on(:year)
-    @tags = Text.tag_counts_on(:tags).order(:name)
+    @tags = Text.tag_counts_on(:tags).limit(50).order('count desc').sort_by { |t| t.name }
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @texts }
