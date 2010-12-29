@@ -109,7 +109,9 @@
 
           uploader.start();
         } else
-          alert('You must at least upload one file.');
+          alert('שימו לב שלא העלתם אף קובץ. תוכלו לעשות זאת מאוחר יותר.');
+          $('form').unbind();
+          $('form').submit();
 
         e.preventDefault();
       }
