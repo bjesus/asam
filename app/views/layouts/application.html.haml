@@ -13,7 +13,7 @@
             = yield
           #holdside
             #sidebar.last
-              %img(src="/images/logo.png")
+              = link_to image_tag("/images/logo.png"), '/'
               .count עד כה ישנם #{how_many_texts} טקסטים של #{how_many_authors} כותבים
               #searchbox
                 %form{:action=>"/texts/search", :method => "post"}
@@ -21,16 +21,16 @@
                   %input{:name => "authenticity_token", :type => "hidden", :value => form_authenticity_token}
 
               - if user_signed_in?
-                %span= "מחובר כ"+current_user.firstname+" | "
+                %span= "שלום "+current_user.firstname+"! | "
                 %span
                   = link_to('ניתוק', destroy_user_session_path)
                   %br
 
-              = link_to "דף ראשי", "/texts/"
               %br
               = link_to "הוספת קטע לאתר", new_text_path
               %br
               = link_to "פרוייקט בן-יהודה", "http://www.benyehuda.org/"
+              = yield :sidebar
       %footer#footer
         = render :partial => 'layouts/footer'
     -# Javascript at the bottom for fast page loading
