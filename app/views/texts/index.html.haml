@@ -20,7 +20,7 @@
   #years-box
     %b כותבים במערכת
     %ul
-      - @authors.slice(0,9).each do |author|
+      - @authors.slice(0,10).each do |author|
         %li= link_to author.name, '/tags/'+author.name
 
   #about-box
