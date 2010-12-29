@@ -16,6 +16,14 @@ class TextsController < ApplicationController
     end
   end
 
+  def all_tags
+    @tags = Text.tag_counts_on(params[:tag]).order(:name)
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @texts }
+    end
+  end
+
   def search
     @texts = Text.search "*#{params[:q]}*"
     respond_to do |format|
