@@ -10,7 +10,9 @@ module ApplicationHelper
 
   def related_to(item)
     same_tags = Text.tagged_with(item.tags)
-    same_tags = same_tags - [item]
+    if same_tags != {} 
+      same_tags = same_tags - [item]
+    end
     return same_tags
   end
 
@@ -23,7 +25,7 @@ module ApplicationHelper
   end
 
   def clear_tag(tag)
-    rm = Text.tagged_with
+    rm = Text.tagged_with tag
     rm.each do |text|
       text.images.each do |image|
         image.destroy()
