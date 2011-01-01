@@ -1,0 +1,89 @@
+%span.breadcrumb
+  = "טקסטים > כל הטקסטים"
+  %hr
+= will_paginate @texts, :previous_label => "אחורה", :next_label => "קדימה"
+%hr
+= form_for :texts do |main_form|
+  - @texts.each do |text|
+    = main_form.fields_for "text[]", text do |f|
+      .text-item
+        = f.text_field :name
+        =link_to "חלון חדש", text, :target => "_blank"
+        %br/
+        = f.label :description
+        = f.text_area :description, :style => 'height: 30px;'
+        %br/
+        = f.label :tags
+        = f.text_field :tag_list
+        %br/
+        = f.label :year
+        = f.text_field :year_list
+        %br/
+        = f.label :author
+        = f.text_field :author_list
+        %br/
+        = f.label :source
+        = f.text_field :source_list, :class => "source"
+        %br/
+        = f.label :kind
+        = f.text_field :kind_list
+        %br/
+        = f.label :age
+        = f.text_field :age_list
+        %br/
+        = f.label :maagal
+        = f.text_field :maagal_list
+      %hr
+  = main_form.submit
+
+
+= will_paginate @texts, :previous_label => "אחורה", :next_label => "קדימה"
+
+- content_for :special_js do
+  :javascript
+    Shadowbox.init();
+    $(document).ready(function() {
+
+      var t = new $.TextboxList('#text_tag_list', {unique: true, plugins: {autocomplete: {
+      minLength: 1,
+      queryRemote: true,
+      remote: {url: '/tags_json?c=tag'}
+      }}});
+
+      var t1 = new $.TextboxList('#text_source_list', {unique: true, plugins: {autocomplete: {
+      minLength: 1,
+      queryRemote: true,
+      remote: {url: '/tags_json?c=source'}
+      }}});
+
+      var t2 = new $.TextboxList('#text_kind_list', {unique: true, plugins: {autocomplete: {
+      minLength: 1,
+      queryRemote: true,
+      remote: {url: '/tags_json?c=kind'}
+      }}});
+
+      var t3 = new $.TextboxList('#text_age_list', {unique: true, plugins: {autocomplete: {
+      minLength: 1,
+      queryRemote: true,
+      remote: {url: '/tags_json?c=age'}
+      }}});
+
+      var t4 = new $.TextboxList('#text_author_list', {unique: true, plugins: {autocomplete: {
+      minLength: 1,
+      queryRemote: true,
+      remote: {url: '/tags_json?c=author'}
+      }}});
+
+      var t5 = new $.TextboxList('#text_year_list', {unique: true, plugins: {autocomplete: {
+      minLength: 1,
+      queryRemote: true,
+      remote: {url: '/tags_json?c=year'}
+      }}});
+
+      var t5 = new $.TextboxList('#text_maagal_list', {unique: true, plugins: {autocomplete: {
+      minLength: 1,
+      queryRemote: true,
+      remote: {url: '/tags_json?c=maagal'}
+      }}});
+
+    });
