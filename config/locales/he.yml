@@ -93,6 +93,7 @@ he:
       text:
         name: "כותרת הקטע"
         content: "תוכן"
+        description: "תיאור"
         tags: "תגיות"
         year: "שנה"
         author: "יוצר"
