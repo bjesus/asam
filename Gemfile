@@ -41,3 +41,4 @@ gem 'paperclip', :git => 'https://github.com/thoughtbot/paperclip.git',  :branch
 gem "friendly_id", "~> 3.1"
 gem 'html5-boilerplate'
 gem 'thinking-sphinx', '2.0.1', :require => 'thinking_sphinx'
+gem "will_paginate", '3.0.pre'
