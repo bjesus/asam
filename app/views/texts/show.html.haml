@@ -34,5 +34,5 @@
   %br
   %h4= "מזכיר לי את..."
   %ul
-    - related_to(@text).each do |related|
+    - @text.find_related_tags.slice(0,5).each do |related|
       %li= link_to(related.name, "/texts/"+related.id.to_s)
