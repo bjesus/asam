@@ -32,7 +32,6 @@ class TextsController < ApplicationController
     end
   end
 
-
   # GET /texts/1
   # GET /texts/1.xml
   def show
@@ -77,7 +76,7 @@ class TextsController < ApplicationController
           @image[:text_id] = @text.id
           @image.save
         end
-        format.html { redirect_to(@text, :notice => 'Text was successfully created.') }
+        format.html { redirect_to(@text, :notice => 'הקטע נוצר בהצלחה.') }
         format.xml  { render :xml => @text, :status => :created, :location => @text }
       else
         names.each do |name|
@@ -109,7 +108,7 @@ class TextsController < ApplicationController
           @image[:text_id] = @text.id
           @image.save
         end
-        format.html { redirect_to(@text, :notice => 'Text was successfully updated.') }
+        format.html { redirect_to(@text, :notice => 'הקטע עודכן בהצלחה.') }
         format.xml  { head :ok }
       else
         names.each do |name|
