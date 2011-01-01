@@ -1,6 +1,6 @@
 
 
-= form_for(@text) do |f|
+= form_for @text, :html => {:id => "text-form"} do |f|
   - if @text.errors.any?
     #error_explanation
       %h2
@@ -82,8 +82,8 @@
         silverlight_xap_url : '/javascripts/plupload/js/plupload.silverlight.xap'
       });
 
-      // Client side form validation
-      $('#edit_form_submit').submit(function(e) {
+    // Client side form validation
+      $('#text-form').submit(function(e) {
         var uploader = $('#uploader').pluploadQueue();
 
         // Validate number of uploaded files
@@ -93,19 +93,19 @@
             // When all files are uploaded submit form
             uploader.bind('UploadProgress', function() {
               if (uploader.total.uploaded == uploader.files.length)
-                $('#edit_form_submit').submit();
+                $('#text-form').submit();
             });
 
             uploader.start();
           } else
-            alert('שימו לב שלא העלתם אף קובץ. תוכלו לעשות זאת מאוחר יותר.');
-            $('#edit_form_submit').unbind();
-            $('#edit_form_submit').submit();
+            alert('שימו לב שלא צרפתם שום קובץ. תוכלו לעשות זאת מאוחר יותר.');
+            $('#text-form').unbind();
+            $('#text-form').submit();
 
           e.preventDefault();
         }
       });
-    });
+      });
     $(document).ready(function() {
 
       var t = new $.TextboxList('#text_tag_list', {unique: true, plugins: {autocomplete: {
