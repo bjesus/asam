@@ -8,8 +8,8 @@
         = render :partial => 'layouts/header'
       #main
         #root.container
-          = render :partial => 'layouts/flashes'
           #content
+            = render :partial => 'layouts/flashes'
             = yield
           #holdside
             #sidebar.last
