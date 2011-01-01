@@ -4,7 +4,8 @@ Textmi::Application.routes.draw do
   get "home/index"
 
   devise_for :users
-
+  match 'texts/editor' => 'editor#index', :via => :get
+  match 'texts/editor' => 'editor#update', :via => :post
   resources :texts
 
   # The priority is based upon order of creation:
@@ -13,7 +14,7 @@ Textmi::Application.routes.draw do
   # Sample of regular route:
   match 'tags/:id' => 'texts#tagged'
   match 'tags_json' => 'texts#tags_json'
-  match 'texts/search' => 'texts#search'
+  match 'search' => 'texts#search'
   match 'all/:tag' => 'texts#all_tags'
 
   # Keep in mind you can assign values other than :controller and :action
