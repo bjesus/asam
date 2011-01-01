@@ -40,4 +40,115 @@
     = f.label :maagal
     = f.text_field :maagal_list
   .actions
-    = f.submit
+    = f.submit :id => "edit_form_submit"
+
+- content_for :special_js do
+  :javascript
+    Shadowbox.init();
+    plupload.addI18n({
+            'Select files' : 'בחר קבצים',
+            'Add files to the upload queue and click the start button.' : 'הוסף קבצים והתחל את ההעלאה',
+            'Filename' : 'שם קובץ',
+            'Status' : 'מצב',
+            'Size' : 'גודל',
+            'Add Files' : 'הוסף קבצים',
+            'Start Upload':'שלח קבצים',
+            'Stop current upload' : 'עצור את תהליך השליחה',
+            'Start uploading queue' : 'התחל את השליחה',
+            'Drag files here.' : 'גרור קבצים לכאן'
+    });
+    // Convert divs to queue widgets when the DOM is ready
+    $(function() {
+      //RoR - capture authenticity token  
+      var atoken = $("input[name=authenticity_token]").val();  
+      $("#uploader").plupload({
+        // General settings
+        runtimes : 'html5,gears,silverlight,browserplus',
+        url : '/images',
+        unique_names : true,
+        resize: false,
+        max_file_size : '1000mb',
+        //RoR - make sure form is multipart  
+        multipart: true,
+        //RoR - make sure to send authenticity token and any other parameters that are on the plain html form  
+        multipart_params : {"image[text_id]" : "0", authenticity_token : atoken},  
+
+        // Specify what files to browse for
+
+        // Flash settings
+        flash_swf_url : '/javascripts/plupload/js/plupload.flash.swf',
+
+        // Silverlight settings
+        silverlight_xap_url : '/javascripts/plupload/js/plupload.silverlight.xap'
+      });
+
+      // Client side form validation
+      $('#edit_form_submit').submit(function(e) {
+        var uploader = $('#uploader').pluploadQueue();
+
+        // Validate number of uploaded files
+        if (uploader.total.uploaded == 0) {
+          // Files in queue upload them first
+          if (uploader.files.length > 0) {
+            // When all files are uploaded submit form
+            uploader.bind('UploadProgress', function() {
+              if (uploader.total.uploaded == uploader.files.length)
+                $('#edit_form_submit').submit();
+            });
+
+            uploader.start();
+          } else
+            alert('שימו לב שלא העלתם אף קובץ. תוכלו לעשות זאת מאוחר יותר.');
+            $('#edit_form_submit').unbind();
+            $('#edit_form_submit').submit();
+
+          e.preventDefault();
+        }
+      });
+    });
+    $(document).ready(function() {
+
+      var t = new $.TextboxList('#text_tag_list', {unique: true, plugins: {autocomplete: {
+      minLength: 1,
+      queryRemote: true,
+      remote: {url: '/tags_json?c=tag'}
+      }}});
+
+      var t1 = new $.TextboxList('#text_source_list', {unique: true, plugins: {autocomplete: {
+      minLength: 1,
+      queryRemote: true,
+      remote: {url: '/tags_json?c=source'}
+      }}});
+
+      var t2 = new $.TextboxList('#text_kind_list', {unique: true, plugins: {autocomplete: {
+      minLength: 1,
+      queryRemote: true,
+      remote: {url: '/tags_json?c=kind'}
+      }}});
+
+      var t3 = new $.TextboxList('#text_age_list', {unique: true, plugins: {autocomplete: {
+      minLength: 1,
+      queryRemote: true,
+      remote: {url: '/tags_json?c=age'}
+      }}});
+
+      var t4 = new $.TextboxList('#text_author_list', {unique: true, plugins: {autocomplete: {
+      minLength: 1,
+      queryRemote: true,
+      remote: {url: '/tags_json?c=author'}
+      }}});
+
+      var t5 = new $.TextboxList('#text_year_list', {unique: true, plugins: {autocomplete: {
+      minLength: 1,
+      queryRemote: true,
+      remote: {url: '/tags_json?c=year'}
+      }}});
+
+      var t5 = new $.TextboxList('#text_maagal_list', {unique: true, plugins: {autocomplete: {
+      minLength: 1,
+      queryRemote: true,
+      remote: {url: '/tags_json?c=maagal'}
+      }}});
+
+    });
+
