@@ -10,10 +10,27 @@ class EditorController < ApplicationController
       order = 'name'
     end
 
+    if params.has_key? 'show'
+      show = params[:show]    
+    else
+      show = 10
+    end
+
+
     @texts = case params[:display]
-      when "no-tags" then Text.paginate :page => params[:page], :order => order, :per_page => params[:show]
-      when "all-tags" then Text.paginate :page => params[:page], :order => order, :per_page => params[:show]
-      else Text.paginate :page => params[:page], :order => order, :per_page => params[:show]
+      when "no-tags" then
+        need_to_tag = []
+        Text.all.each do |e|
+          need_to_tag << e if e.tag_list.blank?
+        end
+        @texts = need_to_tag.paginate :page => params[:page], :order => order, :per_page => show
+      when "no-author" then 
+        need_to_tag = []
+        Text.all.each do |e|
+          need_to_tag << e if e.author_list.blank?
+        end
+        @texts = need_to_tag.paginate :page => params[:page], :order => order, :per_page => show
+      else Text.paginate :page => params[:page], :order => order, :per_page => show
     end
 
     respond_to do |format|
@@ -31,7 +48,7 @@ class EditorController < ApplicationController
       @text.save()
     end
     
-    redirect_to "/texts/editor"
+    redirect_to :back
   end
 
 end
