@@ -21,13 +21,15 @@
 :textile
   #{@text.content}
 
+%hr(style="border: 1px solid black")
 - @text.images.each do |image|
-  %hr
-  %h3= image.photo_file_name
-  %p= image.description
-  = link_to "הורדה", image.photo.url
-  - if (['doc', 'docx', 'ppt', 'pptx', 'pdf', 'tif', 'tiff'].include? image.photo_file_name.split('.')[-1])
-    = link_to("תצוגה מקדימה", "http://docs.google.com/viewer?url=http://library.drorisrael.org.il"+image.photo.url+"&embedded=true", html_options = {:rel => 'shadowbox;width=900'})
+  #file-box
+    = image_tag("/images/extensions/"+image.photo_file_name.split('.')[-1].downcase+".png")
+    %h3= image.photo_file_name.split('.')[0]
+    %p(style="margin: .5em;")= hebrew_file_type(image.photo_file_name.split('.')[-1])+" ("+image.photo_file_name.split('.')[-1].downcase+") במשקל "+ number_to_human_size(image.photo_file_size)
+    - if (['doc', 'docx', 'ppt', 'pptx', 'pdf', 'tif', 'tiff'].include? image.photo_file_name.split('.')[-1])
+      = link_to("תצוגה מקדימה", "http://docs.google.com/viewer?url=http://library.drorisrael.org.il"+image.photo.url+"&embedded=true", html_options = {:rel => 'shadowbox;width=900'})
+    = link_to "הורדה", image.photo.url
 
 - content_for :sidebar do
   %br

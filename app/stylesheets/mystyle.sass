@@ -25,6 +25,30 @@ body
   z-index: 1
   position: absolute
 
+#file-box
+  +column(9)
+  margin: 0
+  margin-bottom: 2em
+
+#file-box h3
+  border-bottom: 1px dashed grey
+  width: 90%
+
+#file-box a
+  background: #ccc
+  color: black
+  text-decoration: none
+  +border-radius
+  text-align: center
+  padding: 3px 15px
+
+#file-box  a:hover
+  background: #C8E6F1
+
+#file-box img
+  width: 30%
+  float: right
+
 #content
   +column(18)
   z-index: 3
@@ -37,7 +61,7 @@ body
   +column(11, true)
 
 #authors-box
-  +column(6)
+  +column(12)
 
 #years-box
   +column(6)
@@ -64,6 +88,7 @@ body
   width: 220px
   height: 500px
   background: #CC0000 url('/images/sidebar-down.png') no-repeat bottom
+  margin-right: 10px
 
 #sidebar a
   color: #F8B12C
@@ -156,7 +181,6 @@ h1
 #tags-box a:hover
   background-color: #cc0000
   color: #fff
-  font-weight: bold
 
 .css1
   font-size: 0.7em
