@@ -14,22 +14,22 @@
           #holdside
             #sidebar.last
               = link_to image_tag("/images/logo.png"), '/'
-              .count עד כה ישנם #{how_many_texts} טקסטים של #{how_many_authors} כותבים
+              .count
+                ="עד כה ישנם"
+                = link_to "#{how_many_texts} טקסטים", "/texts"
+                = "של"
+                = link_to "#{how_many_authors} כותבים", "/all/author"
               #searchbox
-                %form{:action=>"/texts/search", :method => "post"}
+                %form{:action=>"/search", :method => "post"}
                   %input{:name => 'q', :type => 'text', :placeholder => "חפש לי באתר"}
                   %input{:name => "authenticity_token", :type => "hidden", :value => form_authenticity_token}
 
               - if user_signed_in?
-                %span= "שלום "+current_user.firstname+"! | "
-                %span
-                  = link_to('ניתוק', destroy_user_session_path)
-                  %br
-
-              %br
-              = link_to "הוספת קטע לאתר", new_text_path
-              %br
-              = link_to "פרוייקט בן-יהודה", "http://www.benyehuda.org/"
+                #hello{:style=> "text-align: center;"}
+                  %span= "שלום "+current_user.firstname+"! | "
+                  %span= link_to('ניתוק', destroy_user_session_path)
+                  %span= " | "
+                  %span= link_to "הוספת קטע", new_text_path
               = yield :sidebar
       %footer#footer
         = render :partial => 'layouts/footer'
