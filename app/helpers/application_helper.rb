@@ -34,4 +34,18 @@ module ApplicationHelper
     end
   end
 
+
+  def hebrew_file_type(ext)
+    file_type = case ext.downcase
+      when "doc" then "מסמך וורד 2003"
+      when "docx" then "מסמך וורד 2007"
+      when "mp3" then "צליל"
+      when "ppt" then "מצגת פאוור-פוינט 2003"
+      when "pptx" then "מצגת פאוור-פוינט 2007"
+      when "pdf" then "מסמך אקרובט"
+      when "jpg" then "תמונה"
+      else "קובץ לא מוכר"
+    end
+    return file_type
+  end
 end
