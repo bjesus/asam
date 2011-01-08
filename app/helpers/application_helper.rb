@@ -38,6 +38,14 @@ module ApplicationHelper
     end
   end
 
+  def merge_tags(tags, new_tag)
+    tags.each do |tag|
+      Text.tagged_with(tag).each do |text|
+        text.tag_list = text.tag_list.remove(tag) + [new_tag]
+        text.save
+      end
+    end
+  end
 
   def hebrew_file_type(ext)
     file_type = case ext.downcase
