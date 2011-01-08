@@ -8,6 +8,10 @@ module ApplicationHelper
     Text.tag_counts_on(:author).length
   end
 
+  def bookshelf_random
+    return rand(1000)
+  end
+
   def related_to(item)
     same_tags = Text.tagged_with(item.tags)
     if same_tags != {} 
