@@ -30,6 +30,8 @@
                   %span= link_to('ניתוק', destroy_user_session_path)
                   %span= " | "
                   %span= link_to "הוספת קטע", new_text_path
+                  %br
+                  %span= link_to "קישורים", "/links"
               = yield :sidebar
       %footer#footer
         = render :partial => 'layouts/footer'
