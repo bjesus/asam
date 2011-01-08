@@ -47,6 +47,15 @@ module ApplicationHelper
     end
   end
 
+  def author_tags(tags, new_tag)
+    tags.each do |tag|
+      Text.tagged_with(tag).each do |text|
+        text.author_list = text.author_list.remove(tag) + [new_tag]
+        text.save
+      end
+    end
+  end
+
   def hebrew_file_type(ext)
     file_type = case ext.downcase
       when "doc" then "מסמך וורד 2003"
