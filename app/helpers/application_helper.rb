@@ -9,7 +9,7 @@ module ApplicationHelper
   end
 
   def bookshelf_random
-    return rand(1000)
+    return rand(10000)
   end
 
   def related_to(item)
