@@ -78,4 +78,18 @@ module ApplicationHelper
       return false
     end
   end
+  
+  def merge_texts(texts)
+    t = texts[0]
+    texts.delete(t)
+    text.each do |text|
+      t.content = t.content.to_s + text.content.to_s
+      t.description = t.description.to_s + text.description.to_s
+      t.tags = t.tags + text.tags
+      t.author = t.author + text.author
+      t.images = t.images + text.images
+      t.save
+      text.destory
+    end
+  end
 end
