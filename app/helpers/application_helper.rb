@@ -47,7 +47,7 @@ module ApplicationHelper
     end
   end
 
-  def author_tags(tags, new_tag)
+  def merge_authors(tags, new_tag)
     tags.each do |tag|
       Text.tagged_with(tag).each do |text|
         text.author_list = text.author_list.remove(tag) + [new_tag]
@@ -68,5 +68,14 @@ module ApplicationHelper
       else "קובץ לא מוכר"
     end
     return file_type
+  end
+  
+  def find_dups(text)
+    all = Text.find(:all, :conditions => ["name = ? AND content = ? AND description = ?", text.name, text.content, text.description])
+    if all.count > 1
+      return all
+    else
+      return false
+    end
   end
 end
