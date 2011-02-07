@@ -21,7 +21,7 @@
                 = link_to "#{how_many_authors} כותבים", "/all/author"
               #searchbox
                 %form{:action=>"/search", :method => "post"}
-                  %input{:name => 'q', :type => 'text', :placeholder => "חפש לי באתר"}
+                  %input{:name => 'q', :type => 'text', :placeholder => "חפש לי טקסט"}
                   %input{:name => "authenticity_token", :type => "hidden", :value => form_authenticity_token}
 
               - if user_signed_in?
@@ -30,8 +30,8 @@
                   %span= link_to('ניתוק', destroy_user_session_path)
                   %span= " | "
                   %span= link_to "הוספת קטע", new_text_path
-                  %br
-                  %span= link_to "קישורים", "/links"
+                  %hr
+                  %span= link_to "קישורים שימושיים", "/links"
               = yield :sidebar
       %footer#footer
         = render :partial => 'layouts/footer'
