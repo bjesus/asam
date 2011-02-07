@@ -16,7 +16,8 @@
 
 .admin-box(style="float: left;")
   %span.edit-btn= link_to "עריכה", edit_text_path(@text)
-  %span.delete-btn= link_to 'מחיקה', @text, :confirm => 'וואלה אתם בטוחים?', :method => :delete
+  - if current_user.admin?
+    %span.delete-btn= link_to 'מחיקה', @text, :confirm => 'וואלה אתם בטוחים?', :method => :delete
 
 :textile
   #{@text.content}
