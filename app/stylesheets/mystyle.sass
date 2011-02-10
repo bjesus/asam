@@ -55,11 +55,9 @@ body
   z-index: 3
   position: relative
 
-#tags-box
-  +column(7)
-
 #last-texts-box
-  +column(11, true)
+  +column(12, true)
+  margin-top: 77px
 
 .small-box
   +column(6, true)
@@ -164,6 +162,10 @@ h1
   background-position: right
   padding-right: 18px
 
+#maayan
+  background: url('/images/maayan.png') no-repeat top right
+  min-height: 251px
+
 .delete-btn
   +button
   background-image: url('/images/icons/delete.png')
@@ -172,22 +174,35 @@ h1
   +button
   background-image: url('/images/icons/page_white_edit.png')
 
+#tabs
+  width: 85%
+  margin: auto
+
 // tag cloud
-#tags-box
+.tags-box
   text-align: justify
   padding-left: 15px
-  width: 255px
+  
+.ui-tabs .ui-tabs-nav li
+  float: right
 
-#tags-box a
+.tags-box a
   text-decoration: none
   padding: 0
   margin: 0
   line-height: 13px
   color: #cc0000
 
-#tags-box a:hover
+.tags-box a:hover
   background-color: #cc0000
   color: #fff
+
+a.show-all
+  text-align: left
+  display: block
+  color: black
+  font-size: 85%
+  font-weight: bold
 
 .css1
   font-size: 0.7em
