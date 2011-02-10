@@ -7,7 +7,7 @@ class TextsController < ApplicationController
   # GET /texts.xml
   def index
     @texts = Text.find(:all, :limit => 10, :order=> 'created_at desc')
-    @authors = Text.tag_counts_on(:author).limit(20).order('count desc').sort_by { |t| t.name }
+    @authors = Text.tag_counts_on(:author).limit(50).order('count desc').sort_by { |t| t.name }
     @years = Text.tag_counts_on(:year)
     @tags = Text.tag_counts_on(:tags).limit(50).order('count desc').sort_by { |t| t.name }
     respond_to do |format|
