@@ -16,7 +16,7 @@
               = link_to image_tag("/images/logo.png"), '/'
               .count
                 ="עד כה ישנם"
-                = link_to "#{how_many_texts} טקסטים", "/texts"
+                = link_to "#{number_with_delimiter(how_many_texts)} טקסטים", "/texts"
                 = "של"
                 = link_to "#{how_many_authors} כותבים", "/all/author"
               #searchbox
