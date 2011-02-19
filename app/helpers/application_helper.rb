@@ -85,11 +85,11 @@ module ApplicationHelper
     texts.each do |text|
       t.content = t.content.to_s + text.content.to_s
       t.description = t.description.to_s + text.description.to_s
-      t.tags = t.tags + text.tags
-      t.author = t.author + text.author
+      t.tag_list = t.tag_list + text.tag_list
+      t.author_list = t.author_list + text.author_list
       t.images = t.images + text.images
       t.save
-      text.destory
+      text.destroy
     end
   end
 end
