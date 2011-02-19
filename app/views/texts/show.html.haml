@@ -20,7 +20,7 @@
     %span.delete-btn= link_to 'מחיקה', @text, :confirm => 'וואלה אתם בטוחים?', :method => :delete
 
 :textile
-  #{@text.content}
+  #{@text.description}
 
 %hr(style="border: 1px solid black")
 - @text.images.each do |image|
