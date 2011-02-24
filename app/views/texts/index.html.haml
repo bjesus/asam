@@ -53,3 +53,6 @@
       $('#more-link').toggle('slow');
     });
     $('#tabs').tabs();
+    
+- content_for :stylesheets do
+  = stylesheet_link_tag 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/blitzer/jquery-ui.css', :media => 'screen, projection'

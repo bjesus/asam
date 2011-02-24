@@ -42,6 +42,7 @@
 - content_for :special_js do
   :javascript
     Shadowbox.init();
+    $('#uploader').attr('dir', 'ltr');
     plupload.addI18n({
             'Select files' : 'בחר קבצים',
             'Add files to the upload queue and click the start button.' : 'הוסף קבצים והתחל את ההעלאה',
@@ -148,4 +149,3 @@
       }}});
 
     });
-
