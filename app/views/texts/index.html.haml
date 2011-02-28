@@ -27,6 +27,8 @@
       %li
         %a{:href=>"#tabs-2"} לפי מחבר
       %li
+        %a{:href=>"#tabs-4"} לפי סוג
+      %li
         %a{:href=>"#tabs-3"} חדש במעין
     #tabs-1
       .tags-box
@@ -43,7 +45,10 @@
       %ul     
       - @texts.each do |text|
         %li= link_to text.name, text
-
+    #tabs-4
+      .tags-box
+        - tag_cloud(@kinds, %w(css1 css2 css3 css4 css5)) do |tag, css_class| 
+          = link_to tag.name, '/tags/'+tag.name, {'class' => css_class}
 
 
 - content_for :special_js do
