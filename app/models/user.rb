@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   has_many :texts
   validates_presence_of :firstname, :lastname
   has_friendly_id :urlname, :use_slug => true
-  validates :phone, :presence => true, :phone => true
+  validates :phone, :presence => true, :phone => true, :length => { :within => 7..7 }
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
   devise :database_authenticatable, :registerable,
