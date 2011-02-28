@@ -9,6 +9,7 @@ end
 class User < ActiveRecord::Base
   has_many :texts
   validates_presence_of :firstname, :lastname
+  validates_uniqueness_of :phone, :email
   has_friendly_id :urlname, :use_slug => true
   validates :phone, :presence => true, :phone => true, :length => { :within => 7..7 }
   # Include default devise modules. Others available are:
