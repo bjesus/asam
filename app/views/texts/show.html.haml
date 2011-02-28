@@ -5,7 +5,7 @@
   = '>'
 %h1(style="margin: 0;")= @text.name
 %span(style="float: left;")= "(גירסה #{@text.versions.count+1})"
-%hr(style='width: 100%; clear: both;')
+%hr(style='margin: 0; ')
 .breadcrumb
   = "תגיות: "
   - @text.tags.each do |tag|
