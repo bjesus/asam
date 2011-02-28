@@ -28,6 +28,14 @@ module ApplicationHelper
     end
   end
 
+  def to_kind(tag)
+    Text.tagged_with(tag, :on => :tags).each do |text|
+      text.tag_list = text.tag_list.remove(tag)
+      text.kind_list = text.kind_list.add(tag)
+      text.save()
+    end
+  end
+
   def clear_tag(tag)
     rm = Text.tagged_with tag
     rm.each do |text|
