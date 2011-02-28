@@ -1,9 +1,9 @@
-%span.breadcrumb(style="clear: both;")
+%span(style="font-weight: bold;")
   = "טקסטים >"
   - @text.tags_on(:author).each do |author|
     = author.name
-    %hr
-%h1= @text.name
+  = '>'
+%h1(style="margin: 0;")= @text.name
 %span(style="float: left;")= "(גירסה #{@text.versions.count+1})"
 %hr(style='width: 100%; clear: both;')
 .breadcrumb
