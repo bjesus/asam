@@ -19,14 +19,14 @@ he:
         signed_in: 'התחברתם בהצלחה! מה המצב?!?!'
         signed_out: 'יצאתם מהאתר בראש מורכן...'
     passwords:
-      send_instructions: 'You will receive an email with instructions about how to reset your password in a few minutes.'
-      updated: 'Your password was changed successfully. You are now signed in.'
+      send_instructions: 'הי, שלחנו לך דואר אלקטרוני עם פרטים לאיפוס הסיסמה. נתראה בקרוב!'
+      updated: 'סחתיין על הסיסמה החדשה. אל תשכחו אותה ובהצלחה בחיים.'
     confirmations:
       send_instructions: 'You will receive an email with instructions about how to confirm your account in a few minutes.'
       confirmed: 'Your account was successfully confirmed. You are now signed in.'
     registrations:
       signed_up: 'נרשמת לאתר בהצלחה! הידד!'
-      updated: 'You updated your account successfully.'
+      updated: 'וואלה אהבתי את הפרטים החדשים שעדכנתם בפרופיל שלכם.'
       destroyed: 'Bye! Your account was successfully cancelled. We hope to see you again soon.'
     unlocks:
       send_instructions: 'You will receive an email with instructions about how to unlock your account in a few minutes.'
@@ -35,6 +35,6 @@ he:
       confirmation_instructions:
         subject: 'Confirmation instructions'
       reset_password_instructions:
-        subject: 'Reset password instructions'
+        subject: 'הוראות לאיתחול הסיסמה'
       unlock_instructions:
         subject: 'Unlock Instructions'
