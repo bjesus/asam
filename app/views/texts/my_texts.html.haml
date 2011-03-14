@@ -1,0 +1,20 @@
+%p#notice= notice
+
+%span.breadcrumb
+  = "הטקסטים שלי"
+
+  %hr
+- if @texts.length == 0
+  %h2
+    = "הי, נכון לעכשו לא שלחתם לאתר שום קובץ. לשליחה "
+    = link_to "לחצו כאן!", "/texts/new"
+  
+
+- @texts.each do |text|
+  .text-item
+    %h3= link_to text.name, text
+    %p= text.description
+    .breadcrumb
+      - text.tags.each do |tag|
+        %a.tag(href='/tags/#{tag.name}')= tag.name
+  %br

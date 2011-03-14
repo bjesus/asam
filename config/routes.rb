@@ -6,6 +6,7 @@ Textmi::Application.routes.draw do
   devise_for :users
   match 'texts/editor' => 'editor#index', :via => :get
   match 'texts/editor' => 'editor#update', :via => :post
+  match 'my_texts' => 'texts#my_texts', :via => :get
   resources :texts
 
   # The priority is based upon order of creation:

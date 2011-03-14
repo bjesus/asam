@@ -160,5 +160,14 @@ class TextsController < ApplicationController
 
   end
 
+  def my_texts
+    @texts = Text.find_all_by_user_id(current_user.id)
+
+    respond_to do |format|
+      format.html
+      format.xml  { head :ok }
+    end
+
+  end
 
 end

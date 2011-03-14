@@ -30,6 +30,8 @@
                   %span.button= link_to "הוספת קטע", new_text_path
                   %span.button= link_to('ניתוק', destroy_user_session_path)
                   %hr
+                  %span= link_to "הטקסטים שלי", "/my_texts"
+                  %br
                   %span= link_to "קישורים שימושיים", "/links"
               = yield :sidebar
       %footer#footer
