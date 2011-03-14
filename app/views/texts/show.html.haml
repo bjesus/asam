@@ -1,11 +1,11 @@
-%span.breadcrumb(style="clear: both;")
+%span(style="font-weight: bold;")
   = "טקסטים >"
   - @text.tags_on(:author).each do |author|
     = author.name
-    %hr
-%h1= @text.name
+  = '>'
+%h1(style="margin: 0;")= @text.name
 %span(style="float: left;")= "(גירסה #{@text.versions.count+1})"
-%hr(style='width: 100%; clear: both;')
+%hr(style='margin: 0; ')
 .breadcrumb
   = "תגיות: "
   - @text.tags.each do |tag|
@@ -15,7 +15,7 @@
 
 
 .admin-box(style="float: left;")
-  %span.edit-btn= link_to "עריכה", edit_text_path(@text)
+  %span.edit-btn= link_to "ערוך את הקטע הזה", edit_text_path(@text)
   - if current_user.admin?
     %span.delete-btn= link_to 'מחיקה', @text, :confirm => 'וואלה אתם בטוחים?', :method => :delete
 
@@ -39,3 +39,4 @@
   %ul
     - @text.find_related_tags.slice(0,5).each do |related|
       %li= link_to(related.name, "/texts/"+related.id.to_s)
+

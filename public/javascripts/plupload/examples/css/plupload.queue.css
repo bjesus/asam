@@ -44,7 +44,6 @@
 
 .plupload_container {
 	padding: 8px;
-	background: url('../img/transp50.png');
 	/*-moz-border-radius: 5px;*/
 }
 
@@ -61,9 +60,11 @@
 .plupload_header_title {
 	font: normal 18px sans-serif;
 	padding: 6px 0 3px;
+	text-align: right;
 }
 .plupload_header_text {
 	font: normal 12px sans-serif;
+	text-align: right;
 }
 
 .plupload_filelist {

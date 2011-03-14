@@ -28,6 +28,14 @@ module ApplicationHelper
     end
   end
 
+  def to_kind(tag)
+    Text.tagged_with(tag, :on => :tags).each do |text|
+      text.tag_list = text.tag_list.remove(tag)
+      text.kind_list = text.kind_list.add(tag)
+      text.save()
+    end
+  end
+
   def clear_tag(tag)
     rm = Text.tagged_with tag
     rm.each do |text|
@@ -92,4 +100,21 @@ module ApplicationHelper
       text.destroy
     end
   end
+
+  def sign_up_errors!
+    return "" if resource.errors.empty?
+
+    messages = resource.errors.full_messages.map { |msg| content_tag(:li, msg) }.join
+    sentence = "איזה ביאוס. #{resource.errors.count}  שגיאות מנעו ממך להרשם לאתר:"
+
+    html = <<-HTML
+    <div id="error_explanation">
+      <h2>#{sentence}</h2>
+      <ul>#{messages}</ul>
+    </div>
+    HTML
+
+    html.html_safe
+  end
+
 end

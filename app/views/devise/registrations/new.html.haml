@@ -1,5 +1,6 @@
 %div.span-18
   - form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+    = sign_up_errors!
     %h2 הרשמה לאתר
     %div.span-9.last
       %h3 שם מלא <sub> (שם פרטי + שם אמצעי + כינוי + שם משפחה) </sub>

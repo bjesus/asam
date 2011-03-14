@@ -1,9 +1,17 @@
 # coding: utf-8
 
+class PhoneValidator < ActiveModel::EachValidator
+  def validate_each(record, attribute, value)
+    record.errors[attribute] << "לא רשום במערכת!" unless open(Rails.root.join('phones.list')).grep(/#{value}/n) != []
+  end
+end
+
 class User < ActiveRecord::Base
   has_many :texts
   validates_presence_of :firstname, :lastname
+  validates_uniqueness_of :phone, :email
   has_friendly_id :urlname, :use_slug => true
+  validates :phone, :presence => true, :phone => true, :length => { :within => 7..7 }
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
   devise :database_authenticatable, :registerable,

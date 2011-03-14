@@ -117,8 +117,8 @@ he:
       accepted: "חייב באישור"
       empty: "הוא שדה חובה"
       blank: "הוא שדה חובה"
-      too_long: "יותר מדי ארוך (לא יותר מ- {{count}} תוים)"
-      too_short: "יותר מדי קצר (לא יותר מ- {{count}} תוים)"
+      too_long: "יותר מדי ארוכה (לא יותר מ- {{count}} תוים)"
+      too_short: "יותר מדי קצרה (לפחות {{count}} תוים)"
       wrong_length: "לא באורך הנכון (חייב להיות {{count}} תוים)"
       taken: "לא זמין"
       not_a_number: "הוא לא מספר"
@@ -139,6 +139,9 @@ he:
           other:  "{{count}} שגיאות מנעו מהטופס להשלח"
         body: "היו כמה בעיות במילוי הטופס"
 
+  resource:
+    errors:
+      count:
 
   number:
     format:
