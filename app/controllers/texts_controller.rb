@@ -6,7 +6,7 @@ class TextsController < ApplicationController
   # GET /texts
   # GET /texts.xml
   def index
-    @texts = Text.find(:all, :limit => 10, :order=> 'created_at desc')
+    @texts = Text.recent.with_files.limit(10)
     @authors = Text.tag_counts_on(:author).limit(50).order('count desc').sort_by { |t| t.name }
     @kinds = Text.tag_counts_on(:kind).limit(50).order('count desc').sort_by { |t| t.name }
     @years = Text.tag_counts_on(:year)
@@ -136,7 +136,7 @@ class TextsController < ApplicationController
   end
 
   def tagged
-    @texts = Text.tagged_with(params[:id])
+    @texts = Text.with_files.tagged_with(params[:id])
     @tag = params[:id]
 
     respond_to do |format|
