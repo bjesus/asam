@@ -33,8 +33,11 @@
                   %span= link_to "הטקסטים שלי", "/my_texts"
                   %br
                   %span= link_to "קישורים שימושיים", "/links"
+                  %div.sidebar-big-button= link_to "הוספת קטע לאתר", new_text_path
               = yield :sidebar
       %footer#footer
         = render :partial => 'layouts/footer'
     -# Javascript at the bottom for fast page loading
     = render :partial => 'layouts/javascripts'
+
+
