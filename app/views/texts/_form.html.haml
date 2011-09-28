@@ -1,4 +1,5 @@
-
+#form-help-me
+  עזור לי במילוי הטופס!
 
 = form_for @text, :html => {:id => "text-form"} do |f|
   - if @text.errors.any?
@@ -44,6 +45,15 @@
     Shadowbox.init();
 
     $(document).ready(function() {
+      $('#form-help-me').click(function(){
+        Shadowbox.open({
+        content:    '<div dir="rtl" style="height: 100%; overflow: hidden; text-align: right; background: white;"><div style="margin-right: 1em;"><h2>הי, אין מה להבהל!</h2><p>את הטופס ממלאים ב-3 צעדים פשוטים. <ol><li>ממלאים את השדות כמו בדוגמה</li><li>לוחצים על כפתור השמירה</li><li>מוסיפים את הקבצים במסך הבא!</li></ol></p></div><img src="/imgs/example-form.png" /></div>',
+        player:     "html",
+        title:      "עזרה במילוי הטופס",
+        height:     600,
+        width:      635
+    });  
+      });
 
       var t = new $.TextboxList('#text_tag_list', {unique: true, plugins: {autocomplete: {
       minLength: 1,

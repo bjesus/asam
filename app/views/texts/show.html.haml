@@ -1,7 +1,6 @@
 %span(style="font-weight: bold;")
   = "טקסטים >"
-  - @text.tags_on(:author).each do |author|
-    = author.name
+  = @text.tags_on(:author).map{|author| author.name}.join(", ")
   = '>'
 %h1(style="margin: 0;")= @text.name
 %span(style="float: left;")= "(גירסה #{@text.versions.count+1})"
