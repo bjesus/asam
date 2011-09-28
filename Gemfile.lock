@@ -57,6 +57,7 @@ GEM
     devise (1.1.2)
       bcrypt-ruby (~> 2.1.2)
       warden (~> 0.10.7)
+    errorapp_notifier (7.0.1)
     erubis (2.6.6)
       abstract (>= 1.0.0)
     friendly_id (3.1.6)
@@ -107,6 +108,7 @@ GEM
     tzinfo (0.3.23)
     warden (0.10.7)
       rack (>= 1.0.0)
+    will_paginate (3.0.pre)
 
 PLATFORMS
   ruby
@@ -117,6 +119,7 @@ DEPENDENCIES
   acts_as_commentable
   compass
   devise
+  errorapp_notifier
   friendly_id (~> 3.1)
   haml
   html5-boilerplate
@@ -127,3 +130,4 @@ DEPENDENCIES
   rails (= 3.0.3)
   thinking-sphinx (= 2.0.1)
   vestal_versions!
+  will_paginate (= 3.0.pre)
