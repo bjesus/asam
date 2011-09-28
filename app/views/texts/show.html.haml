@@ -15,22 +15,33 @@
 
 
 .admin-box(style="float: left;")
-  %span.edit-btn= link_to "ערוך את הקטע הזה", edit_text_path(@text)
+  %span.btn.edit-btn= link_to "ערוך את הקטע הזה", edit_text_path(@text)
+  %span.btn.add-files-btn= link_to "הוספת קבצים לקטע", '#', :onclick => "$('#add-files').slideToggle('slow'); return false;"
   - if current_user.admin?
     %span.delete-btn= link_to 'מחיקה', @text, :confirm => 'וואלה אתם בטוחים?', :method => :delete
 
+#add-files
+  %hr
+  %h3 הוספת קבצים לקטע זה
+  #uploader אין תמיכה בג'אווה סקריפט
 :textile
   #{@text.description}
 
 %hr(style="border: 1px solid black")
-- @text.images.each do |image|
-  #file-box
-    = image_tag("/images/extensions/"+image.photo_file_name.split('.')[-1].downcase+".png")
-    %h3= image.photo_file_name.split('.')[0]
-    %p(style="margin: .5em;")= hebrew_file_type(image.photo_file_name.split('.')[-1])+" ("+image.photo_file_name.split('.')[-1].downcase+") במשקל "+ number_to_human_size(image.photo_file_size)
-    - if (['doc', 'docx', 'ppt', 'pptx', 'pdf', 'tif', 'tiff'].include? image.photo_file_name.split('.')[-1])
-      = link_to("תצוגה מקדימה", "http://docs.google.com/viewer?url=http://library.drorisrael.org.il"+image.photo.url+"&embedded=true", html_options = {:rel => 'shadowbox;width=900'})
-    = link_to "הורדה", image.photo.url
+#files-area-wrapper
+  #files-area
+    - @text.images.each do |image|
+      #file-box
+        -#= image_tag("/images/extensions/"+image.photo_file_name.split('.')[-1].downcase+".png")
+        - if !(image.photo.content_type =~ /^image/).nil? or (image.photo.content_type.ends_with? "pdf")
+          = image_tag image.photo.url(:thumb)
+        - else 
+          = image_tag("/images/extensions/"+image.photo_file_name.split('.')[-1].downcase+".png")
+        %h3= truncate(image.photo_file_name.split('.')[0], :length => 15)
+        %p(style="margin: .5em;")= hebrew_file_type(image.photo_file_name.split('.')[-1])+" ("+image.photo_file_name.split('.')[-1].downcase+") במשקל "+ number_to_human_size(image.photo_file_size)
+        - if (['doc', 'docx', 'ppt', 'pptx', 'pdf', 'tif', 'tiff'].include? image.photo_file_name.split('.')[-1])
+          = link_to("תצוגה מקדימה", "http://docs.google.com/viewer?url=http://library.drorisrael.org.il"+image.photo.url+"&embedded=true", html_options = {:rel => 'shadowbox;width=900'})
+        = link_to "הורדה", image.photo.url
 
 - content_for :sidebar do
   %br
@@ -40,3 +51,50 @@
     - @text.find_related_tags.slice(0,5).each do |related|
       %li= link_to(related.name, "/texts/"+related.id.to_s)
 
+
+- content_for :special_js do
+  - if url_for(:back).ends_with? "texts/new"
+    :javascript
+      $('#add-files').show();
+
+  :javascript
+    Shadowbox.init();
+    
+    plupload.addI18n({
+            'Select files' : 'בחר קבצים',
+            'Add files to the upload queue and click the start button.' : 'הוסף קבצים והתחל את ההעלאה',
+            'Filename' : 'שם קובץ',
+            'Status' : 'מצב',
+            'Size' : 'גודל',
+            'Add Files' : 'הוסף קבצים',
+            'Start Upload':'התחל שליחת קבצים',
+            'Stop current upload' : 'עצור את תהליך השליחה',
+            'Start uploading queue' : 'התחל את השליחה',
+            'Drag files here.' : 'גרור קבצים לכאן',
+            '%d files queued': '%d קבצים בתור להעלאה'
+
+    });
+    // Convert divs to queue widgets when the DOM is ready
+    $(function() {
+      //RoR - capture authenticity token  
+      var atoken = $("input[name=authenticity_token]").val();  
+      $("#uploader").plupload({
+        // General settings
+        runtimes : 'html5,gears,silverlight,flash',
+        url : '/images',
+        unique_names : true,
+        resize: false,
+        max_file_size : '1000mb',
+        multipart: true,
+        multipart_params : {"image[text_id]" : "#{@text.id}", authenticity_token : atoken},  
+        flash_swf_url : '/javascripts/plupload/js/plupload.flash.swf',
+        silverlight_xap_url : '/javascripts/plupload/js/plupload.silverlight.xap',
+        init : {
+            UploadComplete: function(up) {
+                $('#files-area-wrapper').load('/texts/#{@text.id} #files-area');
+                $('#add-files').hide();
+            }
+        }
+      });
+    $('.plupload_header').hide()
+    });

@@ -40,19 +40,24 @@ body {
   margin: 0;
   margin-bottom: 2em;
   float: right;
+  height: 120px;
 }
-/* line 139, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
+/* line 139, ../../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html #file-box {
   overflow-x: hidden;
 }
-
-/* line 34, ../../../app/stylesheets/mystyle.sass */
+/* line 35, ../../../app/stylesheets/mystyle.sass */
+#file-box img {
+  margin-left: 1em;
+  width: 30%;
+  float: right;
+}
+/* line 40, ../../../app/stylesheets/mystyle.sass */
 #file-box h3 {
   border-bottom: 1px dashed grey;
   width: 90%;
 }
-
-/* line 38, ../../../app/stylesheets/mystyle.sass */
+/* line 44, ../../../app/stylesheets/mystyle.sass */
 #file-box a {
   background: #cccccc;
   color: black;
@@ -66,19 +71,17 @@ body {
   text-align: center;
   padding: 3px 15px;
 }
-
-/* line 46, ../../../app/stylesheets/mystyle.sass */
+/* line 52, ../../../app/stylesheets/mystyle.sass */
 #file-box a:hover {
   background: #c8e6f1;
 }
 
-/* line 49, ../../../app/stylesheets/mystyle.sass */
-#file-box img {
-  width: 30%;
-  float: right;
+/* line 55, ../../../app/stylesheets/mystyle.sass */
+#file-box:hover {
+  background: #fdffe2;
 }
 
-/* line 53, ../../../app/stylesheets/mystyle.sass */
+/* line 58, ../../../app/stylesheets/mystyle.sass */
 #content {
   display: inline;
   float: left;
@@ -87,12 +90,12 @@ body {
   z-index: 3;
   position: relative;
 }
-/* line 139, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
+/* line 139, ../../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html #content {
   overflow-x: hidden;
 }
 
-/* line 58, ../../../app/stylesheets/mystyle.sass */
+/* line 63, ../../../app/stylesheets/mystyle.sass */
 #last-texts-box {
   display: inline;
   float: left;
@@ -100,12 +103,12 @@ body {
   width: 470px;
   margin-top: 77px;
 }
-/* line 139, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
+/* line 139, ../../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html #last-texts-box {
   overflow-x: hidden;
 }
 
-/* line 62, ../../../app/stylesheets/mystyle.sass */
+/* line 67, ../../../app/stylesheets/mystyle.sass */
 .small-box {
   display: inline;
   float: left;
@@ -113,12 +116,12 @@ body {
   width: 230px;
   float: right;
 }
-/* line 139, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
+/* line 139, ../../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html .small-box {
   overflow-x: hidden;
 }
 
-/* line 67, ../../../app/stylesheets/mystyle.sass */
+/* line 72, ../../../app/stylesheets/mystyle.sass */
 .content-line {
   display: inline;
   float: left;
@@ -126,24 +129,24 @@ body {
   width: 710px;
   margin-bottom: 1em;
 }
-/* line 139, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
+/* line 139, ../../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html .content-line {
   overflow-x: hidden;
 }
 
-/* line 71, ../../../app/stylesheets/mystyle.sass */
+/* line 76, ../../../app/stylesheets/mystyle.sass */
 #about-box {
   display: inline;
   float: left;
   margin-right: 0;
   width: 230px;
 }
-/* line 139, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
+/* line 139, ../../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html #about-box {
   overflow-x: hidden;
 }
 
-/* line 74, ../../../app/stylesheets/mystyle.sass */
+/* line 79, ../../../app/stylesheets/mystyle.sass */
 #holdside {
   top: 0;
   width: 220px;
@@ -153,12 +156,12 @@ body {
   margin-right: 0;
   width: 230px;
 }
-/* line 139, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
+/* line 139, ../../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html #holdside {
   overflow-x: hidden;
 }
 
-/* line 80, ../../../app/stylesheets/mystyle.sass */
+/* line 85, ../../../app/stylesheets/mystyle.sass */
 #sidebar {
   z-index: 2;
   position: fixed;
@@ -171,23 +174,23 @@ body {
   margin-right: 10px;
 }
 
-/* line 91, ../../../app/stylesheets/mystyle.sass */
+/* line 96, ../../../app/stylesheets/mystyle.sass */
 #sidebar a {
   color: #f8b12c;
   text-decoration: none;
 }
 
-/* line 95, ../../../app/stylesheets/mystyle.sass */
+/* line 100, ../../../app/stylesheets/mystyle.sass */
 #sidebar a:hover {
   text-decoration: underline;
 }
 
-/* line 98, ../../../app/stylesheets/mystyle.sass */
+/* line 103, ../../../app/stylesheets/mystyle.sass */
 #sidebar h4 {
   margin: 0;
 }
 
-/* line 101, ../../../app/stylesheets/mystyle.sass */
+/* line 106, ../../../app/stylesheets/mystyle.sass */
 #sidebar hr {
   background-color: #a60000;
   border: 1px solid #a60000;
@@ -195,12 +198,12 @@ body {
   width: 194px;
 }
 
-/* line 108, ../../../app/stylesheets/mystyle.sass */
+/* line 113, ../../../app/stylesheets/mystyle.sass */
 #sidebar ul {
   list-style-type: none;
 }
 
-/* line 111, ../../../app/stylesheets/mystyle.sass */
+/* line 116, ../../../app/stylesheets/mystyle.sass */
 .count {
   color: white;
   font-size: 75%;
@@ -209,26 +212,26 @@ body {
   margin-top: 1em;
 }
 
-/* line 118, ../../../app/stylesheets/mystyle.sass */
+/* line 123, ../../../app/stylesheets/mystyle.sass */
 h1 {
   font-size: 300%;
   font-family: "times new roman", serif;
   margin-top: 10px;
 }
 
-/* line 123, ../../../app/stylesheets/mystyle.sass */
+/* line 128, ../../../app/stylesheets/mystyle.sass */
 .breadcrumb {
   font-size: 80%;
   margin: 1em 0 1em 0;
 }
 
-/* line 127, ../../../app/stylesheets/mystyle.sass */
+/* line 132, ../../../app/stylesheets/mystyle.sass */
 .breadcrumb hr {
   border-bottom: 1px solid #3e3d3e;
   width: 100%;
 }
 
-/* line 132, ../../../app/stylesheets/mystyle.sass */
+/* line 137, ../../../app/stylesheets/mystyle.sass */
 .tag, .tag:visited {
   color: black;
   background-color: #ece6ca;
@@ -247,87 +250,90 @@ h1 {
   background-position: right;
 }
 
-/* line 144, ../../../app/stylesheets/mystyle.sass */
+/* line 149, ../../../app/stylesheets/mystyle.sass */
 .tag:hover {
   color: white;
   background-color: #cc6600;
 }
 
-/* line 148, ../../../app/stylesheets/mystyle.sass */
+/* line 153, ../../../app/stylesheets/mystyle.sass */
 .text-item {
   margin-bottom: 1em;
 }
-/* line 151, ../../../app/stylesheets/mystyle.sass */
+/* line 156, ../../../app/stylesheets/mystyle.sass */
 .text-item h3 {
   font-size: 120%;
   text-decoration: underline;
 }
-/* line 154, ../../../app/stylesheets/mystyle.sass */
+/* line 159, ../../../app/stylesheets/mystyle.sass */
 .text-item a {
   text-decoration: none;
 }
 
-/* line 157, ../../../app/stylesheets/mystyle.sass */
+/* line 162, ../../../app/stylesheets/mystyle.sass */
+#add-files {
+  clear: both;
+  display: none;
+}
+
+/* line 166, ../../../app/stylesheets/mystyle.sass */
 .admin-box {
-  margin-right: 1em;
+  margin-left: 5px;
+  margin-bottom: 1em;
 }
 
-/* line 169, ../../../app/stylesheets/mystyle.sass */
-#maayan {
-  background: url("/images/maayan.png") no-repeat top right;
-  min-height: 251px;
-}
-
-/* line 173, ../../../app/stylesheets/mystyle.sass */
-.delete-btn {
-  display: table;
+/* line 170, ../../../app/stylesheets/mystyle.sass */
+.btn {
   font-size: 100%;
   background-repeat: no-repeat;
   background-position: right;
   padding: 5px 20px 5px 5px;
   margin: 3px;
   background-color: #d4d7e0;
+}
+
+/* line 178, ../../../app/stylesheets/mystyle.sass */
+#maayan {
+  background: url("/images/maayan.png") no-repeat top right;
+  min-height: 251px;
+}
+
+/* line 182, ../../../app/stylesheets/mystyle.sass */
+.delete-btn {
   background-image: url("/images/icons/delete.png");
 }
 
-/* line 177, ../../../app/stylesheets/mystyle.sass */
-.edit-btn a {
+/* line 185, ../../../app/stylesheets/mystyle.sass */
+.btn a {
   text-decoration: none;
   font-size: 100%;
   font-weight: bold;
   color: black;
 }
 
-/* line 183, ../../../app/stylesheets/mystyle.sass */
+/* line 191, ../../../app/stylesheets/mystyle.sass */
 .edit-btn {
-  display: table;
-  font-size: 100%;
-  background-repeat: no-repeat;
-  background-position: right;
-  padding: 5px 20px 5px 5px;
-  margin: 3px;
-  background-color: #d4d7e0;
   background-image: url("/images/icons/page_white_edit.png");
 }
 
-/* line 187, ../../../app/stylesheets/mystyle.sass */
+/* line 194, ../../../app/stylesheets/mystyle.sass */
 #tabs {
   width: 85%;
   margin: auto;
 }
 
-/* line 192, ../../../app/stylesheets/mystyle.sass */
+/* line 199, ../../../app/stylesheets/mystyle.sass */
 .tags-box {
   text-align: justify;
   padding-left: 15px;
 }
 
-/* line 196, ../../../app/stylesheets/mystyle.sass */
+/* line 203, ../../../app/stylesheets/mystyle.sass */
 .ui-tabs .ui-tabs-nav li {
   float: right;
 }
 
-/* line 199, ../../../app/stylesheets/mystyle.sass */
+/* line 206, ../../../app/stylesheets/mystyle.sass */
 .tags-box a {
   text-decoration: none;
   padding: 0;
@@ -337,13 +343,13 @@ h1 {
   position: relative;
 }
 
-/* line 207, ../../../app/stylesheets/mystyle.sass */
+/* line 214, ../../../app/stylesheets/mystyle.sass */
 .tags-box a:hover {
   background-color: #cc0000;
   color: white;
 }
 
-/* line 211, ../../../app/stylesheets/mystyle.sass */
+/* line 218, ../../../app/stylesheets/mystyle.sass */
 a.show-all {
   text-align: left;
   display: block;
@@ -352,46 +358,46 @@ a.show-all {
   font-weight: bold;
 }
 
-/* line 218, ../../../app/stylesheets/mystyle.sass */
+/* line 225, ../../../app/stylesheets/mystyle.sass */
 .css1 {
   font-size: 0.7em;
   z-index: 10;
 }
 
-/* line 222, ../../../app/stylesheets/mystyle.sass */
+/* line 229, ../../../app/stylesheets/mystyle.sass */
 .css2 {
   font-size: 1em;
   font-weight: bold;
   z-index: 9;
 }
 
-/* line 227, ../../../app/stylesheets/mystyle.sass */
+/* line 234, ../../../app/stylesheets/mystyle.sass */
 .css3 {
   font-size: 1.5em;
   z-index: 8;
 }
 
-/* line 231, ../../../app/stylesheets/mystyle.sass */
+/* line 238, ../../../app/stylesheets/mystyle.sass */
 .css4 {
   font-size: 2em;
   z-index: 7;
 }
 
-/* line 235, ../../../app/stylesheets/mystyle.sass */
+/* line 242, ../../../app/stylesheets/mystyle.sass */
 .css5 {
   font-size: 2.5em;
   font-weight: bold;
   z-index: 6;
 }
 
-/* line 240, ../../../app/stylesheets/mystyle.sass */
+/* line 247, ../../../app/stylesheets/mystyle.sass */
 #searchbox {
   text-align: center;
   background-color: #a60000;
   padding: 0.3em;
 }
 
-/* line 245, ../../../app/stylesheets/mystyle.sass */
+/* line 252, ../../../app/stylesheets/mystyle.sass */
 #searchbox input {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -404,12 +410,12 @@ a.show-all {
   text-align: center;
 }
 
-/* line 251, ../../../app/stylesheets/mystyle.sass */
+/* line 258, ../../../app/stylesheets/mystyle.sass */
 #hello {
   margin: 3px 3px;
 }
 
-/* line 254, ../../../app/stylesheets/mystyle.sass */
+/* line 261, ../../../app/stylesheets/mystyle.sass */
 #greetings {
   color: #f8b12c;
   font-weight: bold;
@@ -417,7 +423,7 @@ a.show-all {
   margin-top: 3px;
 }
 
-/* line 261, ../../../app/stylesheets/mystyle.sass */
+/* line 268, ../../../app/stylesheets/mystyle.sass */
 .button a {
   float: left;
   font-weight: normal;
@@ -433,17 +439,17 @@ a.show-all {
   padding: 0px 8px;
 }
 
-/* line 270, ../../../app/stylesheets/mystyle.sass */
+/* line 277, ../../../app/stylesheets/mystyle.sass */
 .field_with_errors input {
   border: 2px solid red;
 }
 
-/* line 273, ../../../app/stylesheets/mystyle.sass */
+/* line 280, ../../../app/stylesheets/mystyle.sass */
 #flash {
   margin: 1em;
 }
 
-/* line 276, ../../../app/stylesheets/mystyle.sass */
+/* line 283, ../../../app/stylesheets/mystyle.sass */
 #flash p {
   margin: 0;
 }

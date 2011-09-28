@@ -37,7 +37,7 @@ gem 'acts-as-taggable-on'
 gem 'acts_as_commentable'
 gem 'RedCloth'
 gem 'vestal_versions', :git => 'https://github.com/lailsonbm/vestal_versions.git', :branch => 'rails3'
-gem 'paperclip', :git => 'https://github.com/thoughtbot/paperclip.git',  :branch => 'master'
+gem "paperclip", "~> 2.4"
 gem "friendly_id", "~> 3.1"
 gem 'html5-boilerplate'
 gem 'thinking-sphinx', '2.0.1', :require => 'thinking_sphinx'

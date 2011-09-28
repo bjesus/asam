@@ -6,8 +6,8 @@
     google.load("jquery", "1.4.4");
     google.load("jqueryui", "1.8.9");
 - else
-  = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"
-  = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"
+  = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"
+  = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"
 
 -# fall back to local jQuery if necessary
 :javascript
@@ -22,9 +22,6 @@
 -#  Append your own using content_for :javascripts
 = yield :javascripts
 
--# yui profiler and profileviewer
-- if Rails.env == 'development'
-  = javascript_include_tag 'profiling/yahoo-profiling.min', 'profiling/config'
 
 -# asynchronous google analytics: mathiasbynens.be/notes/async-analytics-snippet
 -# Looks for google_account_id first in ENV['GOOGLE_ACCOUNT_ID'] then in config/google.yml
@@ -39,15 +36,13 @@
      s.parentNode.insertBefore(g, s);
     })(document, 'script');
 
-= stylesheet_link_tag '/javascripts/plupload/examples/css/plupload.queue.css', :media => 'screen, projection'
+= stylesheet_link_tag '/javascripts/plupload/js/jquery.ui.plupload/css/jquery.ui.plupload.css', :media => 'screen, projection'
 %script{:type => "text/javascript",
-  :src  => "/javascripts/plupload/js/gears_init.js"}
+  :src  => "/javascripts/plupload/js/plupload.gears.js"}
 %script{:type => "text/javascript",
-  :src  => "http://bp.yahooapis.com/2.4.21/browserplus-min.js"}
+  :src  => "/javascripts/plupload/js/plupload.full.js"}
 %script{:type => "text/javascript",
-  :src  => "/javascripts/plupload/js/plupload.full.min.js"}
-%script{:type => "text/javascript",
-  :src  => "/javascripts/plupload/js/jquery.ui.plupload.min.js"}
+  :src  => "/javascripts/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js"}
 %script{:type => "text/javascript",
         :src  => "/javascripts/textlist/GrowingInput.js"}
 %script{:type => "text/javascript",
