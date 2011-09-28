@@ -26,7 +26,7 @@ body {
 #bookshelf {
   height: 496px;
   width: 100%;
-  background: url("/images/bookshelf.png");
+  background: url("/imgs/bookshelf.png");
   z-index: 1;
   position: absolute;
 }
@@ -170,7 +170,7 @@ body {
   top: 0;
   width: 220px;
   height: 500px;
-  background: #cc0000 url("/images/sidebar-down.png") no-repeat bottom;
+  background: #cc0000 url("/imgs/sidebar-down.png") no-repeat bottom;
   margin-right: 10px;
 }
 
@@ -245,7 +245,7 @@ h1 {
   -khtml-border-radius: 5px;
   border-radius: 5px;
   text-decoration: none;
-  background-image: url("/images/icons/tag_blue.png");
+  background-image: url("/imgs/icons/tag_blue.png");
   background-repeat: no-repeat;
   background-position: right;
 }
@@ -294,13 +294,13 @@ h1 {
 
 /* line 178, ../../../app/stylesheets/mystyle.sass */
 #maayan {
-  background: url("/images/maayan.png") no-repeat top right;
+  background: url("/imgs/maayan.png") no-repeat top right;
   min-height: 251px;
 }
 
 /* line 182, ../../../app/stylesheets/mystyle.sass */
 .delete-btn {
-  background-image: url("/images/icons/delete.png");
+  background-image: url("/imgs/icons/delete.png");
 }
 
 /* line 185, ../../../app/stylesheets/mystyle.sass */
@@ -313,7 +313,7 @@ h1 {
 
 /* line 191, ../../../app/stylesheets/mystyle.sass */
 .edit-btn {
-  background-image: url("/images/icons/page_white_edit.png");
+  background-image: url("/imgs/icons/page_white_edit.png");
 }
 
 /* line 194, ../../../app/stylesheets/mystyle.sass */
