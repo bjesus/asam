@@ -15,7 +15,7 @@
 
 
 .admin-box(style="float: left;")
-  %span.btn.edit-btn= link_to "ערוך את הקטע הזה", edit_text_path(@text)
+  %span.btn.edit-btn= link_to "עריכת פרטי הקטע הזה", edit_text_path(@text)
   %span.btn.add-files-btn= link_to "הוספת קבצים לקטע", '#', :onclick => "$('#add-files').slideToggle('slow'); return false;"
   - if current_user.admin?
     %span.delete-btn= link_to 'מחיקה', @text, :confirm => 'וואלה אתם בטוחים?', :method => :delete
@@ -24,8 +24,39 @@
   %hr
   %h3 הוספת קבצים לקטע זה
   #uploader אין תמיכה בג'אווה סקריפט
-:textile
-  #{@text.description}
+.text-details
+  - if !(@text.author.empty?)
+    .detail
+      %dt יוצר:
+      - @text.author.each do |tag|
+        %dd
+          %a.tag(href='/tags/#{tag.name}')= tag.name
+  - if !(@text.year.empty?)
+    .detail
+      %dt שנה:
+      - @text.year.each do |tag|
+        %dd
+          %a.tag(href='/tags/#{tag.name}')= tag.name
+  - if !(@text.sources.empty?)
+    .detail
+      %dt מקור:
+      - @text.sources.each do |tag|
+        %dd
+          %a.tag(href='/tags/#{tag.name}')= tag.name
+  - if !(@text.age.empty?)
+    .detail
+      %dt הגיל המודרך:
+      - @text.age.each do |tag|
+        %dd
+          %a.tag(href='/tags/#{tag.name}')= tag.name
+  - if !(@text.kind.empty?)
+    .detail
+      %dt מקור:
+      - @text.kind.each do |tag|
+        %dd
+          %a.tag(href='/tags/#{tag.name}')= tag.name
+= simple_format(@text.description)
+  
 
 %hr(style="border: 1px solid black")
 #files-area-wrapper
