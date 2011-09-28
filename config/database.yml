@@ -4,6 +4,16 @@ development:
   database: textmi
   pool: 5
   username: textmi
-  password:
+  password: eZE34K9ZQ9CL5HR6
+  host: localhost
+  collation: utf8_unicode_ci
+
+production:
+  adapter: mysql
+  encoding: utf8
+  database: textmi
+  pool: 5
+  username: textmi
+  password: eZE34K9ZQ9CL5HR6
   host: localhost
   collation: utf8_unicode_ci
