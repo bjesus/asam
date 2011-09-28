@@ -37,7 +37,7 @@
           = image_tag image.photo.url(:thumb)
         - else 
           = image_tag("/imgs/extensions/"+image.photo_file_name.split('.')[-1].downcase+".png")
-        %h3= truncate(image.photo_file_name.split('.')[0], :length => 15)
+        %h3= truncate(image.photo_file_name.split('.')[0], :length => 23)
         %p(style="margin: .5em;")= hebrew_file_type(image.photo_file_name.split('.')[-1])+" ("+image.photo_file_name.split('.')[-1].downcase+") במשקל "+ number_to_human_size(image.photo_file_size)
         - if (['doc', 'docx', 'ppt', 'pptx', 'pdf', 'tif', 'tiff'].include? image.photo_file_name.split('.')[-1])
           = link_to("תצוגה מקדימה", "http://docs.google.com/viewer?url=http://library.drorisrael.org.il"+image.photo.url+"&embedded=true", html_options = {:rel => 'shadowbox;width=900'})
