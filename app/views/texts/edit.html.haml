@@ -1,4 +1,3 @@
 %h1 עריכת פריט
 = render 'form'
-= link_to 'הצג את הפריט', @text
-= link_to 'חזור אחורה', texts_path
+%span או #{link_to 'צא ממצב עריכה', @text}

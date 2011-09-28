@@ -27,13 +27,12 @@
               - if user_signed_in?
                 #hello
                   %span#greetings= "שלום, "+current_user.firstname+"!"
-                  %span.button= link_to "הוספת קטע", new_text_path
                   %span.button= link_to('ניתוק', destroy_user_session_path)
                   %hr
                   %span= link_to "הטקסטים שלי", "/my_texts"
                   %br
                   %span= link_to "קישורים שימושיים", "/links"
-                  %div.sidebar-big-button= link_to "הוספת קטע לאתר", new_text_path
+                  %div.sidebar-big-button= link_to "הוספת פריט לאתר", new_text_path
               = yield :sidebar
       %footer#footer
         = render :partial => 'layouts/footer'

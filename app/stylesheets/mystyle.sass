@@ -82,6 +82,14 @@ body
   height: 500px
   +column(6, true)
 
+.small-field
+  +column(5)
+  float: right
+  margin-bottom: 1em
+
+.actions
+  clear: both
+
 #sidebar
   z-index: 2
   position: fixed
@@ -304,7 +312,26 @@ a.show-all
     
 .field_with_errors input
   border: 2px solid red
+
+.field
+  width: 80%
+  float: right
+
+#description-field
+  width: 400px
   
+  textarea
+    height: 143px
+
+#tags-field
+  width: 200px
+  margin-right: 1em
+  margin-top: 6px
+  margin-bottom: 15px
+
+  ul.textboxlist-bits
+    height: 150px
+
 #flash
   margin: 1em
 
