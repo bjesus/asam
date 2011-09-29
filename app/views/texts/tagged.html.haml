@@ -1,15 +1,52 @@
 %p#notice= notice
 
+= will_paginate @posts, :previous_label => "&#8594; הקודם", :next_label => "הבא &#8592;"
 %span.breadcrumb
   = "תגיות >"
   = @tag 
   %hr
 
+
+
+
 - @texts.each do |text|
-  .text-item
+  .text-item{:rel => "#{text.id}"}
     %h3= link_to text.name, text
-    %p= text.description
-    .breadcrumb
+    - if text.images.count != 1
+      %p #{text.images.count} קבצים מצורפים
+    - else
+      %p קובץ אחד מצורף
+
+    - if !(text.author.empty?)
+      %strong מחבר:
+      - text.author.each do |author|
+        %span
+          %a(href='/tags/#{author.name}')= author.name
+
+    - if !(text.tags.empty?)
+      %strong תגיות:
       - text.tags.each do |tag|
-        %a.tag(href='/tags/#{tag.name}')= tag.name
-  %br
+        %span
+          %a(href='/tags/#{tag.name}')= tag.name
+
+= will_paginate @posts, :previous_label => "&#8594; הקודם", :next_label => "הבא &#8592;"
+
+- content_for :special_js do
+  :javascript 
+    $('div[rel]').each(function() {
+      
+      $(this).qtip(
+        {
+          content: {
+            text: '<img class="throbber" src="/imgs/ajaxloader.gif" alt="טוען..." />',
+            ajax: {
+               url: '/texts/snippet/'+$(this).attr('rel')
+            }
+          },
+          position: {
+            at: 'bottom middle',
+            my: 'top middle',
+          },
+        }
+      );
+    });

@@ -22,7 +22,6 @@
 -#  Append your own using content_for :javascripts
 = yield :javascripts
 
-
 -# asynchronous google analytics: mathiasbynens.be/notes/async-analytics-snippet
 -# Looks for google_account_id first in ENV['GOOGLE_ACCOUNT_ID'] then in config/google.yml
 - if !google_account_id.blank?
@@ -37,6 +36,8 @@
     })(document, 'script');
 
 = stylesheet_link_tag '/javascripts/plupload/js/jquery.ui.plupload/css/jquery.ui.plupload.css', :media => 'screen, projection'
+%script{:type => "text/javascript",
+  :src  => "/javascripts/jquery.qtip.min.js"}
 %script{:type => "text/javascript",
   :src  => "/javascripts/plupload/js/plupload.gears.js"}
 %script{:type => "text/javascript",

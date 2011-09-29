@@ -6,11 +6,11 @@ class TextsController < ApplicationController
   # GET /texts
   # GET /texts.xml
   def index
-    @texts = Text.recent.with_files.limit(10)
-    @authors = Text.tag_counts_on(:author).limit(50).order('count desc').sort_by { |t| t.name }
-    @kinds = Text.tag_counts_on(:kind).limit(50).order('count desc').sort_by { |t| t.name }
+    @texts = Text.recent.with_files.limit(30)
+    @authors = Text.tag_counts_on(:author).limit(100).order('count desc').sort_by { |t| t.name }
+    @kinds = Text.tag_counts_on(:kind).limit(100).order('count desc').sort_by { |t| t.name }
     @years = Text.tag_counts_on(:year)
-    @tags = Text.tag_counts_on(:tags).limit(50).order('count desc').sort_by { |t| t.name }
+    @tags = Text.tag_counts_on(:tags).limit(100).order('count desc').sort_by { |t| t.name }
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @texts }
@@ -120,7 +120,8 @@ class TextsController < ApplicationController
   end
 
   def tagged
-    @texts = Text.with_files.tagged_with(params[:id])
+    @texts = Text.with_files.tagged_with(params[:id]).paginate(:page => params[:page], :per_page => 10)
+
     @tag = params[:id]
 
     respond_to do |format|
@@ -152,6 +153,15 @@ class TextsController < ApplicationController
       format.xml  { head :ok }
     end
 
+  end
+
+  def snippet
+    @text = Text.find(params[:id])
+
+    respond_to do |format|
+      format.html { render :layout => false }
+      format.xml  { render :xml => @text }
+    end
   end
 
 end

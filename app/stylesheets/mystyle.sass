@@ -61,8 +61,7 @@ body
   position: relative
 
 #last-texts-box
-  +column(12, true)
-  margin-top: 77px
+  padding-top: 70px
 
 .small-box
   +column(6, true)
@@ -70,7 +69,6 @@ body
 
 
 .content-line
-  +column(18,true)
   margin-bottom: 1em
 
 #about-box
@@ -188,12 +186,26 @@ h1
 
 .text-item
   margin-bottom: 1em
+  float: right
+  width: 300px
+  padding: 1em
+  height: 80px
+  border: 1px solid lightgrey
+  margin-right: 10px
+  ovreflow: scroll
 
   h3
     font-size: 120%
     text-decoration: underline
+    margin: 0
+  p
+    margin: 0
   a
     text-decoration: none
+
+.text-item:hover
+  background: #FDFFE2
+
 
 #add-files
   clear: both
@@ -367,3 +379,13 @@ a.show-all
   -webkit-box-shadow: 0px 0px 3px rgba(000,000,000,0.5), inset 0px 0px 2px rgba(255,255,255,1)
   text-shadow: 0px -1px 0px rgba(000,000,000,0.4), 0px 1px 0px rgba(255,255,255,0.3)
   cursor: pointer
+
+#tabs-3
+  ul
+    list-style-position: inside
+    -webkit-column-count: 3
+
+
+.pagination
+  margin-left: 100px
+  float: left

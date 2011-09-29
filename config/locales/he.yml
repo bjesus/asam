@@ -2,6 +2,10 @@
 # by Dotan Nahum (dipidi@gmail.com)
 
 he:
+  will_paginate:
+    previous_label: "&#8592; אחורה"
+    next_label: "קדימה &#8594;"
+    page_gap: "&hellip;"
   date:
     formats:
       default: "%Y-%m-%d"

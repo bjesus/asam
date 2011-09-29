@@ -1,0 +1,38 @@
+%h3 פרטים:
+%p
+  - if !(@text.tags.empty?)
+    = "תגיות:"
+    = @text.tags_on(:tags).map{|author| author.name}.join(", ")
+    %br
+  - if !(@text.author.empty?)
+    = "מחבר:"
+    = @text.tags_on(:author).map{|author| author.name}.join(", ")
+    %br
+  - if !(@text.year.empty?)
+    = "שנה:"
+    = @text.tags_on(:year).map{|author| author.name}.join(", ")
+    %br
+  - if !(@text.sources.empty?)
+    = "מקור:"
+    = @text.tags_on(:sources).map{|author| author.name}.join(", ")
+    %br
+  - if !(@text.age.empty?)
+    = "הגיל המודרך:"
+    = @text.tags_on(:age).map{|author| author.name}.join(", ")
+    %br
+  - if !(@text.kind.empty?)
+    = "סוג:"
+    = @text.tags_on(:kind).map{|author| author.name}.join(", ")
+    %br
+
+= simple_format(@text.description)
+  
+%hr(style='margin: 0; ')
+%br
+%h3 קבצים מצורפים:
+#files-area-wrapper
+  #files-area
+    - @text.images.each do |image|
+      #file-box-small
+        %strong= image.photo_file_name.split('.')[0]
+        %span= hebrew_file_type(image.photo_file_name.split('.')[-1])+" ("+image.photo_file_name.split('.')[-1].downcase+")"
