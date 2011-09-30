@@ -6,9 +6,6 @@
   = @tag 
   %hr
 
-
-
-
 - @texts.each do |text|
   .text-item{:rel => "#{text.id}"}
     %h3= link_to text.name, text
@@ -40,7 +37,7 @@
           content: {
             text: '<img class="throbber" src="/imgs/ajaxloader.gif" alt="טוען..." />',
             ajax: {
-               url: '/texts/snippet/'+$(this).attr('rel')
+               url: '/texts/'+$(this).attr('rel')+"/snippet"
             }
           },
           position: {

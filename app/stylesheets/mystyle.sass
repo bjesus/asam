@@ -3,11 +3,15 @@
 
 html
   background-color: #DBDADA
+  height: 100%
 
 body
-  background-color: #DBDADA
+  background-color: #fff
   font-family: arial, "sans-serif"
   font-size: 80%
+  width: 950px
+  margin: 0 auto
+  height: 100%
 
 
 #root
@@ -223,6 +227,9 @@ h1
   margin: 3px
   background-color: #D4D7E0
 
+.btn:hover
+  background-color: #C8E6F1
+
 #maayan
   background: url('/imgs/maayan.png') no-repeat top right
   min-height: 251px
@@ -232,6 +239,9 @@ h1
 
 .add-files-btn
   background-image: url('/imgs/icons/attach.png')
+
+.add-comment-btn
+  background-image: url('/imgs/icons/comment.png')
 
 .btn a
   text-decoration: none
@@ -389,3 +399,48 @@ a.show-all
 .pagination
   margin-left: 100px
   float: left
+
+footer
+  padding-top: 1em
+  background-color: #fff
+  text-align: center
+
+
+.text-comment
+  background: #C8E6F1
+  margin: 0 3em
+  padding: 1em 2em
+  border-top: white dotted 5px
+  margin-bottom: 1em
+  border-radius: 0 0 10px 10px
+
+  h5
+    font-weight: bold
+    font-size: 140%
+    margin: 0
+    padding: 0
+
+  input[type="text"]
+    width: 300px
+
+  textarea
+    height: 80px
+  
+  input[type="submit"]
+    margin-right: 100px
+
+
+  .user-avatar
+    float: left
+    text-align: center
+    font-weight: bold
+    width: 80px
+    font-size: 120%
+    padding: 10px
+
+  .text-comment-info
+    clear: both
+    color: grey
+
+.even
+  background-color: #f2d4c9

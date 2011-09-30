@@ -16,7 +16,8 @@ Textmi::Application.routes.draw do
   match 'tags/:id' => 'texts#tagged'
   match 'tags_json' => 'texts#tags_json'
   match 'search' => 'texts#search'
-  match 'texts/snippet/:id' => 'texts#snippet'
+  match 'texts/:id/snippet' => 'texts#snippet'
+  match 'texts/:id/comment' => 'texts#comment'
   match 'all/:tag' => 'texts#all_tags'
   match 'links' => 'home#links'
 

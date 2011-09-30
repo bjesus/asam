@@ -164,4 +164,11 @@ class TextsController < ApplicationController
     end
   end
 
+  def comment
+    @text = Text.find(params[:id])
+    @text.comments.create(:title => params[:title], :comment => params[:comment], :user => current_user)
+
+    redirect_to(@text, :notice => 'התגובה נוספה בהצלחה.')
+  end
+
 end
