@@ -1,5 +1,5 @@
 Textmi::Application.routes.draw do
-  resources :images
+  resources :texts
 
   get "home/index"
 
@@ -7,8 +7,10 @@ Textmi::Application.routes.draw do
   match 'texts/editor' => 'editor#index', :via => :get
   match 'texts/editor' => 'editor#update', :via => :post
   match 'my_texts' => 'texts#my_texts', :via => :get
-  resources :texts
-
+  
+  resources :images do
+    post :rate, :on => :member
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -18,8 +20,11 @@ Textmi::Application.routes.draw do
   match 'search' => 'texts#search'
   match 'texts/:id/snippet' => 'texts#snippet'
   match 'texts/:id/comment' => 'texts#comment'
+  match 'images/:id/guidelines' => 'images#guidelines'
+
   match 'all/:tag' => 'texts#all_tags'
   match 'links' => 'home#links'
+
 
   # Keep in mind you can assign values other than :controller and :action
 

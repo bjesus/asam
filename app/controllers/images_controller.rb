@@ -46,6 +46,7 @@ class ImagesController < ApplicationController
       params[:image][:photo] = params[:file]
     end
     @image = Image.new(params[:image])
+    @image.user = current_user
 
     respond_to do |format|
       if @image.save
@@ -85,4 +86,23 @@ class ImagesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def rate
+    @image = Image.find(params[:id])
+    @image.rate(params[:stars], current_user, params[:dimension])
+    average = @image.rate_average(true, params[:dimension])
+    width = (average / @image.class.max_stars.to_f) * 100
+    render :json => {:id => @image.wrapper_dom_id(params), :average => average, :width => width}
+  end
+
+
+  def guidelines
+    @image = Image.find(params[:id])
+    @image.guidelines = params[:guidelines]
+
+    @image.save
+    
+    redirect_to(@image.text, :notice => 'הוראות ההדפסה נשמרו בהצלחה.')
+  end
+
 end
