@@ -2,6 +2,11 @@
 # by Dotan Nahum (dipidi@gmail.com)
 
 he:
+  ajaxful_rating:
+    helper:
+      global_average: "Global rating average: %{value} out of %{max}"
+      user_rating: "הדירוג שלך: %{value} מתוך %{max}"
+      hover: "דרג %{value} מתוך %{max}"
   will_paginate:
     previous_label: "&#8592; אחורה"
     next_label: "קדימה &#8594;"
