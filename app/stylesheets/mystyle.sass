@@ -29,35 +29,59 @@ body
   z-index: 1
   position: absolute
 
-#file-box
-  +column(9)
+.file-box
+  width: 340px
   margin: 0
+  margin-left: 5px
   margin-bottom: 2em
   float: right
-  height: 120px
+  padding: 5px
+  min-height: 120px
+  border-bottom: white dotted 5px
 
-  img
-    margin-left: 1em
-    width: 80px
-    float: right
+  .thumb
+    img
+      width: 80px
+      float: right
+  
+  .file-box-content
+    width: 240px
+    float: left
 
-  h3
-    border-bottom: 1px dashed grey
-    width: 90%
+    h3
+      border-bottom: 1px dashed grey
+      width: 90%
+      overflow: hidden
+      margin: 0
+      padding: 0
 
-  a
-    background: #ccc
-    color: black
-    text-decoration: none
-    +border-radius
-    text-align: center
-    padding: 3px 15px
+    a.btn
+      background: #ccc
+      color: black
+      text-decoration: none
+      +border-radius
+      text-align: center
+      padding: 3px 15px
+      display: none
 
-  a:hover
-    background: #C8E6F1
+    a.btn:hover
+      background: #C8E6F1
 
-#file-box:hover
+    .ajaxful-rating-wrapper
+      position: relative
+      top: -23px
+      left: -68px
+    
+    .file-extra-info
+      margin-top: 1em
+
+
+.file-box:hover
   background: #FDFFE2
+
+  a.btn
+    display: inline
+
 
 #content
   +column(18)

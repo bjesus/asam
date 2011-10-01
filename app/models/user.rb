@@ -20,6 +20,8 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :firstname, :lastname, :phone, :phoneext, :email, :password, :password_confirmation, :remember_me
 
+  ajaxful_rater
+
   def display_name
     ' / <a href="/users/'+ urlname + '">' + fullname + '</a>'
   end

@@ -62,18 +62,48 @@
 %hr(style="border: 1px solid black")
 #files-area-wrapper
   #files-area
-    - @text.images.each do |image|
-      #file-box
-        -#= image_tag("/images/extensions/"+image.photo_file_name.split('.')[-1].downcase+".png")
-        - if !(image.photo.content_type =~ /^image/).nil? or (image.photo.content_type.ends_with? "pdf")
-          = image_tag image.photo.url(:thumb), :style => "border: 1px solid #d1d1d1"
-        - else 
-          = image_tag("/imgs/extensions/"+image.photo_file_name.split('.')[-1].downcase+".png")
-        %h3{:title => image.photo_file_name}= truncate(image.photo_file_name.split('.')[0], :length => 23)
-        %p(style="margin: .5em;")= hebrew_file_type(image.photo_file_name.split('.')[-1])+" ("+image.photo_file_name.split('.')[-1].downcase+") במשקל "+ number_to_human_size(image.photo_file_size)
-        - if (['doc', 'docx', 'ppt', 'pptx', 'pdf', 'tif', 'tiff'].include? image.photo_file_name.split('.')[-1])
-          = link_to("תצוגה מקדימה", "http://docs.google.com/viewer?url=http://library.drorisrael.org.il"+image.photo.url+"&embedded=true", html_options = {:rel => 'shadowbox;width=900'})
-        = link_to "הורדה", image.photo.url
+    - @text.images.ordered.each do |image|
+      .file-box{:style => "opacity: #{if image.rating_average_quality*25/100 > 0 then image.rating_average_quality*25/100 end};"}
+        .thumb
+          - if !(image.photo.content_type =~ /^image/).nil? or (image.photo.content_type.ends_with? "pdf")
+            = image_tag image.photo.url(:thumb), :style => "border: 1px solid #d1d1d1"
+          - else 
+            = image_tag("/imgs/extensions/"+image.photo_file_name.split('.')[-1].downcase+".png")
+        .file-box-content
+          %h3{:title => image.photo_file_name}= image.photo_file_name.split('.')[0]
+          %p(style="margin: .5em;")= hebrew_file_type(image.photo_file_name.split('.')[-1])+" ("+image.photo_file_name.split('.')[-1].downcase+") במשקל "+ number_to_human_size(image.photo_file_size)
+          %span דירוג איכות:
+          = ratings_for image, :dimension => :quality
+          - if (['doc', 'docx', 'ppt', 'pptx', 'pdf', 'tif', 'tiff'].include? image.photo_file_name.split('.')[-1])
+            = link_to("תצוגה", "http://docs.google.com/viewer?url=http://library.drorisrael.org.il"+image.photo.url+"&embedded=true", html_options = {:rel => 'shadowbox;width=900', :class => "btn" })
+          = link_to "הורדה", image.photo.url, :class => "btn"
+          = link_to "פרטים", '#', :onclick => "$(this).next().slideToggle('slow'); return false;", :class => "btn"
+
+          %div{:style => "display: none;", :class => "file-extra-info"}
+            %strong ציון איכות ממוצע:
+            = image.rating_average_quality
+            %br
+            %strong מספר מדרגים:
+            = image.raters(:quality).count
+            %br
+            %strong תאריך העלאה לאתר:
+            = image.created_at.strftime("%d/%m/%y")
+            - if image.user
+              %br
+                %strong משתמש:
+                = image.user.firstname+" "+image.user.lastname
+            - if true
+              %br
+                %strong הוראות הדפסה:
+                = link_to "[ערוך]", "#", :onclick => "$(this).parent().parent().find('.image-edit-guidelines').dialog({title: '#{image.photo_file_name}'}); return false;"
+                = simple_format image.guidelines
+                .image-edit-guidelines{:id => "image-#{image.id}-guidelines", :style => "display: none;"}
+                  %h3 עריכת הוראות הדפסה
+                  %form{:action => "/images/#{image.id}/guidelines", :method => "post"}
+                    %textarea{:name => "guidelines", :style => "width: 260px;"}
+                      = image.guidelines
+                    %input{:name => "authenticity_token", :type => "hidden", :value => form_authenticity_token}
+                    %input{:type => "submit", :value => "עדכן את הוראות ההדפסה"}
 
 #comments-area-wrapper
   #comments-area
@@ -124,6 +154,9 @@
     :javascript
       $('#add-files').show();
 
+  = ajaxful_rating_style
+  = ajaxful_rating_script
+
   :javascript
     Shadowbox.init();
     
@@ -165,4 +198,8 @@
         }
       });
     $('.plupload_header').hide()
+    });
+
+    $('.file-box').hover(function(){ 
+      $('.file-extra-info').hide();
     });

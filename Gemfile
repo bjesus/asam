@@ -34,6 +34,7 @@ gem 'maruku'
 gem 'devise'
 gem 'compass'
 gem 'acts-as-taggable-on'
+gem 'ajaxful_rating_jquery', :git => 'git://github.com/mrbrdo/ajaxful_rating_jquery.git', :branch => "master"
 gem 'acts_as_commentable'
 gem 'RedCloth'
 gem 'vestal_versions', :git => 'https://github.com/lailsonbm/vestal_versions.git', :branch => 'rails3'
