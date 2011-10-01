@@ -3,8 +3,8 @@
 - if !google_api_key.blank?
   = javascript_include_tag "//www.google.com/jsapi?key=#{google_api_key}"
   :javascript
-    google.load("jquery", "1.4.4");
-    google.load("jqueryui", "1.8.9");
+    google.load("jquery", "1.6.4");
+    google.load("jqueryui", "1.8.16");
 - else
   = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"
   = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"

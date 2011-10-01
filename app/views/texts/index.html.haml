@@ -53,10 +53,7 @@
 
 - content_for :special_js do
   :javascript
-    $('.toggle-more').click(function(){
-      $('#intro').toggle('slow');
-      $('#more-link').toggle('slow');
-    });
+
     $('#tabs').tabs();
 
     $('a[rel]').each(function() {
