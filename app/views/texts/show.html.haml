@@ -104,6 +104,8 @@
                       = image.guidelines
                     %input{:name => "authenticity_token", :type => "hidden", :value => form_authenticity_token}
                     %input{:type => "submit", :value => "עדכן את הוראות ההדפסה"}
+    = ajaxful_rating_style
+    = ajaxful_rating_script
 
 #comments-area-wrapper
   #comments-area
@@ -142,20 +144,22 @@
 
 - content_for :sidebar do
   %br
-  %br
-  %h4= "מזכיר לי את..."
-  %ul
-    - @text.find_related_tags.slice(0,5).each do |related|
-      %li= link_to(related.name, "/texts/"+related.id.to_s)
+  - if @text.find_related_tags.length > 0
+    #related
+      .title
+        %h4= "מזכיר לי את..."
+      %ul
+        - @text.find_related_tags.slice(0,5).each do |related|
+          %li= link_to(related.name, "/texts/"+related.id.to_s, :rel => related.id.to_s)
 
 
 - content_for :special_js do
   - if url_for(:back).ends_with? "texts/new"
     :javascript
       $('#add-files').show();
-
+  
   = ajaxful_rating_style
-  = ajaxful_rating_script
+  = ajaxful_rating_script 
 
   :javascript
     Shadowbox.init();
@@ -202,4 +206,23 @@
 
     $('.file-box').hover(function(){ 
       $('.file-extra-info').hide();
+    });
+
+
+    $('#related a').each(function() {
+      
+      $(this).qtip(
+        {
+          content: {
+            text: '<img class="throbber" src="/imgs/ajaxloader.gif" alt="טוען..." />',
+            ajax: {
+               url: '/texts/'+$(this).attr('rel')+"/snippet"
+            }
+          },
+          position: {
+            at: 'middle left',
+            my: 'middle right',
+          },
+        }
+      );
     });

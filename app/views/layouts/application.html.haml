@@ -14,26 +14,31 @@
           #holdside
             #sidebar.last
               = link_to image_tag("/imgs/logo.png"), '/'
-              .count
-                ="עד כה ישנם"
-                = link_to "#{number_with_delimiter(how_many_texts, :delimiter => ",")} טקסטים", "/texts"
-                = "של"
-                = link_to "#{how_many_authors} כותבים", "/all/author"
-              #searchbox
-                %form{:action=>"/search", :method => "post"}
-                  %input{:name => 'q', :type => 'text', :placeholder => "חפש לי טקסט"}
-                  %input{:name => "authenticity_token", :type => "hidden", :value => form_authenticity_token}
+              #sidebar-stick
+                .count
+                  ="עד כה ישנם"
+                  = link_to "#{number_with_delimiter(how_many_texts, :delimiter => ",")} טקסטים", "/texts"
+                  = "של"
+                  = link_to "#{how_many_authors} כותבים", "/all/author"
+                #searchbox
+                  %form{:action=>"/search", :method => "post"}
+                    %input{:name => 'q', :type => 'text', :placeholder => "חפש לי טקסט"}
+                    %input{:name => "authenticity_token", :type => "hidden", :value => form_authenticity_token}
 
-              - if user_signed_in?
-                #hello
-                  %span#greetings= "שלום, "+current_user.firstname+"!"
-                  %span.button= link_to('ניתוק', destroy_user_session_path)
-                  %hr
-                  %span= link_to "הטקסטים שלי", "/my_texts"
-                  %br
-                  %span= link_to "קישורים שימושיים", "/links"
-                  %div.sidebar-big-button= link_to "הוספת פריט לאתר", new_text_path
-              = yield :sidebar
+                - if user_signed_in?
+                  #hello
+                    .title
+                      %h4= "שלום, "+current_user.firstname+"!"
+                    %ul
+                      %li= link_to "הוספת פריט לאתר", new_text_path
+                      %li= link_to "הטקסטים שלי", "/my_texts"
+                      %li= link_to "קישורים שימושיים", "/links"
+                      %li= link_to('החשבון שלי', "/users/edit")
+                      %li= link_to('התנתקות', destroy_user_session_path)
+                  -#.title
+                  -#  %h4.sidebar-big-button= link_to "הוספת פריט חדש לאתר", new_text_path
+
+                = yield :sidebar
       %footer#footer
         = render :partial => 'layouts/footer'
     -# Javascript at the bottom for fast page loading

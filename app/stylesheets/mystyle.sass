@@ -6,12 +6,12 @@ html
   height: 100%
 
 body
-  background-color: #fff
   font-family: arial, "sans-serif"
   font-size: 80%
-  width: 950px
+  background-color: #DBDADA
   margin: 0 auto
   height: 100%
+
 
 
 #root
@@ -20,6 +20,8 @@ body
   border: 1px soild #000
   padding-top: 170px
   +container
+  border-radius: 0 0 20px 20px
+  padding-bottom: 20px
 //  +showgrid
   
 #bookshelf
@@ -116,44 +118,25 @@ body
 .actions
   clear: both
 
+#sidebar-stick
+  background: #CC0000 url('/imgs/sidebar-down.png') no-repeat bottom
+  padding-bottom: 10px
+  width: 220px
+  min-height: 300px
+
+
 #sidebar
   z-index: 2
-  position: fixed
   padding: 0
   padding-top: 20px
+  position: absolute
   top: 0
   width: 220px
-  height: 500px
   background: #CC0000 url('/imgs/sidebar-down.png') no-repeat bottom
   margin-right: 10px
-
     
-  .sidebar-big-button
-    text-align: center
-    clear: both
-    margin-top: 2em
-    color: white
-    
-    a
-      color: white
-      padding: 10px 20px
-      background: -moz-linear-gradient(     top,     #a60000 0%,     #c00000)
-      background: -webkit-gradient( linear, left top, left bottom,      from(#a60000),     to(#c00000))
-      border-radius: 10px
-      font-weight: bold
-      -moz-border-radius: 10px
-      -webkit-border-radius: 10px
-      border: 1px solid #c00000
-      -moz-box-shadow: 0px 0px 3px rgba(000,000,000,0.5), inset 0px 0px 2px rgba(255,255,255,1)
-      -webkit-box-shadow: 0px 0px 3px rgba(000,000,000,0.5), inset 0px 0px 2px rgba(255,255,255,1)
-      text-shadow: 0px -1px 0px rgba(000,000,000,0.4), 0px 1px 0px rgba(255,255,255,0.3)
-    
-    a:hover
-      background: -moz-linear-gradient(     top,     #c00000 0%,     #a60000)
-      background: -webkit-gradient( linear, left top, left bottom,      from(#c00000),     to(#a60000))
-      text-decoration: none
-      -moz-box-shadow: 0px 0px 3px rgba(255,255,255,1), inset 0px 0px 2px rgba(255,255,255,1)
-      -webkit-box-shadow: 0px 0px 3px rgba(255,255,255,1), inset 0px 0px 2px rgba(255,255,255,1)
+  .sidebar-big-button:hover
+    background-color: red
 
 #sidebar a
   color: #F8B12C
@@ -162,8 +145,26 @@ body
 #sidebar a:hover
   text-decoration: underline
 
+#sidebar .title
+  background: url('/imgs/corner.png') bottom right no-repeat
+  padding: 14px 10px
+  margin-right: -10px
+
 #sidebar h4
   margin: 0
+  display: inline
+  padding: 5px 10px 5px 20px
+  margin-right: -10px
+  background-color: #a60000
+  font-weight: bold
+  color: white
+
+  a
+    color: white
+  
+  a:hover
+    text-decoration: none
+
 
 #sidebar hr
   background-color: #a60000
@@ -340,9 +341,6 @@ a.show-all
   width: 200px
   text-align: center
   
-#hello
-  margin: 3px 3px
-
 #greetings
   color: #F8B12C
   font-weight: bold
@@ -426,7 +424,6 @@ a.show-all
 
 footer
   padding-top: 1em
-  background-color: #fff
   text-align: center
 
 

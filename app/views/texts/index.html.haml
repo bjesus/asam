@@ -54,7 +54,7 @@
 - content_for :special_js do
   :javascript
 
-    $('#tabs').tabs();
+    $('#tabs').tabs({ fx: { height: 'toggle' } });
 
     $('a[rel]').each(function() {
       

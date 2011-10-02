@@ -52,8 +52,14 @@
         :src  => "/javascripts/textlist/TextboxList.Autocomplete.js"}
 %script{:type => "text/javascript",
         :src  => "/javascripts/shadowbox/shadowbox.js"}
+%script{:type => "text/javascript",
+        :src  => "/javascripts/jquery.stickyPanel.js"}
+
 
 :javascript
   Shadowbox.init();
+
+  $('#sidebar-stick').stickyPanel();
+
 
 = yield :special_js
