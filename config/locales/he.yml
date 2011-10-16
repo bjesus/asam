@@ -110,6 +110,9 @@ he:
         kind: "סוג הקטע"
         age: "הגיל המודרך"
         maagal: "מעגל בתנועה"
+        sender: "שם מגיש"
+        customer: "גוף מזמין"
+        catalog: "קיטלוג ספרייתי"
 
 
   errors:

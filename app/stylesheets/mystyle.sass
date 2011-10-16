@@ -134,6 +134,17 @@ body
   width: 220px
   background: #CC0000 url('/imgs/sidebar-down.png') no-repeat bottom
   margin-right: 10px
+
+  #main-links
+    a
+      font-weight: bold
+      font-size: 120%
+          
+    a:hover
+      -webkit-transform: scale(2)
+      -moz-transform: scale(2)
+      -o-transform: scale(2)
+      -ms-transform: scale(2)
     
   .sidebar-big-button:hover
     background-color: red
@@ -143,7 +154,13 @@ body
   text-decoration: none
 
 #sidebar a:hover
+  -webkit-transition: all .5s ease-in-out
+  -moz-transition: all .5s ease-in-out
+  -o-transition: all .5s ease-in-out
+  -ms-transition: all .5s ease-in-out
   text-decoration: underline
+  color: white
+
 
 #sidebar .title
   background: url('/imgs/corner.png') bottom right no-repeat
@@ -465,3 +482,11 @@ footer
 
 .even
   background-color: #f2d4c9
+
+.actions
+  text-align: center
+  margin-left: 100px
+  padding-top: 2em
+
+#edit_form_submit
+  font-size: 140%

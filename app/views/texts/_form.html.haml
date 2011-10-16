@@ -37,8 +37,27 @@
   .small-field
     = f.label :age
     = f.text_field :age_list
+  .small-field
+    = f.label :maagal
+    = f.text_field :maagal_list
+  #extra-fields-link{:style => "float: left; margin-left: 130px;"}
+    = link_to "הצג שדות נוספים....", "#", :onclick => "$(this).hide('slow'); $('#extra-fields').slideDown('slow'); return false; "
+  #extra-fields{:style => "display: none;"}
+    .small-field
+      = f.label :catalog
+      = f.text_field :catalog_list
+    .small-field
+      = f.label :sender
+      = f.text_field :sender_list
+    .small-field
+      = f.label :customer
+      = f.text_field :customer_list
+
+    
   .actions
     = f.submit :id => "edit_form_submit", :value => "שמור את הפריט הזה"
+    - unless @text.new_record?
+      %span או #{link_to 'צא ממצב עריכה', @text}
 
 - content_for :special_js do
   :javascript
@@ -95,4 +114,21 @@
       remote: {url: '/tags_json?c=maagal'}
       }}});
 
+      var t5 = new $.TextboxList('#text_catalog_list', {unique: true, plugins: {autocomplete: {
+      minLength: 1,
+      queryRemote: true,
+      remote: {url: '/tags_json?c=catalog'}
+      }}});
+
+      var t5 = new $.TextboxList('#text_customer_list', {unique: true, plugins: {autocomplete: {
+      minLength: 1,
+      queryRemote: true,
+      remote: {url: '/tags_json?c=customer'}
+      }}});
+
+      var t5 = new $.TextboxList('#text_sender_list', {unique: true, plugins: {autocomplete: {
+      minLength: 1,
+      queryRemote: true,
+      remote: {url: '/tags_json?c=sender'}
+      }}});
     });
