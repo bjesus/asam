@@ -1,24 +1,32 @@
 .span-6
   #kinds-box.home-box
-    %h2 סוגים
+    %h2
+      = image_tag "/imgs/white/copy-item.png"
+      סוגים
     .tags-box
       - tag_cloud(@kinds, %w(css1 css2 css3 css4 css5)) do |tag, css_class| 
         = link_to tag.name, '/tags/'+tag.name, {'class' => css_class}
   #latest-box.home-box
-    %h2 חדש באתר
+    %h2
+      = image_tag "/imgs/white/star.png"
+      חדש באתר
     %ul
       - @texts.each do |text|
         %li= link_to text.name, text, :rel => "#{text.id}"
 
 .span-12.last
   #tags-box.home-box
-    %h2 תגיות
+    %h2
+      = image_tag "/imgs/white/tag.png"
+      תגיות
     .tags-box
       - tag_cloud(@tags, %w(css1 css2 css3 css4 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5)) do |tag, css_class| 
         = link_to tag.name, '/tags/'+tag.name, {'class' => css_class}
     %a.show-all{:href=>"/all/tags"} כל התגיות באתר
   #authors-box.home-box
-    %h2 מחברים
+    %h2
+      = image_tag "/imgs/white/agent.png"
+      מחברים
     .tags-box
       - tag_cloud(@authors, %w(css1 css2 css3 css4 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5)) do |tag, css_class| 
         = link_to tag.name, '/tags/'+tag.name, {'class' => css_class}
@@ -38,8 +46,8 @@
             }
           },
           position: {
-            at: 'bottom left',
-            my: 'top right',
+            at: 'bottom center',
+            my: 'top center',
           },
         }
       );
