@@ -6,6 +6,10 @@ class TextsController < ApplicationController
   # GET /texts
   # GET /texts.xml
   def index
+    if current_user.sign_in_count < 3 and request.request_uri != "/texts"
+      redirect_to('/help') and return
+    end
+
     @texts = Text.recent.with_files.limit(20)
     @authors = Text.tag_counts_on(:author).limit(100).order('count desc').sort_by { |t| t.name }
     @kinds = Text.tag_counts_on(:kind).limit(100).order('count desc').sort_by { |t| t.name }
