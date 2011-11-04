@@ -24,6 +24,7 @@ Textmi::Application.routes.draw do
 
   match 'all/:tag' => 'texts#all_tags'
   match 'links' => 'home#links'
+  match 'help' => 'home#help'
 
 
   # Keep in mind you can assign values other than :controller and :action

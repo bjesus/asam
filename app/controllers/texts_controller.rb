@@ -6,7 +6,7 @@ class TextsController < ApplicationController
   # GET /texts
   # GET /texts.xml
   def index
-    @texts = Text.recent.with_files.limit(30)
+    @texts = Text.recent.with_files.limit(20)
     @authors = Text.tag_counts_on(:author).limit(100).order('count desc').sort_by { |t| t.name }
     @kinds = Text.tag_counts_on(:kind).limit(100).order('count desc').sort_by { |t| t.name }
     @years = Text.tag_counts_on(:year)
