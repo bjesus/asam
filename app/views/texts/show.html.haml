@@ -4,7 +4,8 @@
     = @text.tags_on(:author).map{|author| author.name}.join(", ")
     != ' &lArr;'
 %h1(style="margin: 0;")= @text.name
-%span(style="float: left; margin-left: 1em;")= "(#{@text.user.fullname}, #{@text.user.phoneext}-#{@text.user.phone})"
+- if @text.user
+  %span(style="float: left; margin-left: 1em;")= "(#{@text.user.fullname}, #{@text.user.phoneext}-#{@text.user.phone})"
 %hr(style='margin: 0; ')
 .breadcrumb
   = "תגיות: "
