@@ -25,6 +25,8 @@ body
   +container
   border-radius: 0 0 20px 20px
   padding-bottom: 20px
+  border: 3px solid white
+  box-shadow: 0 0 20px white
 //  +showgrid
   
 #bookshelf
@@ -452,6 +454,10 @@ a.show-all
   text-shadow: 0px -1px 0px rgba(000,000,000,0.4), 0px 1px 0px rgba(255,255,255,0.3)
   cursor: pointer
 
+  a
+    color: white
+    text-decoration: none
+
 #tabs-3
   ul
     list-style-position: inside
@@ -537,5 +543,58 @@ footer
   a
     color: $subcolor
 
-#latest-box ul
+#latest-box ul, #comments-box ul, #hot-box ul
   margin-top: -33px
+  margin-bottom: 0px
+
+
+table.texts-listing dd, table.texts-listing dt
+  float: right
+  margin: 0
+  padding: 0 4px
+  -webkit-transition: all .5s ease-in-out
+  -moz-transition: all .5s ease-in-out
+  -o-transition: all .5s ease-in-out
+  -ms-transition: all .5s ease-in-out
+  height: 20px
+  overflow: hidden
+  border-radius: 10px
+  border: 1px solid transparent
+  z-index: 1
+  background-image: url('/imgs/icons/tag_blue.png')
+  background-repeat: no-repeat
+  background-position: right
+  padding-right: 18px
+
+table.texts-listing dd:hover
+  z-index: 2
+  overflow: visible
+
+table.texts-listing dd ul
+  list-style: none
+  width: 100%
+  margin-right: -5px
+  border-radius: 0 0 10px 10px
+  margin-top: -20px
+  padding: 0 4px
+  padding-bottom: 8px
+  padding-top: 20px
+  position: relative
+  border: 1px solid transparent
+  -webkit-transition: all .5s ease-in-out
+  -moz-transition: all .5s ease-in-out
+  -o-transition: all .5s ease-in-out
+  -ms-transition: all .5s ease-in-out
+
+
+table.texts-listing dd:hover ul
+  background-color: $maincolor
+  z-index: 10
+  border: 1px solid white
+  box-shadow: 0 0 10px white
+
+table.texts-listing dd:hover span
+  position: relative
+  z-index: 11
+  color: white
+  text-decoration: underline

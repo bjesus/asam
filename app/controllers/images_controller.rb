@@ -105,4 +105,15 @@ class ImagesController < ApplicationController
     redirect_to(@image.text, :notice => 'הוראות ההדפסה נשמרו בהצלחה.')
   end
 
+  def hidden_switch
+    @image = Image.find(params[:id])
+    if @image.user != current_user
+      return redirect_to("/", :notice => 'מה זה פה, שוק?')
+    end
+    @image.hidden = !@image.hidden
+    @image.save
+    redirect_to(@image.text, :notice => 'זמינות הקובץ שונתה בהצלחה.')
+    
+  end
+
 end

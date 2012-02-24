@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111001105743) do
+ActiveRecord::Schema.define(:version => 20120224151148) do
 
   create_table "comments", :force => true do |t|
     t.string   "title",            :limit => 50, :default => ""
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20111001105743) do
     t.datetime "photo_updated_at"
     t.decimal  "rating_average_quality", :precision => 6, :scale => 2, :default => 0.0
     t.text     "guidelines"
+    t.boolean  "hidden",                                               :default => false
   end
 
   create_table "rates", :force => true do |t|

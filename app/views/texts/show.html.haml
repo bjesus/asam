@@ -14,7 +14,6 @@
 .breadcrumb
   %hr
 
-
 .admin-box(style="float: left;")
   %span.btn.edit-btn= link_to "עריכת פרטי הקטע הזה", edit_text_path(@text)
   %span.btn.add-files-btn= link_to "הוספת קבצים לקטע", '#', :onclick => "$('#add-files').slideToggle('slow'); return false;"
@@ -75,9 +74,10 @@
           %p(style="margin: .5em;")= hebrew_file_type(image.photo_file_name.split('.')[-1])+" ("+image.photo_file_name.split('.')[-1].downcase+") במשקל "+ number_to_human_size(image.photo_file_size)
           %span דירוג איכות:
           = ratings_for image, :dimension => :quality
-          - if (['doc', 'docx', 'ppt', 'pptx', 'pdf', 'tif', 'tiff'].include? image.photo_file_name.split('.')[-1])
-            = link_to("תצוגה", "http://docs.google.com/viewer?url=http://library.drorisrael.org.il"+image.photo.url+"&embedded=true", html_options = {:rel => 'shadowbox;width=900', :class => "btn" })
-          = link_to "הורדה", image.photo.url, :class => "btn"
+          - if image.hidden == false or image.user == current_user
+            - if (['doc', 'docx', 'ppt', 'pptx', 'pdf', 'tif', 'tiff'].include? image.photo_file_name.split('.')[-1])
+              = link_to("תצוגה", "http://docs.google.com/viewer?url=http://library.drorisrael.org.il"+image.photo.url+"&embedded=true", html_options = {:rel => 'shadowbox;width=900', :class => "btn" })
+            = link_to "הורדה", image.photo.url, :class => "btn"
           = link_to "פרטים", '#', :onclick => "$(this).next().slideToggle('slow'); return false;", :class => "btn"
 
           %div{:style => "display: none;", :class => "file-extra-info"}
@@ -89,6 +89,15 @@
             %br
             %strong תאריך העלאה לאתר:
             = image.created_at.strftime("%d/%m/%y")
+            %br
+            - if image.user == current_user
+              %strong זמינות:
+              - if image.hidden
+                = "פרטי"
+                = link_to '[הפוך לציבורי]', '/images/' + image.id.to_s + '/hidden-switch'
+              - else
+                = "ציבורי"
+                = link_to '[הפוך לפרטי]', '/images/' + image.id.to_s + '/hidden-switch'
             - if image.user
               %br
                 %strong משתמש:
