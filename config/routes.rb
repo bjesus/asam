@@ -16,6 +16,7 @@ Textmi::Application.routes.draw do
 
   # Sample of regular route:
   match 'tags/:id' => 'texts#tagged'
+  match 'list' => 'texts#tagged'
   match 'tags_json' => 'texts#tags_json'
   match 'search' => 'texts#search'
   match 'texts/:id/snippet' => 'texts#snippet'
