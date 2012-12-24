@@ -1,6 +1,6 @@
 %span.breadcrumb(style="clear: both;")
   = "טקסטים > כל התגיות"
-.content-line
+.content-line(style="font-size: 120%;")
   - tag_cloud(@tags, %w(css1 css2 css3 css4 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5)) do |tag, css_class| 
     = link_to tag.name, '/tags/'+tag.name, {'class' => css_class}
 
