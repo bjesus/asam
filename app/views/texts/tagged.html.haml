@@ -4,7 +4,12 @@
 
 %span.breadcrumb
   = "תגיות >"
-  = @tag.join( ', ')
+  - if @tag.length > 1
+    - @tag.each do |t|
+      =t
+      %a(href="#{request.request_uri}&without=#{t}" title='הסר תגית "#{t}" מהסינון') (X)
+  - else
+    =@tag
   %hr
 %span(style="float: right; font-size: 140%;") צמצם סינון לפי: 
 .tags-filter

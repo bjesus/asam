@@ -133,14 +133,23 @@ class TextsController < ApplicationController
   end
 
   def tagged
-    @texts = Text.with_files.tagged_with(params[:id]).paginate(:page => params[:page], :per_page => 10)
-    @tags = Text.tagged_with(params[:id]).tag_counts_on(:tags)
-    @tags_kind = Text.tagged_with(params[:id]).tag_counts_on(:kind)
-    @tags_author = Text.tagged_with(params[:id]).tag_counts_on(:author)
-    @tags_year = Text.tagged_with(params[:id]).tag_counts_on(:year)
-    @count = Text.tagged_with(params[:id]).count()
+    ids = params[:id].clone
+    if params[:without]
+      ids.delete(params[:without])
+      url = ""
+      ids.each do |id|
+        url = url + "id[]="+URI.escape(id)+"&"
+      end
+      return redirect_to("/list?"+url)
+    end
+    @texts = Text.with_files.tagged_with(ids).paginate(:page => params[:page], :per_page => 10)
+    @tags = Text.tagged_with(ids).tag_counts_on(:tags)
+    @tags_kind = Text.tagged_with(ids).tag_counts_on(:kind)
+    @tags_author = Text.tagged_with(ids).tag_counts_on(:author)
+    @tags_year = Text.tagged_with(ids).tag_counts_on(:year)
+    @count = Text.tagged_with(ids).count()
 
-    @tag = [*params[:id]]
+    @tag = [*ids]
 
     respond_to do |format|
       format.html
