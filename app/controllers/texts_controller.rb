@@ -1,4 +1,5 @@
 # coding: utf-8
+
 class TextsController < ApplicationController
 
   before_filter :authenticate_user!

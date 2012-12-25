@@ -35,7 +35,7 @@
       תגיות
     .tags-box
       - tag_cloud(@tags, %w(css1 css2 css3 css4 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5)) do |tag, css_class| 
-        = link_to tag.name, '/tags/'+tag.name, {'class' => css_class}
+        = link_to tag.name, '/list?id='+tag.name, {'class' => css_class}
     %a.show-all{:href=>"/all/tags"} כל התגיות באתר
   #authors-box.home-box
     %h2
