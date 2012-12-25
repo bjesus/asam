@@ -9,24 +9,28 @@
 %span(style="float: right; font-size: 140%;") צמצם סינון לפי: 
 .tags-filter
   %span תגיות
-  .tags
-    - tag_cloud(@tags, %w(css1 css2 css3 css4 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5)) do |tag, css_class| 
-      = link_to tag.name, '/list?id[]='+tag.name+'&id[]='+@tag.join('&id[]='), {'class' => css_class}
+  .tags.tags-box
+    - tag_cloud(@tags, %w(css1 css2 css3 css4 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5)) do |tag, css_class|
+      - unless @tag.include? tag.name
+        = link_to tag.name, '/list?id[]='+tag.name+'&id[]='+@tag.join('&id[]='), {'class' => css_class}
 .tags-filter
   %span מחבר
-  .tags
-    - tag_cloud(@tags_author, %w(css1 css2 css3 css4 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5)) do |tag, css_class| 
-      = link_to tag.name, '/list?id[]='+tag.name+'&id[]='+@tag.join('&id[]='), {'class' => css_class}
+  .tags.tags-box
+    - tag_cloud(@tags_author, %w(css1 css2 css3 css4 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5)) do |tag, css_class|
+      - unless @tag.include? tag.name
+        = link_to tag.name, '/list?id[]='+tag.name+'&id[]='+@tag.join('&id[]='), {'class' => css_class}
 .tags-filter
   %span סוג
-  .tags
+  .tags.tags-box
     - tag_cloud(@tags_kind, %w(css1 css2 css3 css4 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5)) do |tag, css_class| 
-      = link_to tag.name, '/list?id[]='+tag.name+'&id[]='+@tag.join('&id[]='), {'class' => css_class}
+      - unless @tag.include? tag.name
+        = link_to tag.name, '/list?id[]='+tag.name+'&id[]='+@tag.join('&id[]='), {'class' => css_class}
 .tags-filter
   %span שנה
-  .tags
+  .tags.tags-box
     - tag_cloud(@tags_year, %w(css1 css2 css3 css4 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5)) do |tag, css_class| 
-      = link_to tag.name, '/list?id[]='+tag.name+'&id[]='+@tag.join('&id[]='), {'class' => css_class}
+      - unless @tag.include? tag.name
+        = link_to tag.name, '/list?id[]='+tag.name+'&id[]='+@tag.join('&id[]='), {'class' => css_class}
 %hr(style="border-top: 1px solid #3E3D3E;")
 - @texts.each do |text|
   .text-item{:rel => "#{text.id}"}

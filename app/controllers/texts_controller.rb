@@ -140,7 +140,7 @@ class TextsController < ApplicationController
     @tags_year = Text.tagged_with(params[:id]).tag_counts_on(:year)
     @count = Text.tagged_with(params[:id]).count()
 
-    @tag = [params[:id]]
+    @tag = [*params[:id]]
 
     respond_to do |format|
       format.html
