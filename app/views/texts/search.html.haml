@@ -6,7 +6,19 @@
   %hr
 
 - @texts.each do |text|
-  .text-item
+  .text-item{:rel => "#{text.id}"}
     %h3= link_to text.name, text
-    %p= text.description
+    - if text.images.count != 1
+      %p #{text.images.count} קבצים מצורפים
+    - else
+      %p קובץ אחד מצורף
 
+    - if !(text.author.empty?)
+      - text.author.each do |author|
+        %span
+          %a.tag.author_tag(href='/list?id=#{author.name}')= author.name
+
+    - if !(text.tags.empty?)
+      - text.tags.each do |tag|
+        %span
+          %a.tag(href='/list?id=#{tag.name}')= tag.name

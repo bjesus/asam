@@ -46,16 +46,14 @@
       %p קובץ אחד מצורף
 
     - if !(text.author.empty?)
-      %strong מחבר:
       - text.author.each do |author|
         %span
-          %a(href='/list?id=#{author.name}')= author.name
+          %a.tag.author_tag(href='/list?id=#{author.name}')= author.name
 
     - if !(text.tags.empty?)
-      %strong תגיות:
       - text.tags.each do |tag|
         %span
-          %a(href='/list?id=#{tag.name}')= tag.name
+          %a.tag(href='/list?id=#{tag.name}')= tag.name
 
 = will_paginate @posts, :previous_label => "&#8594; הקודם", :next_label => "הבא &#8592;"
 

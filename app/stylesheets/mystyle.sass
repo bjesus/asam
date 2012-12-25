@@ -233,6 +233,9 @@ h1
   background-repeat: no-repeat
   background-position: right
 
+.tag.author_tag
+  background-image: url('/imgs/icons/user_silhouette.png')
+
 .tag:hover
   color: white
   background-color: #cc6600
@@ -246,11 +249,19 @@ h1
   border: 1px solid lightgrey
   margin-right: 10px
   overflow: hidden
+  -webkit-transition: all 0.2s ease-in-out
+  -moz-transition: all 0.2s ease-in-out
+  -o-transition: all 0.2s ease-in-out
+  -ms-transition: all 0.2s ease-in-out
+  transition: all 0.2s ease-in-out
 
   h3
     font-size: 120%
-    text-decoration: underline
     margin: 0
+    font-weight: bold
+
+    a
+      text-decoration: none
   p
     margin: 0
   a
@@ -258,8 +269,6 @@ h1
 
 .text-item:hover
   background: #FDFFE2
-  height: auto
-  min-height: 80px
 
 #add-files
   clear: both
