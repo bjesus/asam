@@ -1,11 +1,33 @@
 %p#notice= notice
-
+%span(style="float: left;") סה"כ #{@count} קטעים
 = will_paginate @posts, :previous_label => "&#8594; הקודם", :next_label => "הבא &#8592;"
+
 %span.breadcrumb
   = "תגיות >"
-  = @tag 
+  = @tag.join( ', ')
   %hr
-
+%span(style="float: right; font-size: 140%;") צמצם סינון לפי: 
+.tags-filter
+  %span תגיות
+  .tags
+    - tag_cloud(@tags, %w(css1 css2 css3 css4 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5)) do |tag, css_class| 
+      = link_to tag.name, '/list?id[]='+tag.name+'&id[]='+@tag.join('&id[]='), {'class' => css_class}
+.tags-filter
+  %span מחבר
+  .tags
+    - tag_cloud(@tags_author, %w(css1 css2 css3 css4 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5)) do |tag, css_class| 
+      = link_to tag.name, '/list?id[]='+tag.name+'&id[]='+@tag.join('&id[]='), {'class' => css_class}
+.tags-filter
+  %span סוג
+  .tags
+    - tag_cloud(@tags_kind, %w(css1 css2 css3 css4 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5)) do |tag, css_class| 
+      = link_to tag.name, '/list?id[]='+tag.name+'&id[]='+@tag.join('&id[]='), {'class' => css_class}
+.tags-filter
+  %span שנה
+  .tags
+    - tag_cloud(@tags_year, %w(css1 css2 css3 css4 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5)) do |tag, css_class| 
+      = link_to tag.name, '/list?id[]='+tag.name+'&id[]='+@tag.join('&id[]='), {'class' => css_class}
+%hr(style="border-top: 1px solid #3E3D3E;")
 - @texts.each do |text|
   .text-item{:rel => "#{text.id}"}
     %h3= link_to text.name, text
@@ -18,13 +40,13 @@
       %strong מחבר:
       - text.author.each do |author|
         %span
-          %a(href='/tags/#{author.name}')= author.name
+          %a(href='/list?id=#{author.name}')= author.name
 
     - if !(text.tags.empty?)
       %strong תגיות:
       - text.tags.each do |tag|
         %span
-          %a(href='/tags/#{tag.name}')= tag.name
+          %a(href='/list?id=#{tag.name}')= tag.name
 
 = will_paginate @posts, :previous_label => "&#8594; הקודם", :next_label => "הבא &#8592;"
 

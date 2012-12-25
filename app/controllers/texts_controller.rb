@@ -134,8 +134,13 @@ class TextsController < ApplicationController
 
   def tagged
     @texts = Text.with_files.tagged_with(params[:id]).paginate(:page => params[:page], :per_page => 10)
+    @tags = Text.tagged_with(params[:id]).tag_counts_on(:tags)
+    @tags_kind = Text.tagged_with(params[:id]).tag_counts_on(:kind)
+    @tags_author = Text.tagged_with(params[:id]).tag_counts_on(:author)
+    @tags_year = Text.tagged_with(params[:id]).tag_counts_on(:year)
+    @count = Text.tagged_with(params[:id]).count()
 
-    @tag = params[:id]
+    @tag = [params[:id]]
 
     respond_to do |format|
       format.html

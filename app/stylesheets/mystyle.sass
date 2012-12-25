@@ -218,6 +218,7 @@ h1
 .breadcrumb hr
   border-bottom: 1px solid #3e3d3e
   width: 100%
+  margin: 0
 
 
 .tag, .tag:visited
@@ -599,3 +600,31 @@ table.texts-listing dd:hover span
   z-index: 11
   color: white
   text-decoration: underline
+
+.tags-filter
+  float: right
+
+  span
+    margin-left: 10px
+    margin-right: 10px
+    padding: 5px 10px
+    font-size: 140%
+
+.tags-filter .tags
+  display: none
+  padding: 5px
+  width: 653px
+  right: 11px
+  top: 67px
+  box-shadow: 0px 5px 5px black
+
+.tags-filter:hover .tags
+  position: absolute
+  display: inline
+  background: white
+  border: #CC0000 1px solid
+
+.tags-filter:hover span
+  background: #CC0000
+  color: white
+  text-shadow: 1px 1px 0px rgb(153, 0, 0)
