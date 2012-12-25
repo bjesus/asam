@@ -33,11 +33,11 @@ gem "haml"
 gem 'maruku'
 gem 'devise'
 gem 'compass'
-gem 'acts-as-taggable-on'
+gem 'acts-as-taggable-on', '~> 2.3.1'
 gem 'ajaxful_rating_jquery', :git => 'git://github.com/mrbrdo/ajaxful_rating_jquery.git', :branch => "master"
 gem 'acts_as_commentable'
 gem 'RedCloth'
-gem 'vestal_versions', :git => 'https://github.com/lailsonbm/vestal_versions.git', :branch => 'rails3'
+gem 'vestal_versions', :git => 'https://github.com/adamcooper/vestal_versions.git'
 gem "paperclip", "~> 2.4"
 gem "friendly_id", "~> 3.1"
 gem 'html5-boilerplate'
