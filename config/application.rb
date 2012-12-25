@@ -1,3 +1,5 @@
+# coding: utf-8
+
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
@@ -38,5 +40,7 @@ module Textmi
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+
+    ActsAsTaggableOn.remove_unused_tags = true
   end
 end
