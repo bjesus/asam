@@ -40,6 +40,7 @@ class TextsController < ApplicationController
 
   def search
     @texts = Text.search "*#{params[:q]}*"
+    @query = params[:q]
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @texts }

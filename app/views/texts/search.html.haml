@@ -1,9 +1,10 @@
 %p#notice= notice
 
 %span.breadcrumb
-  = "תגיות >"
-  = @tag 
+  = "חיפוש >"
+  = @query
   %hr
+  %br
 
 - @texts.each do |text|
   .text-item{:rel => "#{text.id}"}
