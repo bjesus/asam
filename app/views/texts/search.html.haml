@@ -22,3 +22,23 @@
       - text.tags.each do |tag|
         %span
           %a.tag(href='/list?id=#{tag.name}')= tag.name
+
+- content_for :special_js do
+  :javascript 
+    $('div[rel]').each(function() {
+      
+      $(this).qtip(
+        {
+          content: {
+            text: '<img class="throbber" src="/imgs/ajaxloader.gif" alt="טוען..." />',
+            ajax: {
+               url: '/texts/'+$(this).attr('rel')+"/snippet"
+            }
+          },
+          position: {
+            at: 'bottom middle',
+            my: 'top middle',
+          },
+        }
+      );
+    });
