@@ -19,7 +19,9 @@ class Text < ActiveRecord::Base
     indexes content
     indexes images.description, :as => :text_description
     #indexes user.name, :as => :user, :sortable => true
-    
+
+    set_property :group_concat_max_len => 8192
+
     # attributes
     #has user_id, created_at, updated_at
   end
