@@ -144,10 +144,10 @@ class TextsController < ApplicationController
       return redirect_to("/list?"+url)
     end
     @texts = Text.with_files.tagged_with(ids).paginate(:page => params[:page], :per_page => 10)
-    @tags = Text.tagged_with(ids).tag_counts_on(:tags)
-    @tags_kind = Text.tagged_with(ids).tag_counts_on(:kind)
-    @tags_author = Text.tagged_with(ids).tag_counts_on(:author)
-    @tags_year = Text.tagged_with(ids).tag_counts_on(:year)
+    @tags = Text.tagged_with(ids).tag_counts_on(:tags).sort_by { |t| t.name }
+    @tags_kind = Text.tagged_with(ids).tag_counts_on(:kind).sort_by { |t| t.name }
+    @tags_author = Text.tagged_with(ids).tag_counts_on(:author).sort_by { |t| t.name }
+    @tags_year = Text.tagged_with(ids).tag_counts_on(:year).sort_by { |t| t.name }
     @count = Text.tagged_with(ids).count()
 
     @tag = [*ids]
