@@ -31,31 +31,31 @@
       %dt יוצר:
       - @text.author.each do |tag|
         %dd
-          %a.tag(href='/list?id=#{tag.name}')= tag.name
+          %a.tag.author_tag(href='/list?id=#{tag.name}')= tag.name
   - if !(@text.year.empty?)
     .detail
       %dt שנה:
       - @text.year.each do |tag|
         %dd
-          %a.tag(href='/list?id=#{tag.name}')= tag.name
+          %a.tag.year_tag(href='/list?id=#{tag.name}')= tag.name
   - if !(@text.sources.empty?)
     .detail
       %dt מקור:
       - @text.sources.each do |tag|
         %dd
-          %a.tag(href='/list?id=#{tag.name}')= tag.name
+          %a.tag.source_tag(href='/list?id=#{tag.name}')= tag.name
   - if !(@text.age.empty?)
     .detail
       %dt הגיל המודרך:
       - @text.age.each do |tag|
         %dd
-          %a.tag(href='/list?id=#{tag.name}')= tag.name
+          %a.tag.age_tag(href='/list?id=#{tag.name}')= tag.name
   - if !(@text.kind.empty?)
     .detail
       %dt סוג:
       - @text.kind.each do |tag|
         %dd
-          %a.tag(href='/list?id=#{tag.name}')= tag.name
+          %a.tag.kind_tag(href='/list?id=#{tag.name}')= tag.name
 = simple_format(@text.description)
   
 
