@@ -12,7 +12,7 @@
       סוגים
     .tags-box
       - tag_cloud(@kinds, %w(css1 css2 css3 css4 css5)) do |tag, css_class| 
-        = link_to tag.name, '/tags/'+tag.name, {'class' => css_class}
+        = link_to tag.name, '/list?id='+tag.name, {'class' => css_class}
   #latest-box.home-box
     %h2
       = image_tag "/imgs/white/star.png"
@@ -43,7 +43,7 @@
       מחברים
     .tags-box
       - tag_cloud(@authors, %w(css1 css2 css3 css4 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5)) do |tag, css_class| 
-        = link_to tag.name, '/tags/'+tag.name, {'class' => css_class}
+        = link_to tag.name, '/list?id='+tag.name, {'class' => css_class}
     %a.show-all{:href=>"/all/author"} כל הכותבים באתר
 
 - content_for :special_js do
