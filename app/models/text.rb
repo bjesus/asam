@@ -17,6 +17,7 @@ class Text < ActiveRecord::Base
     # fields
     indexes name, :sortable => true
     indexes content
+    indexes images.description, :as => :text_description
     #indexes user.name, :as => :user, :sortable => true
     
     # attributes
