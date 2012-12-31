@@ -7,14 +7,18 @@ Shelves is closed for it's registered users, and these users can upload new cont
 
 # Installation
 Setting up Shelves is quite straight forward and should be very simple to anyone experienced with RoR.
+
 1. Edit `config/database.yml` to match your database settings.
 2. Shelves has been tested with Ruby 1.8.7, and uses [Bundler](https://github.com/carlhuda/bundler) to set up it's dependencies.
+    
         bundle install
-        
+    
 3. Create your database
+
         rake db:create
-        
+
 4. Run Shelves
+
         rails s
         
 # License
