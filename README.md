@@ -5,6 +5,8 @@ Shelves features a search engine and an advanced tagging system that allows the 
 
 Shelves is closed for it's registered users, and these users can upload new content to it easily. The interface is currently Hebrew only, but that's the first TODO item.
 
+[![Build Status](https://travis-ci.org/bjesus/shelves.png?branch=master)](https://travis-ci.org/bjesus/shelves)
+
 # Installation
 Setting up Shelves is quite straight forward and should be very simple to anyone experienced with RoR.
 
