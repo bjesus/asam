@@ -1,0 +1,44 @@
+# Hebrew translations for Ruby on Rails
+# by Dotan Nahum (dipidi@gmail.com)
+
+he:
+  login: "כניסה לאתר"
+  email_address: 'כתובת דוא"ל'
+  password: "סיסמה"
+  log_me_in: "חבר אותי מאסטרו!"
+  forgot_password: "שכחת את הסיסמה?"
+  sidebar:
+    by: "של"
+    currently: "עד כה ישנם"
+    authors:
+      one: "%{count} מחבר"
+      other: "%{count} מחברים"
+    items:
+      one: "פריט אחד"
+      other: "%{count} פריטים"
+    search: "חפש לי טקסט"
+    welcome: "שלום %{name}!"
+    submit_new: "הוספת פריט לאתר"
+    my_items: "הטקסטים שלי"
+    links: "קישורים שימושיים"
+    my_account: 'החשבון שלי'
+    help: "הוראות שימוש באתר"
+    logout: 'התנתקות'
+  footer:
+    shelves: "מדפים"
+    version: "גירסה"
+    free_software: "תוכנה חופשית"
+    used_by: "בשירות"
+    recommended_browser: "מומלץ לצפייה בדפדפן תואם סטנדרטים"
+    or: "או"
+    this: "כזה"
+    that: "אחר"
+  tags: "תגיות"
+  authors: "מחברים"
+  types: "סוגים"
+  new: "חדש באתר"
+  popular: "לוהט באתר"
+  latest_comments: "תגובות אחרונות"
+  on: "על"
+  all_tags: "כל התגיות באתר"
+  all_authors: "כל המחברים באתר" 

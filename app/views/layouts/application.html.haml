@@ -1,6 +1,6 @@
 !!! 5
 -# http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither
--ie_html :lang => 'he', :class => 'no-js', :dir => 'rtl' do
+-ie_html :class => 'no-js' do
   = render :partial => 'layouts/head'
   %body{ :class => "#{controller.controller_name}" }
     #container
@@ -8,38 +8,39 @@
         = render :partial => 'layouts/header'
       #main
         #root.container
-          #content
-            = render :partial => 'layouts/flashes'
-            = yield
+
           #holdside
-            #sidebar.last
+            #sidebar
               = link_to image_tag("/imgs/logo.png"), '/'
               #sidebar-stick
                 .count
-                  ="עד כה ישנם"
-                  = link_to "#{number_with_delimiter(how_many_texts, :delimiter => ",")} טקסטים", "/texts"
-                  = "של"
-                  = link_to "#{how_many_authors} כותבים", "/all/author"
+                  =t("sidebar.currently")
+                  = link_to t("sidebar.items", :count => how_many_texts), "/texts"
+                  =t("sidebar.by")
+                  = link_to t("sidebar.authors", :count => how_many_authors), "/all/author"
                 #searchbox
                   %form{:action=>"/search", :method => "post"}
-                    %input{:name => 'q', :type => 'text', :placeholder => "חפש לי טקסט"}
+                    %input{:name => 'q', :type => 'text', :placeholder => t("sidebar.search")}
                     %input{:name => "authenticity_token", :type => "hidden", :value => form_authenticity_token}
 
                 - if user_signed_in?
                   #hello
                     .title
-                      %h4= "שלום, "+current_user.firstname+"!"
+                      %h4=t("sidebar.welcome", :name => current_user.firstname)
                     %ul#main-links
-                      %li= link_to "הוספת פריט לאתר", new_text_path
-                      %li= link_to "הטקסטים שלי", "/my_texts"
-                      %li= link_to "קישורים שימושיים", "/links"
-                      %li= link_to('החשבון שלי', "/users/edit")
-                      %li= link_to "הוראות שימוש באתר", "/help"
-                      %li= link_to('התנתקות', destroy_user_session_path)
-                  -#.title
-                  -#  %h4.sidebar-big-button= link_to "הוספת פריט חדש לאתר", new_text_path
+                      %li= link_to t("sidebar.submit_new"), new_text_path
+                      %li= link_to t("sidebar.my_items"), "/my_texts"
+                      %li= link_to t('sidebar.my_account'), "/users/edit"
+                      %li= link_to t("sidebar.links"), "/links"
+                      %li= link_to t("sidebar.help"), "/help"
+                      %li= link_to t('sidebar.logout'), destroy_user_session_path
 
                 = yield :sidebar
+
+          #content.last
+            = render :partial => 'layouts/flashes'
+            = yield
+
       %footer#footer
         = render :partial => 'layouts/footer'
     -# Javascript at the bottom for fast page loading

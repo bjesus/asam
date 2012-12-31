@@ -1,50 +1,50 @@
-.span-6
+.span-12
+  #comments-box.home-box
+    %h2
+      = image_tag "/imgs/white/chat-.png"
+      #{t('latest_comments')}
+    %ul
+      - @comments.each do |comment|
+        %li #{comment.user.firstname} #{comment.user.lastname} #{t('comment_on')} #{ link_to comment.commentable.name, comment.commentable}: #{truncate comment.title+" "+comment.comment, :length => 40}
+  #tags-box.home-box
+    %h2
+      = image_tag "/imgs/white/tag.png"
+      #{t('tags')}
+    .tags-box
+      - tag_cloud(@tags, %w(css1 css2 css3 css4 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5)) do |tag, css_class| 
+        = link_to tag.name, '/list?id='+tag.name, {'class' => css_class}
+    %a.show-all{:href=>"/all/tags"} #{t('all_tags')}
+  #authors-box.home-box
+    %h2
+      = image_tag "/imgs/white/agent.png"
+      #{t('authors')}
+    .tags-box
+      - tag_cloud(@authors, %w(css1 css2 css3 css4 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5)) do |tag, css_class| 
+        = link_to tag.name, '/list?id='+tag.name, {'class' => css_class}
+    %a.show-all{:href=>"/all/author"} #{t('all_authors')}
+.span-6.last
   #hot-box.home-box
     %h2
       = image_tag "/imgs/white/fire.png"
-      לוהט באתר
+      #{t('popular')}
     %ul
       - @hots.each do |text|
         %li= link_to text.name, text, :rel => "#{text.id}"      
   #kinds-box.home-box
     %h2
       = image_tag "/imgs/white/copy-item.png"
-      סוגים
+      #{t('types')}
     .tags-box
       - tag_cloud(@kinds, %w(css1 css2 css3 css4 css5)) do |tag, css_class| 
         = link_to tag.name, '/list?id='+tag.name, {'class' => css_class}
   #latest-box.home-box
     %h2
       = image_tag "/imgs/white/star.png"
-      חדש באתר
+      #{t('new')}
     %ul
       - @texts.each do |text|
         %li= link_to text.name, text, :rel => "#{text.id}"
 
-.span-12.last
-  #comments-box.home-box
-    %h2
-      = image_tag "/imgs/white/chat-.png"
-      תגובות אחרונות
-    %ul
-      - @comments.each do |comment|
-        %li #{comment.user.firstname} #{comment.user.lastname} על #{ link_to comment.commentable.name, comment.commentable}: #{truncate comment.title+" "+comment.comment, :length => 40}
-  #tags-box.home-box
-    %h2
-      = image_tag "/imgs/white/tag.png"
-      תגיות
-    .tags-box
-      - tag_cloud(@tags, %w(css1 css2 css3 css4 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5)) do |tag, css_class| 
-        = link_to tag.name, '/list?id='+tag.name, {'class' => css_class}
-    %a.show-all{:href=>"/all/tags"} כל התגיות באתר
-  #authors-box.home-box
-    %h2
-      = image_tag "/imgs/white/agent.png"
-      מחברים
-    .tags-box
-      - tag_cloud(@authors, %w(css1 css2 css3 css4 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5 css5)) do |tag, css_class| 
-        = link_to tag.name, '/list?id='+tag.name, {'class' => css_class}
-    %a.show-all{:href=>"/all/author"} כל הכותבים באתר
 
 - content_for :special_js do
   :javascript

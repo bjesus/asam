@@ -17,4 +17,5 @@
 = stylesheet_link_tag '/javascripts/jquery.qtip.min.css', :media => 'screen, projection'
 = stylesheet_link_tag '/javascripts/textlist/TextboxList.Autocomplete.css', :media => 'screen, projection'
 = stylesheet_link_tag '/javascripts/shadowbox/shadowbox.css', :media => 'screen, projection'
-
+- if I18n.locale == :he
+  = stylesheet_link_tag 'compiled/rtl.css', :media => 'screen, projection'

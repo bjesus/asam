@@ -1,0 +1,44 @@
+# Hebrew translations for Ruby on Rails
+# by Dotan Nahum (dipidi@gmail.com)
+
+en:
+  login: "Login"
+  email_address: 'E-Mail address'
+  password: "Password"
+  log_me_in: "Log me in!"
+  forgot_password: "Forgot your password?"
+  sidebar:
+    by: "by"
+    currently: "Currently"
+    authors:
+      one: "%{count} author"
+      other: "%{count} authors"
+    items:
+      one: "%{count} item"
+      other: "%{count} items"
+    search: "Search an item"
+    welcome: "Hello %{name}!"
+    submit_new: "Submit item"
+    my_items: "My items"
+    links: "Other Libraries"
+    my_account: 'My Account'
+    help: "Instructions"
+    logout: 'Logout'
+  footer:
+    shelves: "Shelves"
+    version: "version"
+    free_software: "Free Software"
+    used_by: "used by"
+    recommended_browser: "Best viewed with a standards compatible browser like"
+    or: "or"
+    this: "this"
+    that: "that"
+  tags: "Tags"
+  authors: "Authors"
+  types: "Types"
+  new: "New"
+  popular: "Popular"
+  latest_comments: "Latest Comments"
+  comment_on: "on"
+  all_tags: "All tags"
+  all_authors: "All authors"

@@ -1,18 +1,18 @@
 <div style="text-align: center;">
-<h2>כניסה לאתר</h2>
+<h2><%=t :login %></h2>
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <p>כתובת דוא"ל<br />
+  <p><%=t :email_address %> <br />
   <%= f.text_field :email %></p>
 
-  <p>סיסמה<br />
+  <p><%=t :password %><br />
   <%= f.password_field :password %></p>
 
   <% if devise_mapping.rememberable? -%>
     <p><%= f.check_box :remember_me %> זכור אותי</p>
   <% end -%>
 
-  <p><%= f.submit "חבר אותי מאסטרו!" %></p>
+  <p><%= f.submit t "log_me_in" %></p>
 <% end %>
 
 <%= render :partial => "devise/shared/links" %>
