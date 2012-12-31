@@ -7,6 +7,7 @@ he:
   password: "סיסמה"
   log_me_in: "חבר אותי מאסטרו!"
   forgot_password: "שכחת את הסיסמה?"
+  remember_me: "זכור אותי"
   sidebar:
     by: "של"
     currently: "עד כה ישנם"

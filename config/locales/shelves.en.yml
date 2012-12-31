@@ -7,6 +7,7 @@ en:
   password: "Password"
   log_me_in: "Log me in!"
   forgot_password: "Forgot your password?"
+  remember_me: "Remember me"
   sidebar:
     by: "by"
     currently: "Currently"
