@@ -8,6 +8,13 @@ development:
   host: localhost
   collation: utf8_unicode_ci
 
+test:
+  adapter: mysql
+  database: shelves
+  username: root
+  encoding: utf8
+  collation: utf8_unicode_ci
+
 production:
   adapter: mysql
   encoding: utf8
