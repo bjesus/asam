@@ -9,7 +9,7 @@
   <%= f.password_field :password %></p>
 
   <% if devise_mapping.rememberable? -%>
-    <p><%= f.check_box :remember_me %> זכור אותי</p>
+    <p><%= f.check_box :remember_me %> <%=t :remember_me %></p>
   <% end -%>
 
   <p><%= f.submit t "log_me_in" %></p>
