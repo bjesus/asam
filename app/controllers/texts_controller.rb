@@ -7,23 +7,26 @@ class TextsController < ApplicationController
   # GET /texts
   # GET /texts.xml
   def index
+
+    # Show the welcome page for new users
     if current_user.sign_in_count < 3 and request.request_uri != "/texts"
-      redirect_to('/help') and return
+      return redirect_to('/help')
     end
+
+    # Get the data for the index page
     @comments = Comment.unscoped.order('created_at desc').limit(5)
     @texts = Text.recent.with_files.limit(20)
     @hots = []
+    @authors = Text.tag_counts_on(:author).limit(100).order('count desc').sort_by { |t| t.name }
+    @kinds = Text.tag_counts_on(:kind).limit(100).order('count desc').sort_by { |t| t.name }
+    @tags = Text.tag_counts_on(:tags).limit(100).order('count desc').sort_by { |t| t.name }
     hot_files = Image.order('rating_average_quality DESC').limit(30)
     hot_files.each do |hot_file|
-      if not @hots.include? hot_file.text and hot_file.text != nil
+      if not @hots.include? hot_file.text and hot_file.text != nil and @hots.length < 7
         @hots << hot_file.text
       end
     end
-    @hots = @hots.slice(0,7)
-    @authors = Text.tag_counts_on(:author).limit(100).order('count desc').sort_by { |t| t.name }
-    @kinds = Text.tag_counts_on(:kind).limit(100).order('count desc').sort_by { |t| t.name }
-    @years = Text.tag_counts_on(:year)
-    @tags = Text.tag_counts_on(:tags).limit(100).order('count desc').sort_by { |t| t.name }
+
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @texts }
@@ -78,6 +81,7 @@ class TextsController < ApplicationController
   # POST /texts.xml
   def create
     @text = current_user.texts.build(params[:text])
+
     respond_to do |format|
       if @text.save
         format.html { redirect_to(@text, :notice => 'הקטע נוצר בהצלחה.') }
@@ -93,28 +97,12 @@ class TextsController < ApplicationController
   # PUT /texts/1.xml
   def update
     @text = Text.find(params[:id])
-    names = []
-    params.each do |para|
-      if para[0].starts_with? 'uploader_' and para[0].ends_with? '_name'
-        names << para[1]
-      end
-    end
 
     respond_to do |format|
       if @text.update_attributes(params[:text])
-        names.each do |name|
-          @image = Image.find(:first, :conditions => ["photo_file_name = ? and text_id = ?", name, 0])
-          @image[:text_id] = @text.id
-          @image.save
-        end
         format.html { redirect_to(@text, :notice => 'הקטע עודכן בהצלחה.') }
         format.xml  { head :ok }
       else
-        names.each do |name|
-          @image = Image.find(:first, :conditions => ["photo_file_name = ? and text_id = ?", name, 0])
-          @image[:text_id] = @text.id
-          @image.save
-        end
         format.html { render :action => "edit" }
         format.xml  { render :xml => @text.errors, :status => :unprocessable_entity }
       end
@@ -135,6 +123,8 @@ class TextsController < ApplicationController
 
   def tagged
     ids = params[:id].clone
+    
+    # Remove tag filter
     if params[:without]
       ids.delete(params[:without])
       url = ""
@@ -143,25 +133,26 @@ class TextsController < ApplicationController
       end
       return redirect_to("/list?"+url)
     end
+
+    # Get relevant results
     @texts = Text.with_files.tagged_with(ids).paginate(:page => params[:page], :per_page => 10)
+    @count = Text.tagged_with(ids).count()
+
+    # Create tag clouds for further flitering
     @tags = Text.tagged_with(ids).tag_counts_on(:tags).sort_by { |t| t.name }
     @tags_kind = Text.tagged_with(ids).tag_counts_on(:kind).sort_by { |t| t.name }
     @tags_author = Text.tagged_with(ids).tag_counts_on(:author).sort_by { |t| t.name }
     @tags_year = Text.tagged_with(ids).tag_counts_on(:year).sort_by { |t| t.name }
-    @count = Text.tagged_with(ids).count()
-
+    
     @tag = [*ids]
 
     respond_to do |format|
       format.html
       format.xml  { head :ok }
     end
-
   end
 
   def tags_json
-    print params[:search]
-    print params[:c]
     @tags = eval("Text."+params[:c]+"_counts")
     @mytags = []
     @tags.each { |tag|
@@ -169,8 +160,8 @@ class TextsController < ApplicationController
         @mytags << [tag['name'], tag['name'], nil, tag['name']]
       end
     }
-    render :json => @mytags
 
+    render :json => @mytags
   end
 
   def my_texts
@@ -180,7 +171,6 @@ class TextsController < ApplicationController
       format.html
       format.xml  { head :ok }
     end
-
   end
 
   def snippet
