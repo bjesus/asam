@@ -9,20 +9,20 @@ class TextsController < ApplicationController
   def index
 
     # Show the welcome page for new users
-    if current_user.sign_in_count < 3 and request.request_uri != "/texts"
+    if current_user.sign_in_count < 3 and request.request_uri != "/texts" and App.force_introduction
       return redirect_to('/help')
     end
 
     # Get the data for the index page
     @comments = Comment.unscoped.order('created_at desc').limit(5)
-    @texts = Text.recent.with_files.limit(20)
+    @texts = Text.recent.with_files.limit(App.new_items)
     @hots = []
     @authors = Text.tag_counts_on(:author).limit(100).order('count desc').sort_by { |t| t.name }
     @kinds = Text.tag_counts_on(:kind).limit(100).order('count desc').sort_by { |t| t.name }
     @tags = Text.tag_counts_on(:tags).limit(100).order('count desc').sort_by { |t| t.name }
     hot_files = Image.order('rating_average_quality DESC').limit(30)
     hot_files.each do |hot_file|
-      if not @hots.include? hot_file.text and hot_file.text != nil and @hots.length < 7
+      if not @hots.include? hot_file.text and hot_file.text != nil and @hots.length < App.hot_items
         @hots << hot_file.text
       end
     end
@@ -135,7 +135,7 @@ class TextsController < ApplicationController
     end
 
     # Get relevant results
-    @texts = Text.with_files.tagged_with(ids).paginate(:page => params[:page], :per_page => 10)
+    @texts = Text.with_files.tagged_with(ids).paginate(:page => params[:page], :per_page => App.items_per_page)
     @count = Text.tagged_with(ids).count()
 
     # Create tag clouds for further flitering
