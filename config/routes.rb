@@ -1,4 +1,4 @@
-Textmi::Application.routes.draw do
+Asam::Application.routes.draw do
   resources :texts
 
   get "home/index"

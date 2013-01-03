@@ -26,7 +26,7 @@ he:
     help: "הוראות שימוש באתר"
     logout: 'התנתקות'
   footer:
-    shelves: "מדפים"
+    asam: "אסם"
     version: "גירסה"
     free_software: "תוכנה חופשית"
     used_by: "בשירות"

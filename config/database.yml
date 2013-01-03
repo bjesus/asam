@@ -1,9 +1,9 @@
 development:
   adapter: mysql
   encoding: utf8
-  database: textmi
+  database: asam
   pool: 5
-  username: textmi
+  username: asam
   password: eZE34K9ZQ9CL5HR6
   host: localhost
   collation: utf8_unicode_ci
@@ -18,9 +18,9 @@ test:
 production:
   adapter: mysql
   encoding: utf8
-  database: textmi
+  database: asam
   pool: 5
-  username: textmi
+  username: asam
   password: eZE34K9ZQ9CL5HR6
   host: localhost
   collation: utf8_unicode_ci

@@ -26,7 +26,7 @@ en:
     help: "Instructions"
     logout: 'Logout'
   footer:
-    shelves: "Shelves"
+    asam: "Asam"
     version: "version"
     free_software: "Free Software"
     used_by: "used by"

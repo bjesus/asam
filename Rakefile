@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-Textmi::Application.load_tasks
+Asam::Application.load_tasks

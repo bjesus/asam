@@ -1,4 +1,4 @@
-basedir = "/home/textmi/import"
+basedir = "/home/asam/import"
 
 task :import => :environment do
   puts 'importing begins...'
