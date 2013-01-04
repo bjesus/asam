@@ -1,6 +1,8 @@
 # encoding: utf-8
 
 class ImagesController < ApplicationController
+  protect_from_forgery :except => :rate
+
   # GET /images
   # GET /images.xml
   def index
@@ -88,13 +90,18 @@ class ImagesController < ApplicationController
   end
 
   def rate
-    @image = Image.find(params[:id])
-    @image.rate(params[:stars], current_user, params[:dimension])
-    average = @image.rate_average(true, params[:dimension])
-    width = (average / @image.class.max_stars.to_f) * 100
-    render :json => {:id => @image.wrapper_dom_id(params), :average => average, :width => width}
+    @car = Image.find(params[:id])
+    p '#####'
+    p @car
+    p current_user
+    p params[:stars]
+    p params[:dimension]
+    p '#####'
+    @car.rate(params[:stars], current_user, params[:dimension])
+    average = @car.rate_average(true, params[:dimension])
+    width = (average / @car.class.max_stars.to_f) * 100
+    render :json => {:id => @car.wrapper_dom_id(params), :average => average, :width => width}
   end
-
 
   def guidelines
     @image = Image.find(params[:id])

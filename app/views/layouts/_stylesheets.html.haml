@@ -7,15 +7,19 @@
 = yield :stylesheets
 = stylesheet_link_tag 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/blitzer/jquery-ui.css', :media => 'screen, projection'
 
-= stylesheet_link_tag 'compiled/print.css', :media => 'print'
+= stylesheet_link_tag 'print.css', :media => 'print'
 /[if lt IE 8]
-  = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
-= stylesheet_link_tag 'compiled/style.css', :media => 'screen, projection'
+  = stylesheet_link_tag 'ie.css', :media => 'screen, projection'
+= stylesheet_link_tag 'style.css', :media => 'screen, projection'
 = stylesheet_link_tag 'blueprint.css', :media => 'screen, projection'
-= stylesheet_link_tag 'compiled/mystyle.css', :media => 'screen, projection'
+= stylesheet_link_tag 'mystyle.css', :media => 'screen, projection'
+= stylesheet_link_tag '/stylesheets/ajaxful_rating.css', :media => 'screen, projection'
+= stylesheet_link_tag '/javascripts/textlist/TextboxList.css', :media => 'screen, projection'
 = stylesheet_link_tag '/javascripts/textlist/TextboxList.css', :media => 'screen, projection'
 = stylesheet_link_tag '/javascripts/jquery.qtip.min.css', :media => 'screen, projection'
 = stylesheet_link_tag '/javascripts/textlist/TextboxList.Autocomplete.css', :media => 'screen, projection'
 = stylesheet_link_tag '/javascripts/shadowbox/shadowbox.css', :media => 'screen, projection'
+= stylesheet_link_tag '/javascripts/shadowbox/shadowbox.css', :media => 'screen, projection'
+
 - if I18n.locale == :he
-  = stylesheet_link_tag 'compiled/rtl.css', :media => 'screen, projection'
+  = stylesheet_link_tag 'rtl.css', :media => 'screen, projection'

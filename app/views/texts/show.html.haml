@@ -114,8 +114,7 @@
                       = image.guidelines
                     %input{:name => "authenticity_token", :type => "hidden", :value => form_authenticity_token}
                     %input{:type => "submit", :value => "עדכן את הוראות ההדפסה"}
-    = ajaxful_rating_style
-    = ajaxful_rating_script
+
 
 #comments-area-wrapper
   #comments-area
@@ -167,13 +166,12 @@
   - if url_for(:back).ends_with? "texts/new"
     :javascript
       $('#add-files').show();
-  
-  = ajaxful_rating_style
-  = ajaxful_rating_script 
+
+  != ajaxful_rating_script
 
   :javascript
     Shadowbox.init();
-    
+
     plupload.addI18n({
             'Select files' : 'בחר קבצים',
             'Add files to the upload queue and click the start button.' : 'הוסף קבצים והתחל את ההעלאה',
@@ -195,7 +193,7 @@
       var atoken = $("input[name=authenticity_token]").val();  
       $("#uploader").plupload({
         // General settings
-        runtimes : 'html5,gears,silverlight,flash',
+        runtimes : 'html5,flash',
         url : '/images',
         unique_names : true,
         resize: false,

@@ -7,7 +7,6 @@ class TextsController < ApplicationController
   # GET /texts
   # GET /texts.xml
   def index
-
     # Show the welcome page for new users
     if current_user.sign_in_count < 3 and request.request_uri != "/texts" and App.force_introduction
       return redirect_to('/help')

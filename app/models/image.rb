@@ -8,13 +8,11 @@ class Image < ActiveRecord::Base
   belongs_to :user
   belongs_to :text
 
-  named_scope :ordered, :order => "rating_average_quality DESC"
+  scope :ordered, :order => "rating_average_quality DESC"
 
   ajaxful_rateable :stars => 5, :dimensions => [:quality], :allow_update => true, :cache_column => :rating_average
 
-
-  before_save :extract_data
-
+  after_post_process :extract_data
 
   def msword?
     photo_content_type =~ %r{^application/(?:ms-word|msword|wordprocessingml)$}

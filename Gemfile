@@ -1,13 +1,23 @@
 source 'http://rubygems.org'
+
+gem 'rails', '= 3.1.9'
+gem 'mysql2'
+ 
+# Needed for the new asset pipeline
+group :assets do
+  gem 'sass-rails',   "~> 3.1.5"
+  gem 'coffee-rails', "~> 3.1.1"
+  gem 'uglifier',     ">= 1.0.3"
+  gem 'compass-rails'
+  gem 'compass-h5bp'
+end
+ 
+# jQuery is the default JavaScript library in Rails 3.1
 gem 'jquery-rails'
-gem 'rails', '3.0.3'
+gem 'html5-rails'
+gem 'blueprint-rails'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-#gem 'sqlite3-ruby', :require => 'sqlite3'
-gem 'mysql'
-#gem 'ruby-mysql'
+# gem 'ruby-mysql'
 # Use unicorn as the web server
 # gem 'unicorn'
 
@@ -30,18 +40,17 @@ gem 'mysql'
 #   gem 'webrat'
 # end
 gem "haml"
+gem 'sass'
 gem 'maruku'
 gem 'devise'
-gem 'compass'
 gem 'acts-as-taggable-on', '~> 2.3.1'
-gem 'ajaxful_rating_jquery', :git => 'https://github.com/mrbrdo/ajaxful_rating_jquery.git', :branch => "master"
+gem 'ajaxful_rating_jquery', :git => 'https://github.com/danbee/ajaxful_rating_jquery.git'
 gem 'acts_as_commentable'
 gem 'RedCloth'
 gem 'vestal_versions', :git => 'https://github.com/adamcooper/vestal_versions.git'
 gem "paperclip", "~> 2.4"
 gem "friendly_id", "~> 3.1"
-gem 'html5-boilerplate'
-gem 'thinking-sphinx', '2.0.1', :require => 'thinking_sphinx'
+gem 'thinking-sphinx', '2.0.10'
 gem "will_paginate", '3.0.pre'
 gem 'errorapp_notifier'
 gem 'whenever'

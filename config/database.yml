@@ -1,5 +1,5 @@
 development:
-  adapter: mysql
+  adapter: mysql2
   encoding: utf8
   database: asam
   pool: 5
@@ -9,14 +9,14 @@ development:
   collation: utf8_unicode_ci
 
 test:
-  adapter: mysql
-  database: shelves
+  adapter: mysql2
+  database: asam
   username: root
   encoding: utf8
   collation: utf8_unicode_ci
 
 production:
-  adapter: mysql
+  adapter: mysql2
   encoding: utf8
   database: asam
   pool: 5

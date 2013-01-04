@@ -44,5 +44,7 @@ Use [the project issue tracker](https://github.com/bjesus/asam/issues) in case o
 ## Credit
 This project wouldn't be possible without Rails, jQuery, Thinking Sphinx, Plupload, acts-as-taggable-on, acts_as_commentable, ajaxful_rating_jquery and a messed up biological clock.
 
+The beautiful design was created by [@leshido](https://github.com/leshido/).
+
 ## License
 Asam is released under the [GPL](http://opensource.org/licenses/GPL-3.0). If this is stopping you from using it, let me know.

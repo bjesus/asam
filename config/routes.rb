@@ -9,7 +9,9 @@ Asam::Application.routes.draw do
   match 'my_texts' => 'texts#my_texts', :via => :get
   
   resources :images do
-    post :rate, :on => :member
+    member do
+      post :rate
+    end
   end
   # The priority is based upon order of creation:
   # first created -> highest priority.

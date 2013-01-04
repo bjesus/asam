@@ -1,8 +1,5 @@
-@import 'blueprint'
-@import "compass/css3"
-
-$maincolor = #cc0000
-$subcolor = #007aac
+$maincolor: #cc0000
+$subcolor: #007aac
 
 html
   background-color: #DBDADA
@@ -15,19 +12,17 @@ body
   margin: 0 auto
   height: 100%
 
-
-
 #root
   background-color: white
   margin: 0 auto
-  border: 1px soild #000
   padding-top: 170px
-  +container
+  width: 950px
+  margin: 0 auto
+  overflow: hidden
   border-radius: 0 0 20px 20px
   padding-bottom: 20px
   border: 3px solid white
   box-shadow: 0 0 20px white
-//  +showgrid
   
 #bookshelf
   height: 496px
@@ -66,7 +61,7 @@ body
       background: #ccc
       color: black
       text-decoration: none
-      +border-radius
+      //+border-radius
       text-align: center
       padding: 3px 15px
       display: none
@@ -91,7 +86,10 @@ body
 
 
 #content
-  +column(18)
+  display: inline
+  float: left
+  margin-right: 10px
+  width: 710px
   z-index: 3
   position: relative
 
@@ -99,7 +97,7 @@ body
   padding-top: 70px
 
 .small-box
-  +column(6, true)
+  //+column(6, true)
   float: right
 
 
@@ -107,16 +105,19 @@ body
   margin-bottom: 1em
 
 #about-box
-  +column(6, true)
+  //+column(6, true)
 
 #holdside
   top: 0
   width: 220px
   height: 500px
-  +column(6, true)
+  //+column(6, true)
 
 .small-field
-  +column(5)
+  display: inline
+  float: left
+  margin-right: 10px
+  width: 190px
   float: right
   margin-bottom: 1em
 
@@ -399,7 +400,7 @@ a.show-all
   padding: .3em
 
 #searchbox input
-  +border-radius
+  //+border-radius
   font-size: 130%
   width: 200px
   text-align: center
@@ -417,7 +418,7 @@ a.show-all
   margin: 3px 0 6px 5px
   background-color: #a60000
   color: white !important
-  +border-radius
+  //+border-radius
   padding: 0px 8px
     
 .field_with_errors input
@@ -648,3 +649,27 @@ table.texts-listing dd:hover span
   background: #CC0000
   color: white
   text-shadow: 1px 1px 0px rgb(153, 0, 0)
+
+
+.ajaxful-rating .stars-4
+  width: 80.0%
+  z-index: 3
+
+.ajaxful-rating .stars-5
+  width: 100.0%
+  z-index: 2
+
+.ajaxful-rating
+  width: 125px
+
+.ajaxful-rating .stars-1
+  width: 20.0%
+  z-index: 6
+
+.ajaxful-rating .stars-2
+  width: 40.0%
+  z-index: 5
+
+.ajaxful-rating .stars-3
+  width: 60.0%
+  z-index: 4

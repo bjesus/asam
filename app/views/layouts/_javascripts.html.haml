@@ -13,7 +13,7 @@
 :javascript
   !window.jQuery && document.write(unescape('%3Cscript src="/javascripts/jquery-1.4.4.min.js"%3E%3C/script%3E'))
   
-= javascript_include_tag 'rails', 'plugins', 'application'
+= javascript_include_tag '/javascripts/rails.js', '/javascripts/plugins.js', 'application'
 
 /[if lt IE 7 ]
   :javascript
@@ -39,8 +39,6 @@
 %script{:type => "text/javascript",
   :src  => "/javascripts/jquery.qtip.min.js"}
 %script{:type => "text/javascript",
-  :src  => "/javascripts/plupload/js/plupload.gears.js"}
-%script{:type => "text/javascript",
   :src  => "/javascripts/plupload/js/plupload.full.js"}
 %script{:type => "text/javascript",
   :src  => "/javascripts/plupload/js/jquery.ui.plupload/jquery.ui.plupload.js"}
@@ -60,6 +58,5 @@
   Shadowbox.init();
 
   $('#sidebar-stick').stickyPanel();
-
 
 = yield :special_js
