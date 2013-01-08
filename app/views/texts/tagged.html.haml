@@ -7,7 +7,7 @@
   - if @tag.length > 1
     - @tag.each do |t|
       =t
-      %a(href="#{request.request_uri}&without=#{t}" title='הסר תגית "#{t}" מהסינון') (X)
+      %a(href="#{request.url}&without=#{t}" title='הסר תגית "#{t}" מהסינון') (X)
   - else
     =@tag
   %hr

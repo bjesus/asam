@@ -52,5 +52,4 @@ gem "paperclip", "~> 2.4"
 gem "friendly_id", "~> 3.1"
 gem 'thinking-sphinx', '2.0.10'
 gem "will_paginate", '3.0.pre'
-gem 'errorapp_notifier'
 gem 'whenever'
