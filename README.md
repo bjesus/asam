@@ -27,7 +27,7 @@ Setting up Asam is quite straight forward and should be very simple to anyone ex
 
         rake db:create
 
-3. Rename `config/initializers/asam.rb.example` to `asam.rb` and edit it
+3. Edit `config/initializers/asam.rb` according to your will
 
 4. Run Asam
 
