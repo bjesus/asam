@@ -7,10 +7,13 @@ Asam is a Ruby on Rails application that stores files. It was designed to be use
 ## Features
 * Search engine
 * Advanced tagging system
+* Multilingual
 * Comments
 * Ratings
 * Multiple files upload
 * Simple configuration
+
+See screenshots at the end of this page.
 
 ## Installation
 Setting up Asam is quite straight forward and should be very simple to anyone experienced with RoR.
@@ -48,3 +51,9 @@ The beautiful design was created by [@leshido](https://github.com/leshido/).
 
 ## License
 Asam is released under the [GPL](http://opensource.org/licenses/GPL-3.0). If this is stopping you from using it, let me know.
+
+## Screenshots
+#### Index page, English
+[![Index page](http://i.imgur.com/pVWM5KOl.png)](http://i.imgur.com/pVWM5KO.png)
+#### Item page, Hebrew
+[![Item page](http://i.imgur.com/sxZ8uc5l.png)](http://i.imgur.com/sxZ8uc5.png)
