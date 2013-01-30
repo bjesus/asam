@@ -8,6 +8,7 @@ he:
   log_me_in: "חבר אותי מאסטרו!"
   forgot_password: "שכחת את הסיסמה?"
   remember_me: "זכור אותי"
+  register: "הרשמה"
   sidebar:
     by: "של"
     currently: "עד כה ישנם"

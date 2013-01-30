@@ -8,6 +8,7 @@ en:
   log_me_in: "Log me in!"
   forgot_password: "Forgot your password?"
   remember_me: "Remember me"
+  register: "Register"
   sidebar:
     by: "by"
     currently: "Currently"
@@ -17,7 +18,7 @@ en:
     items:
       one: "%{count} item"
       other: "%{count} items"
-    search: "Search an item"
+    search: "Search the library"
     welcome: "Hello %{name}!"
     submit_new: "Submit item"
     my_items: "My items"
