@@ -3,6 +3,7 @@ class HomeController < ApplicationController
   end
 
   def links
+  	@links = App.links
   end
 
   def help
