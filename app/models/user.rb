@@ -11,7 +11,9 @@ class User < ActiveRecord::Base
   validates_presence_of :firstname, :lastname
   validates_uniqueness_of :phone, :email
   has_friendly_id :urlname, :use_slug => true
-  validates :phone, :presence => true, :phone => true, :length => { :within => 7..7 }
+  if App.use_phone_registration
+    validates :phone, :presence => true, :phone => true, :length => { :within => 7..7 }
+  end
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
   devise :database_authenticatable, :registerable,
