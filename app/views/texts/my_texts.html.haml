@@ -2,8 +2,8 @@
 
 %span.breadcrumb
   = "הטקסטים שלי"
-
   %hr
+  %br
 - if @texts.length == 0
   %h2
     = "הי, נכון לעכשו לא שלחתם לאתר שום קובץ. לשליחה "
@@ -11,10 +11,19 @@
   
 
 - @texts.each do |text|
-  .text-item
+  .text-item{:rel => "#{text.id}"}
     %h3= link_to text.name, text
-    %p= text.description
-    .breadcrumb
+    - if text.images.count != 1
+      %p #{text.images.count} קבצים מצורפים
+    - else
+      %p קובץ אחד מצורף
+
+    - if !(text.author.empty?)
+      - text.author.each do |author|
+        %span
+          %a.tag.author_tag(href='/list?id=#{author.name}')= author.name
+
+    - if !(text.tags.empty?)
       - text.tags.each do |tag|
-        %a.tag(href='/tags/#{tag.name}')= tag.name
-  %br
+        %span
+          %a.tag(href='/list?id=#{tag.name}')= tag.name
