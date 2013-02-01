@@ -1,12 +1,29 @@
 $maincolor: #cc0000
 $subcolor: #007aac
 
+@font-face
+  font-family: 'Alef-bold'
+  src: url('/font/Alef-bold.eot')
+  src: url('/font/Alef-bold.eot?#iefix') format('embedded-opentype')
+  src: url('/font/Alef-bold.woff') format('woff')
+  src: url('/font/Alef-bold.ttf') format('truetype')
+  src: url('/font/Alef-bold.svg#alefbold') format('svg')
+  font-weight: bold
+  font-style: normal
+
+@font-face
+  font-family: 'Alef'
+  src: url('/font/Alef-regular.eot')
+  src: url('/font/Alef-regular.eot?#iefix') format('embedded-opentype'), url('/font/Alef-regular.woff') format('woff'), url('/font/Alef-regular.ttf') format('truetype'), url('/font/Alef-regular.svg#alefregular') format('svg')
+  font-weight: normal
+  font-style: normal
+
 html
   background-color: #DBDADA
   height: 100%
 
 body
-  font-family: arial, "sans-serif"
+  font-family: 'Alef', Arial, sans-serif
   font-size: 80%
   background-color: #DBDADA
   margin: 0 auto
@@ -210,8 +227,8 @@ body
 
 h1
   font-size: 300%
-  font-family: "times new roman", serif
   margin-top: 10px
+  font-weight: bold
 
 .breadcrumb
   font-size: 80%
@@ -556,6 +573,7 @@ footer
     color: white
     top: -35px
     text-shadow: 1px 1px 0px darken($maincolor, 10)
+    font-weight: bold
 
     img
       position: relative
