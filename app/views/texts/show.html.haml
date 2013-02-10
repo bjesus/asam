@@ -75,8 +75,10 @@
           %span דירוג איכות:
           = ratings_for image, :dimension => :quality
           - if image.hidden == false or image.user == current_user
-            - if (['doc', 'docx', 'ppt', 'pptx', 'pdf', 'tif', 'tiff'].include? image.photo_file_name.split('.')[-1])
+            - if (['psd', 'pdf', 'tif', 'tiff'].include? image.photo_file_name.split('.')[-1])
               = link_to("תצוגה", "http://docs.google.com/viewer?url="+ERB::Util.url_encode(image.photo.url)+"&embedded=true", html_options = {:rel => 'shadowbox;width=900', :class => "btn" })
+            - if (['doc', 'docx', 'ppt', 'pptx'].include? image.photo_file_name.split('.')[-1])
+              = link_to("תצוגה", "http://view.officeapps.live.com/op/embed.aspx?src="+ERB::Util.url_encode(image.photo.url), html_options = {:rel => 'shadowbox;width=900', :class => "btn" })
             = link_to "הורדה", image.photo.url, :class => "btn"
           = link_to "פרטים", '#', :onclick => "$(this).next().slideToggle('slow'); return false;", :class => "btn"
 
