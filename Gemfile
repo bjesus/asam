@@ -1,8 +1,9 @@
 source 'http://rubygems.org'
 
-gem 'rails', '= 3.1.9'
+gem 'rails', '= 3.1.10'
 gem 'mysql2'
- 
+gem 'aws-sdk'
+
 # Needed for the new asset pipeline
 group :assets do
   gem 'sass-rails',   "~> 3.1.5"
