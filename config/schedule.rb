@@ -17,7 +17,7 @@
 #   runner "AnotherModel.prune_old_records"
 # end
 
-every 1.day, :at => '3:30 am' do 
+every :hour do 
 	rake "ts:index"
 end
 
