@@ -48,35 +48,35 @@ he:
       less_than_x_seconds:
         zero: 'פחות משניה אחת'
         one: 'פחות משניה אחת'
-        other: 'פחות מ- {{count}} שניות'
+        other: 'פחות מ- %{count} שניות'
       x_seconds:
         one: 'שניה אחת'
-        other: '{{count}} שניות'
+        other: '%{count} שניות'
       less_than_x_minutes:
         zero: 'פחות מדקה אחת'
         one: 'פחות מדקה אחת'
-        other: 'פחות מ- {{count}} דקות'
+        other: 'פחות מ- %{count} דקות'
       x_minutes:
         one: 'דקה אחת'
-        other: '{{count}} דקות'
+        other: '%{count} דקות'
       about_x_hours:
         one: 'בערך שעה אחת'
-        other: 'בערך {{count}} שעות'
+        other: 'בערך %{count} שעות'
       x_days:
         one: 'יום אחד'
-        other: '{{count}} ימים'
+        other: '%{count} ימים'
       about_x_months:
         one: 'בערך חודש אחד'
-        other: 'בערך {{count}} חודשים'
+        other: 'בערך %{count} חודשים'
       x_months:
         one: 'חודש אחד'
-        other: '{{count}} חודשים'
+        other: '%{count} חודשים'
       about_x_years:
         one: 'בערך שנה אחת'
-        other: 'בערך {{count}} שנים'
+        other: 'בערך %{count} שנים'
       over_x_years:
         one: 'מעל שנה אחת'
-        other: 'מעל {{count}} שנים'
+        other: 'מעל %{count} שנים'
 
   number:
     format:
@@ -122,7 +122,7 @@ he:
       message: "אנא בדוק את השדות הבאים:"
       header:
         one: "יש שגיאה אחת במילוי הטופס"
-        other: "יש {{count}} שגיאות במילוי הטופס"
+        other: "יש %{count} שגיאות במילוי הטופס"
     messages:
       inclusion: "לא נכלל ברשימה"
       exclusion: "לא זמין"
@@ -131,16 +131,16 @@ he:
       accepted: "חייב באישור"
       empty: "הוא שדה חובה"
       blank: "הוא שדה חובה"
-      too_long: "יותר מדי ארוכה (לא יותר מ- {{count}} תוים)"
-      too_short: "יותר מדי קצרה (לפחות {{count}} תוים)"
-      wrong_length: "לא באורך הנכון (חייב להיות {{count}} תוים)"
+      too_long: "יותר מדי ארוכה (לא יותר מ- %{count} תוים)"
+      too_short: "יותר מדי קצרה (לפחות %{count} תוים)"
+      wrong_length: "לא באורך הנכון (חייב להיות %{count} תוים)"
       taken: "לא זמין"
       not_a_number: "הוא לא מספר"
-      greater_than: "חייב להיות גדול מ- {{count}}"
-      greater_than_or_equal_to: "חייב להיות גדול או שווה ל- {{count}}"
-      equal_to: "חייב להיות שווה ל- {{count}}"
-      less_than: "חייב להיות קטן מ- {{count}}"
-      less_than_or_equal_to: "חייב להיות קטן או שווה ל- {{count}}"
+      greater_than: "חייב להיות גדול מ- %{count}"
+      greater_than_or_equal_to: "חייב להיות גדול או שווה ל- %{count}"
+      equal_to: "חייב להיות שווה ל- %{count}"
+      less_than: "חייב להיות קטן מ- %{count}"
+      less_than_or_equal_to: "חייב להיות קטן או שווה ל- %{count}"
       odd: "חייב להיות אי זוגי"
       even: "חייב להיות זוגי"
 
@@ -150,7 +150,7 @@ he:
       template:
         header:
           one:    "שגיאה אחת מנעה מהטופס להשלח"
-          other:  "{{count}} שגיאות מנעו מהטופס להשלח"
+          other:  "%{count} שגיאות מנעו מהטופס להשלח"
         body: "היו כמה בעיות במילוי הטופס"
 
   resource:
