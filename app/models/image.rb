@@ -1,10 +1,22 @@
 # encoding: utf-8
 
 class Image < ActiveRecord::Base
-  has_attached_file :photo,
-                        :styles => { :thumb => { :geometry => "85x120>", :quality => 60, :format => 'JPG' } },
-                        :whiny => false, 
-                        :path => ":rails_root/public/system/:attachment/:id/:style/:filename"
+  if App.s3.enabled
+    has_attached_file :photo,
+                          :styles => { :thumb => { :geometry => "85x120>", :quality => 60, :format => 'JPG' } },
+                          :whiny => false, 
+                          :path => ":attachment/:id/:style/:filename",
+                          :storage => :s3,
+                          :s3_credentials => "#{Rails.root}/config/s3.yml",
+                          :bucket => App.s3.bucket,
+                          :url => ':s3_domain_url'
+  else
+    has_attached_file :photo,
+                          :styles => { :thumb => { :geometry => "85x120>", :quality => 60, :format => 'JPG' } },
+                          :whiny => false, 
+                          :path => ":attachment/:id/:style/:filename",
+                          :storage => :filesystem
+  end
   belongs_to :user
   belongs_to :text
 

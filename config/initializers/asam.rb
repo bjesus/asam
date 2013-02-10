@@ -9,6 +9,10 @@ App = OpenStruct.new({
 	  :name => "My Organization",               # Your organization name
 	  :url => "http://www.website.com"          # Your organization URL (not Asam's)
   }),
+  :s3 => OpenStruct.new({                     # Amazon S3 settings
+    :enabled => false,                        # false = locally, true = S3
+    :bucket => "asam"                         # S3 bucket name
+  }),
   :show_register_link => true,                # Direct people to registration page
   :use_phone_registration => false,           # Allow user to register only if phone is listed
   :force_introduction => true,                # Direct new users to see help page on first 3 visits
