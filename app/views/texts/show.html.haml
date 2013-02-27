@@ -19,7 +19,7 @@
   %span.btn.add-files-btn= link_to "הוספת קבצים לקטע", '#', :onclick => "$('#add-files').slideToggle('slow'); return false;"
   %span.btn.add-comment-btn= link_to "הוספת תגובה לקטע", '#add-comment'
   - if current_user.admin?
-    %span.delete-btn= link_to 'מחיקה', @text, :confirm => 'וואלה אתם בטוחים?', :method => :delete
+    %span.btn.delete-btn= link_to 'מחיקה', @text, :confirm => 'וואלה אתם בטוחים?', :method => :delete
 
 #add-files
   %hr
