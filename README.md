@@ -25,7 +25,7 @@ Setting up Asam is quite straight forward and should be very simple to anyone ex
     
 3. Create your database
 
-        rake db:create
+        rake db:migrate
 
 3. Edit `config/initializers/asam.rb` according to your will
 
