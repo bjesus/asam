@@ -14,7 +14,7 @@ class Image < ActiveRecord::Base
     has_attached_file :photo,
                           :styles => { :thumb => { :geometry => "85x120>", :quality => 60, :format => 'JPG' } },
                           :whiny => false, 
-                          :path => ":attachment/:id/:style/:filename",
+                          :path => ":rails_root/public/system/:attachment/:id/:style/:filename",
                           :storage => :filesystem
   end
   belongs_to :user
